@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl4yb65q35f4j"
-path="res://.godot/imported/Felicity Parts.svg-78aa2bec5e41cb4fa44d4a5a0bff85a4.ctex"
+uid="uid://f1436fjddayb"
+path="res://.godot/imported/CircuitTile.svg-104bf04adce90f040c28745f68138ad0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player_character/art/Felicity Parts.svg"
-dest_files=["res://.godot/imported/Felicity Parts.svg-78aa2bec5e41cb4fa44d4a5a0bff85a4.ctex"]
+source_file="res://player_character/art/CircuitBoardPieces/CircuitTile.svg"
+dest_files=["res://.godot/imported/CircuitTile.svg-104bf04adce90f040c28745f68138ad0.ctex"]
 
 [params]
 
@@ -21,12 +21,12 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/fix_alpha_border=true
-process/premult_alpha=true
+process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
