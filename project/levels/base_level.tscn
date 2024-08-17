@@ -1,0 +1,90 @@
+[gd_scene load_steps=15 format=3 uid="uid://dbdjeaaxmxpqi"]
+
+[ext_resource type="Script" path="res://levels/base_level.gd" id="1_nrive"]
+[ext_resource type="PackedScene" uid="uid://dnlir14iywfl8" path="res://scenes/common/simple_character.tscn" id="1_x4ube"]
+[ext_resource type="Script" path="res://levels/scale_camera.gd" id="2_l1ts6"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_l5hjh"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_qj412"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_drug0"]
+[ext_resource type="Script" path="res://levels/screen_scale_auto_zoom.gd" id="6_7ixct"]
+[ext_resource type="Script" path="res://camera/camera_set_limit_target.gd" id="7_1x8r0"]
+[ext_resource type="Script" path="res://levels/finish_marker.gd" id="8_rlg55"]
+[ext_resource type="Texture2D" uid="uid://bdedpua4otbcq" path="res://door/door.png" id="10_bnixe"]
+
+[sub_resource type="Resource" id="Resource_6wwnk"]
+script = ExtResource("5_drug0")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03elf"]
+size = Vector2(18, 37)
+
+[sub_resource type="Gradient" id="Gradient_0aquj"]
+offsets = PackedFloat32Array(0, 0.553806)
+colors = PackedColorArray(1, 0, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k23km"]
+gradient = SubResource("Gradient_0aquj")
+width = 5
+height = 5
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_nrive")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="platformer_character" parent="World" instance=ExtResource("1_x4ube")]
+move_speed = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+physics_interpolation_mode = 1
+position = Vector2(-1.4013e-45, -1.4013e-45)
+zoom = Vector2(2, 2)
+script = ExtResource("2_l1ts6")
+
+[node name="PhantomCameraHost" type="Node" parent="World/Camera2D"]
+script = ExtResource("3_l5hjh")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(-1.4013e-45, -1.4013e-45)
+script = ExtResource("4_qj412")
+follow_mode = 5
+follow_target = NodePath("../World/platformer_character")
+zoom = Vector2(2, 2)
+tween_resource = SubResource("Resource_6wwnk")
+tween_on_load = false
+follow_damping = true
+
+[node name="ScreenScaleAutoZoom" type="Node" parent="PhantomCamera2D"]
+script = ExtResource("6_7ixct")
+
+[node name="CameraLimiter" type="Node" parent="PhantomCamera2D"]
+script = ExtResource("7_1x8r0")
+
+[node name="Node" type="Node" parent="PhantomCamera2D"]
+
+[node name="FinishMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_rlg55")
+
+[node name="FinishArea2D" type="Area2D" parent="FinishMarker"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 256
+
+[node name="FinishAreaCollision" type="CollisionShape2D" parent="FinishMarker/FinishArea2D"]
+position = Vector2(0, -18.5)
+shape = SubResource("RectangleShape2D_03elf")
+
+[node name="DoorSprite" type="Sprite2D" parent="FinishMarker"]
+position = Vector2(0, -19)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_bnixe")
+region_rect = Rect2(0, 0, 20, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="FinishMarker"]
+visible = false
+texture = SubResource("GradientTexture2D_k23km")

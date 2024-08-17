@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scripts/utilities/better_tilemap.gd" id="6_ljroe"]
 [ext_resource type="PackedScene" uid="uid://djujqcbughbl" path="res://scenes/common/ui/pause_menu.tscn" id="6_qry4t"]
 [ext_resource type="Script" path="res://scripts/camera/camera_area_targeter.gd" id="7_60w6n"]
-[ext_resource type="PackedScene" uid="uid://dnlir14iywfl8" path="res://scenes/common/simple_platformer_character.tscn" id="7_y5jga"]
+[ext_resource type="PackedScene" uid="uid://dnlir14iywfl8" path="res://scenes/common/simple_character.tscn" id="7_y5jga"]
 [ext_resource type="Resource" uid="uid://cpda1sleldpvn" path="res://game_resources/camera_area_entered_event.tres" id="8_3ebwk"]
 [ext_resource type="Script" path="res://scripts/camera/camera_area.gd" id="9_y6yr3"]
 [ext_resource type="PackedScene" uid="uid://c73mpiglgnsfd" path="res://scenes/common/camera/camera_area.tscn" id="11_xajsl"]
@@ -22,7 +22,7 @@ shader_parameter/color = Color(0.992157, 0, 0, 1)
 shader_parameter/background_color = null
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_drpd8"]
-viewport_path = NodePath("minimap_viewport")
+viewport_path = NodePath(".")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpma6"]
 size = Vector2(288, 213)
@@ -79,7 +79,7 @@ viewport = NodePath("../../../minimap_viewport")
 [node name="camera_player" type="Camera2D" parent="."]
 visibility_layer = 2
 position = Vector2(12, 8)
-zoom = Vector2(2, 2)
+zoom = Vector2(5, 5)
 editor_draw_limits = true
 
 [node name="CameraTargeter" type="Node" parent="camera_player" node_paths=PackedStringArray("camera")]

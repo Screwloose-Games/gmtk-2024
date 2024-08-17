@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfc6kcoguyopo"]
+
+[ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_xelbc"]
+[ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="2_nn2ed"]
+[ext_resource type="Script" path="res://levels/camera_zoom_label.gd" id="4_e2c4i"]
+[ext_resource type="PackedScene" uid="uid://fi1j4hoocwu4" path="res://levels/level_02_jump.tscn" id="5_41aqh"]
+[ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="5_cu5pf"]
+
+[sub_resource type="TileSet" id="TileSet_f8n4j"]
+tile_size = Vector2i(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkniq"]
+size = Vector2(657, 325)
+
+[node name="BaseLevel" instance=ExtResource("1_xelbc")]
+
+[node name="platformer_character" parent="World" index="0"]
+position = Vector2(-285, 94)
+
+[node name="Camera2D" parent="World" index="1"]
+position = Vector2(-285, 94)
+
+[node name="PhantomCamera2D" parent="." index="1"]
+position = Vector2(-285, 94)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." index="2"]
+tile_set = SubResource("TileSet_f8n4j")
+
+[node name="StaticBody2D2" parent="." index="3" instance=ExtResource("2_nn2ed")]
+position = Vector2(-158, 113)
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D3" parent="." index="4" instance=ExtResource("2_nn2ed")]
+position = Vector2(-158, -193)
+scale = Vector2(55.44, 1)
+
+[node name="RightStaticBody2D4" parent="." index="5" instance=ExtResource("2_nn2ed")]
+position = Vector2(-118, -171)
+rotation = -1.57079
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D5" parent="." index="6" instance=ExtResource("2_nn2ed")]
+position = Vector2(-317, -175)
+rotation = -1.57079
+scale = Vector2(55.44, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraZoomLabel" type="Label" parent="CanvasLayer/Control" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("4_e2c4i")
+
+[node name="CameraArea2D" parent="." index="8" instance=ExtResource("5_cu5pf")]
+
+[node name="CameraLimitCollision" type="CollisionShape2D" parent="CameraArea2D" index="0" groups=["CameraLimitCollision"]]
+position = Vector2(3.5, -40.5)
+shape = SubResource("RectangleShape2D_hkniq")
+
+[node name="FinishMarker" parent="." index="9"]
+position = Vector2(-138, 103)
+next_level = ExtResource("5_41aqh")

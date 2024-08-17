@@ -1,15 +1,39 @@
 class_name PlatformerController extends CharacterBody2D
 
+
+signal scaled(amount: float)
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var character_scaler: Node = %CharacterScaler
+
 # Exports
-@export var move_speed : float = 300.0
+@export var move_speed : float = 100.0
+
+var base_move_speed: float = move_speed
+
 @export var coyote_time : float = 1.0
 @export var jump_buffer_time : float = 0.5
 @export var jump : BaseJump
 
 @export var hit_box : HitBox
+
+@export var base_push_force: float = 100.0
+
+var push_force: float:
+	get: return base_push_force * scale_amount
+
+@export var scale_duration: float = 0.5
+@export var scale_amount: float = 1.0:
+	set = set_scale_amount
+func set_scale_amount(val: float):
+	scale_amount = val
+	jump.jump_scale = val
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(val, val), scale_duration)
+	move_speed = base_move_speed * sqrt(scale_amount)
+	#gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * sqrt(scale_amount)
 
 # Private variables
 var _can_move : bool = true
@@ -32,7 +56,12 @@ func _exit_tree():
 	if jump:
 		jump.unregister()
 
+func _on_character_scaled(amount: float):
+	scaled.emit(amount)
+
 func _ready():
+	character_scaler.scaled.connect(_on_character_scaled)
+	
 	_coyote_time_tween.tween_callback(
 		func() : _is_coyote_time = true
 	)
@@ -55,6 +84,7 @@ func _ready():
 		hit_box.on_killed.connect(
 			func(): _can_move = false
 		)
+
 
 func _physics_process(delta):
 	_check_floor()
@@ -96,7 +126,20 @@ func _apply_movement(_delta):
 	if _is_on_floor:
 		on_move_ground.emit()
 	
-	move_and_slide()
+	var collision_info = move_and_slide()
+
+	# Check for collisions with RigidBody2D and apply push force
+	if collision_info:
+		handle_collisions()
+		
+
+func handle_collisions():
+	for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			if collision.get_collider() is RigidBody2D:
+				var rigidbody = collision.get_collider() as RigidBody2D
+				var push_direction = (rigidbody.global_position - global_position).normalized()
+				rigidbody.apply_central_impulse(push_direction * push_force)
 
 func _apply_jump():
 	if not _can_move: return

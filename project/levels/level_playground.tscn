@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcwtigja7yp5r"]
+
+[ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_6dxgt"]
+[ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="2_7omux"]
+[ext_resource type="PackedScene" uid="uid://w6r5vtyk4bhh" path="res://blocks/movable_block.tscn" id="3_14uvw"]
+[ext_resource type="Script" path="res://levels/camera_zoom_label.gd" id="4_nknan"]
+[ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="5_t88gv"]
+
+[sub_resource type="TileSet" id="TileSet_f8n4j"]
+tile_size = Vector2i(32, 32)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ooj46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkniq"]
+size = Vector2(1114, 804)
+
+[node name="BaseLevel" instance=ExtResource("1_6dxgt")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." index="2"]
+tile_set = SubResource("TileSet_f8n4j")
+
+[node name="StaticBody2D2" parent="." index="3" instance=ExtResource("2_7omux")]
+position = Vector2(-120, 360)
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D3" parent="." index="4" instance=ExtResource("2_7omux")]
+position = Vector2(-124, -423)
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D4" parent="." index="5" instance=ExtResource("2_7omux")]
+position = Vector2(429, -175)
+rotation = -1.57079
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D6" parent="." index="6" instance=ExtResource("2_7omux")]
+position = Vector2(277, 686)
+rotation = -1.57079
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D7" parent="." index="7" instance=ExtResource("2_7omux")]
+position = Vector2(277, -510)
+rotation = -1.57079
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D5" parent="." index="8" instance=ExtResource("2_7omux")]
+position = Vector2(-672, -179)
+rotation = -1.57079
+scale = Vector2(55.44, 1)
+
+[node name="MovableBlock" parent="." index="9" instance=ExtResource("3_14uvw")]
+position = Vector2(94, 333)
+physics_material_override = SubResource("PhysicsMaterial_ooj46")
+
+[node name="MovableBlock2" parent="." index="10" instance=ExtResource("3_14uvw")]
+position = Vector2(131, 325)
+physics_material_override = SubResource("PhysicsMaterial_ooj46")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="11"]
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraZoomLabel" type="Label" parent="CanvasLayer/Control" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("4_nknan")
+
+[node name="CameraArea2D" parent="." index="12" instance=ExtResource("5_t88gv")]
+
+[node name="CameraLimitCollision" type="CollisionShape2D" parent="CameraArea2D" index="0" groups=["CameraLimitCollision"]]
+position = Vector2(-123, -33)
+shape = SubResource("RectangleShape2D_hkniq")
+
+[node name="FinishMarker" parent="." index="13"]
+position = Vector2(299, 87)
+
+[node name="StaticBody2D" parent="." index="14" instance=ExtResource("2_7omux")]
+position = Vector2(-545, 240)
+scale = Vector2(1, 10)
+
+[node name="StaticBody2D8" parent="." index="15" instance=ExtResource("2_7omux")]
+position = Vector2(-545, 42)
+scale = Vector2(1, 10)

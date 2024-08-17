@@ -2,6 +2,8 @@ class_name BaseJump extends Resource
 
 @export var jump_speed = 300.0
 
+var jump_scale: float = 1.0
+
 var controller : PlatformerController
 
 func register(platformer_controller : PlatformerController):
@@ -14,7 +16,7 @@ func unregister():
 	controller.on_jump_end.disconnect(_end_jump)
 
 func _start_jump():
-	controller.velocity.y = -jump_speed
+	controller.velocity.y = -jump_speed * sqrt(jump_scale)
 	
 func _end_jump():
 	if controller.velocity.y <= 0:
