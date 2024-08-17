@@ -1,17 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://det4f2y5mr0ol"]
+[gd_scene load_steps=6 format=3 uid="uid://det4f2y5mr0ol"]
 
-[ext_resource type="Texture2D" uid="uid://blvh5xa0j3gor" path="res://player_character/char_sprite.png" id="1_yc2n2"]
+[ext_resource type="Script" path="res://player_character/character_scaler.gd" id="1_f2oyo"]
+[ext_resource type="PackedScene" uid="uid://df0n62k5y21a0" path="res://player_character/felicity.tscn" id="2_dhjsc"]
+[ext_resource type="Script" path="res://player_character/horizontal_flipper.gd" id="2_s8gml"]
+[ext_resource type="Script" path="res://player_character/player_input_handler.gd" id="4_glnt7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agpv1"]
-radius = 18.31
-height = 55.24
+radius = 14.0
+height = 80.0
 
 [node name="PlayerController" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -40)
 shape = SubResource("CapsuleShape2D_agpv1")
 
-[node name="CharSprite" type="Sprite2D" parent="."]
-position = Vector2(7.62939e-06, -4.76837e-07)
-scale = Vector2(0.0801781, 0.0801781)
-texture = ExtResource("1_yc2n2")
+[node name="CharacterScaler" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_f2oyo")
+
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="HorizontalFlipper" type="Node" parent="Flippable" node_paths=PackedStringArray("translation_target")]
+script = ExtResource("2_s8gml")
+translation_target = NodePath("..")
+
+[node name="Felicity" parent="Flippable" instance=ExtResource("2_dhjsc")]
+scale = Vector2(0.1, 0.1)
+
+[node name="PlayerInputHandler" type="Node" parent="."]
+script = ExtResource("4_glnt7")

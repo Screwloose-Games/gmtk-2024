@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbdjeaaxmxpqi"]
+[gd_scene load_steps=16 format=3 uid="uid://dbdjeaaxmxpqi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_nrive"]
 [ext_resource type="PackedScene" uid="uid://dnlir14iywfl8" path="res://scenes/common/simple_character.tscn" id="1_x4ube"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://levels/screen_scale_auto_zoom.gd" id="6_7ixct"]
 [ext_resource type="Script" path="res://camera/camera_set_limit_target.gd" id="7_1x8r0"]
 [ext_resource type="Script" path="res://levels/finish_marker.gd" id="8_rlg55"]
+[ext_resource type="Script" path="res://camera/perspective_generator.gd" id="9_ageej"]
 [ext_resource type="Texture2D" uid="uid://bdedpua4otbcq" path="res://door/door.png" id="10_bnixe"]
 
 [sub_resource type="Resource" id="Resource_6wwnk"]
@@ -63,6 +64,9 @@ script = ExtResource("6_7ixct")
 
 [node name="CameraLimiter" type="Node" parent="PhantomCamera2D"]
 script = ExtResource("7_1x8r0")
+
+[node name="Perspective_generator" type="Node" parent="PhantomCamera2D"]
+script = ExtResource("9_ageej")
 
 [node name="FinishMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true

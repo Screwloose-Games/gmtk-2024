@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxrnv2xox2pkl"]
+[gd_scene load_steps=9 format=3 uid="uid://cxrnv2xox2pkl"]
 
 [ext_resource type="Script" path="res://blocks/rollable_circle.gd" id="1_cn8hu"]
+[ext_resource type="Texture2D" uid="uid://dp6e1pgdsm0mm" path="res://sprites/common/ScreewHead.png" id="2_17c77"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ebv6g"]
 
@@ -32,9 +33,15 @@ script = ExtResource("1_cn8hu")
 shape = SubResource("CircleShape2D_55op1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("GradientTexture2D_2ld8l")
 region_rect = Rect2(0, 0, 10, 10)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.0625, 4)
 texture = SubResource("GradientTexture1D_c4dnv")
+
+[node name="ScreewHead2" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_17c77")

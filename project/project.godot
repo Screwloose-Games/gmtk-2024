@@ -45,6 +45,7 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 CameraArea=""
 CameraLimitCollision=""
 Player=""
+3DPespective=""
 
 [input]
 
@@ -116,6 +117,10 @@ scale_player_down={
 2d_physics/layer_5="Dynamic Object"
 2d_physics/layer_6="Hit Box"
 2d_physics/layer_9="player_finish"
+
+[physics]
+
+common/physics_interpolation=true
 
 [rendering]
 

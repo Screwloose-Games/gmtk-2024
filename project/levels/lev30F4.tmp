@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://d25ub1jqkv6q8"]
+
+[ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_65o6g"]
+[ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="2_0g3dm"]
+[ext_resource type="Script" path="res://levels/camera_zoom_label.gd" id="3_5eg43"]
+[ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="4_5atxl"]
+[ext_resource type="PackedScene" uid="uid://cxrnv2xox2pkl" path="res://blocks/rollable_circle.tscn" id="5_0cn6d"]
+[ext_resource type="Texture2D" uid="uid://b828fdse0x1os" path="res://player_character/art/CircuitBoardPieces/CopperNode.svg" id="6_rwgsy"]
+[ext_resource type="Script" path="res://blocks/copper_node.gd" id="7_iddu0"]
+
+[sub_resource type="TileSet" id="TileSet_f8n4j"]
+tile_size = Vector2i(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkniq"]
+size = Vector2(657, 325)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vvmj"]
+font_size = 40
+
+[node name="BaseLevel" instance=ExtResource("1_65o6g")]
+
+[node name="platformer_character" parent="World" index="0"]
+position = Vector2(-284, 102)
+
+[node name="Camera2D" parent="World" index="1"]
+position = Vector2(-284, 102)
+
+[node name="PhantomCamera2D" parent="." index="1"]
+position = Vector2(-284, 102)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." index="2"]
+tile_set = SubResource("TileSet_f8n4j")
+
+[node name="StaticBody2D2" parent="." index="3" instance=ExtResource("2_0g3dm")]
+position = Vector2(-158, 113)
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D3" parent="." index="4" instance=ExtResource("2_0g3dm")]
+position = Vector2(-158, -193)
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D4" parent="." index="5" instance=ExtResource("2_0g3dm")]
+position = Vector2(-113, -171)
+rotation = -1.57079
+scale = Vector2(55.44, 1)
+
+[node name="StaticBody2D5" parent="." index="6" instance=ExtResource("2_0g3dm")]
+position = Vector2(-317, -175)
+rotation = -1.57079
+scale = Vector2(55.44, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraZoomLabel" type="Label" parent="CanvasLayer/Control" index="0"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_5eg43")
+
+[node name="CameraArea2D" parent="." index="8" instance=ExtResource("4_5atxl")]
+
+[node name="CameraLimitCollision" type="CollisionShape2D" parent="CameraArea2D" index="0" groups=["CameraLimitCollision"]]
+position = Vector2(3.5, -40.5)
+shape = SubResource("RectangleShape2D_hkniq")
+
+[node name="FinishMarker" parent="." index="9"]
+position = Vector2(-135, 103)
+
+[node name="RollableBlock" parent="." index="10" instance=ExtResource("5_0cn6d")]
+position = Vector2(-237, 93)
+center_of_mass = Vector2(1, 0)
+angular_damp = 9.317
+
+[node name="CopperNode" type="Sprite2D" parent="." index="11" groups=["3DPespective"]]
+position = Vector2(-152, 36)
+scale = Vector2(0.0995851, 0.0995851)
+texture = ExtResource("6_rwgsy")
+script = ExtResource("7_iddu0")
+
+[node name="Label" type="Label" parent="CopperNode" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.5
+offset_top = -132.0
+offset_right = -100.5
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "hello"
+label_settings = SubResource("LabelSettings_5vvmj")
