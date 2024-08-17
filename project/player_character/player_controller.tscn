@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://det4f2y5mr0ol"]
+
+[ext_resource type="Texture2D" uid="uid://blvh5xa0j3gor" path="res://player_character/char_sprite.png" id="1_yc2n2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agpv1"]
+radius = 18.31
+height = 55.24
+
+[node name="PlayerController" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_agpv1")
+
+[node name="CharSprite" type="Sprite2D" parent="."]
+position = Vector2(7.62939e-06, -4.76837e-07)
+scale = Vector2(0.0801781, 0.0801781)
+texture = ExtResource("1_yc2n2")

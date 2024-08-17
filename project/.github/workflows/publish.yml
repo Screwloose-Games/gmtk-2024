@@ -1,0 +1,29 @@
+name: CI
+
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+        fail-fast: true
+        matrix:
+            platform:
+                - html5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: chickensoft-games/setup-godot@v2.1.1
+        with:
+          version: 4.3.0-beta3
+          include-templates: true
+          use-dotnet: false
+      - name: Web Build
+        run: |
+          mkdir -p build/${{ matrix.platform }}
+          godot -v --export-release "${{ matrix.platform }}" --headless
+      - uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{secrets.BUTLER_API_KEY}}
+          gameData: ./build/${{ matrix.platform }}
+          itchUsername: ${{ vars.ITCH_USERNAME }}
+          itchGameId: ${{ vars.ITCH_GAME_ID }}
+          buildChannel: ${{ matrix.platform }}
