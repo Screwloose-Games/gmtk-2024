@@ -2,7 +2,7 @@ extends State
 
 class_name WalkState
 
-@onready var animation_player: AnimationPlayer = %Felicity/AnimationPlayer
+@onready var animation_player: AnimationPlayer = %Felicity/MainAnimations
 
 #@onready var debugger: StateDebugger = %StateDebugger
 

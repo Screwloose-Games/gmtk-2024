@@ -2,7 +2,7 @@ extends State
 
 class_name JumpState
 
-@onready var animation_player: AnimationPlayer = %Felicity/AnimationPlayer
+@onready var animation_player: AnimationPlayer = %Felicity/%MainAnimations
 @onready var state_machine: StateMachine = %StateMachine
 @onready var fall_state: FallState = %FallState
 

@@ -6696,6 +6696,7 @@ bones = ["Hip", PackedFloat32Array(0, 0, 0, 0), "Hip/Waist", PackedFloat32Array(
 
 [node name="Hip" type="Bone2D" parent="Felicity_Skeleton2D"]
 position = Vector2(-6, -187)
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -6, -187)
 editor_settings/show_bone_gizmo = false
 
@@ -6715,6 +6716,7 @@ metadata/_edit_group_ = true
 [node name="Neck" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest"]
 position = Vector2(-1, -49)
 rotation = -0.0987144
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -1, -49)
 editor_settings/show_bone_gizmo = false
 
@@ -6726,7 +6728,6 @@ editor_settings/show_bone_gizmo = false
 [node name="EarL" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head"]
 position = Vector2(-19, -101)
 rotation = -1.71043
-scale = Vector2(1, 1)
 rest = Transform2D(-0.139178, -0.990267, 0.990267, -0.139178, -19, -101)
 auto_calculate_length_and_angle = false
 length = 172.676
@@ -6736,7 +6737,6 @@ editor_settings/show_bone_gizmo = false
 [node name="Ear R" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head"]
 position = Vector2(33, -100)
 rotation = -1.44715
-scale = Vector2(1, 1)
 rest = Transform2D(0.123335, -0.992365, 0.992365, 0.123335, 33, -100)
 auto_calculate_length_and_angle = false
 length = 172.676
@@ -6753,7 +6753,6 @@ editor_settings/show_bone_gizmo = false
 [node name="BangC" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head"]
 position = Vector2(41, -106)
 rotation = 1.37958
-scale = Vector2(1, 1)
 rest = Transform2D(0.19005, 0.981774, -0.981774, 0.19005, 41, -106)
 auto_calculate_length_and_angle = false
 length = 62.081
@@ -6763,7 +6762,6 @@ editor_settings/show_bone_gizmo = false
 [node name="BangL" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head"]
 position = Vector2(20, -103)
 rotation = 2.3183
-scale = Vector2(1, 1)
 rest = Transform2D(-0.679813, 0.733386, -0.733386, -0.679813, 20, -103)
 auto_calculate_length_and_angle = false
 length = 62.081
@@ -6802,7 +6800,7 @@ editor_settings/show_bone_gizmo = false
 [node name="RightSrand3" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head/RightSrand1/RightSrand2"]
 position = Vector2(15, 65)
 rotation = 1.69805
-scale = Vector2(1, 1)
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(-0.12691, 0.991914, -0.991914, -0.12691, 15, 65)
 auto_calculate_length_and_angle = false
 length = 52.945
@@ -6812,7 +6810,7 @@ editor_settings/show_bone_gizmo = false
 [node name="Glasses" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head"]
 position = Vector2(44, -13)
 rotation = 0.00367919
-scale = Vector2(1, 1)
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(0.999993, 0.00367918, -0.00367918, 0.999993, 44, -13)
 editor_settings/show_bone_gizmo = false
 
@@ -6823,14 +6821,12 @@ editor_settings/show_bone_gizmo = false
 
 [node name="HairSide2" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head/HairSide1"]
 position = Vector2(-64, 64)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -64, 64)
 editor_settings/show_bone_gizmo = false
 
 [node name="HairSide3" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head/HairSide1/HairSide2"]
 position = Vector2(-11, 71)
 rotation = 1.40928
-scale = Vector2(1, 1)
 rest = Transform2D(0.160811, 0.986985, -0.986985, 0.160811, -11, 71)
 editor_settings/show_bone_gizmo = false
 
@@ -6854,7 +6850,6 @@ editor_settings/show_bone_gizmo = false
 [node name="HairBack2" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head/HairBack1"]
 position = Vector2(-13, 89)
 rotation = 1.56891
-scale = Vector2(1, 1)
 rest = Transform2D(0.00188787, 0.999998, -0.999998, 0.00188787, -13, 89)
 editor_settings/show_bone_gizmo = false
 
@@ -6866,13 +6861,13 @@ editor_settings/show_bone_gizmo = false
 [node name="ForearmL" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/ArmL"]
 position = Vector2(-9, 108)
 rotation = -0.0761947
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -9, 108)
 editor_settings/show_bone_gizmo = false
 
 [node name="HandL" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/ArmL/ForearmL"]
 position = Vector2(-12, 81)
 rotation = 1.78481
-scale = Vector2(1, 1)
 rest = Transform2D(-0.212388, 0.977185, -0.977185, -0.212388, -12, 81)
 auto_calculate_length_and_angle = false
 length = 34.432
@@ -6886,13 +6881,13 @@ editor_settings/show_bone_gizmo = false
 
 [node name="ForearmR" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/ArmR"]
 position = Vector2(29, 83)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 29, 83)
 editor_settings/show_bone_gizmo = false
 
 [node name="HandR" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/ArmR/ForearmR"]
 position = Vector2(32, 89)
 rotation = 1.09697
-scale = Vector2(1, 1)
 rest = Transform2D(0.456291, 0.889831, -0.889831, 0.456291, 32, 89)
 auto_calculate_length_and_angle = false
 length = 34.432
@@ -6912,7 +6907,6 @@ editor_settings/show_bone_gizmo = false
 [node name="JacketL3" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/JacketL1/JacketL2"]
 position = Vector2(-7, 102)
 rotation = 1.71638
-scale = Vector2(1, 1)
 rest = Transform2D(-0.145074, 0.989421, -0.989421, -0.145074, -7, 102)
 editor_settings/show_bone_gizmo = false
 
@@ -6951,12 +6945,14 @@ editor_settings/show_bone_gizmo = false
 
 [node name="ThighL" type="Bone2D" parent="Felicity_Skeleton2D/Hip"]
 position = Vector2(-28, -1)
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -28, -1)
 editor_settings/show_bone_gizmo = false
 
 [node name="LegL" type="Bone2D" parent="Felicity_Skeleton2D/Hip/ThighL"]
 position = Vector2(39.7172, 74.3474)
 rotation = 0.168821
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 4, 103)
 editor_settings/show_bone_gizmo = false
 
@@ -6974,15 +6970,19 @@ texture = ExtResource("1_l4wtt")
 metadata/_edit_lock_ = true
 
 [node name="MainAnimations" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_eq7vr")
 }
 
 [node name="AnimationTree" parent="." instance=ExtResource("4_im2yc")]
+unique_name_in_owner = true
 active = false
+root_node = NodePath("%AnimationTree/..")
 anim_player = NodePath("../MainAnimations")
 
 [node name="OverlappingAnimations" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_20m1c")
 }
