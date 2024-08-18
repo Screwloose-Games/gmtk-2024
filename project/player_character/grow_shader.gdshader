@@ -3,15 +3,20 @@
 
 shader_type canvas_item;
 
-uniform float wave_count : hint_range(1.0, 20.0, 1.0) = 20.0;
+uniform float wave_count : hint_range(1.0, 80.0, 1.0) = 80.0;
 uniform float speed : hint_range(0.0, 10.0, 0.1) = 3.0;
 uniform float height : hint_range(0.0, 0.1, 0.001) = 0.003;
 uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
+uniform vec4 shade_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 
 void fragment() {
-	vec2 cPos = -1.0 + 2.0 * UV / (1.0 / TEXTURE_PIXEL_SIZE);
+	vec2 cPos = -1.0 + 2.0 * UV / (1.0 / TEXTURE_PIXEL_SIZE) * 10.0;
 	float cLength = length(cPos);
+	float wave = cos(cLength * wave_count - TIME * speed);
 	vec2 uv = FRAGCOORD.xy / (1.0 / SCREEN_PIXEL_SIZE).xy + (cPos/cLength) * cos(cLength * wave_count - TIME * speed) * height;
-    vec3 col = texture(SCREEN_TEXTURE,uv).xyz;
-	COLOR = vec4(col,1.0);
+    vec3 shaded_color = mix(texture(SCREEN_TEXTURE, UV).rgb, shade_color.rgb, shade_color.a);
+	vec3 col = texture(SCREEN_TEXTURE,uv).xyz;
+	float prev_alpha = texture(TEXTURE, UV).a;
+	vec3 final_color = mix(col, shade_color.rgb, shade_color.a);
+	COLOR = vec4(final_color, prev_alpha);
 }

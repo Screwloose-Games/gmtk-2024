@@ -8,8 +8,18 @@ var move_speed = base_move_speed
 @export var base_jump_velocity = -400.0
 var jump_velocity = base_jump_velocity
 
-
 signal scaled(amount: float)
+signal jumped
+signal became_airborn
+signal landed
+
+enum State {
+	IDLE,
+	JUMP,
+	WALK,
+	FALL,
+	PUSH
+}
 
 @export var base_push_force: float = 100.0
 
@@ -27,7 +37,6 @@ func set_scale_amount(val: float):
 	move_speed = base_move_speed * sqrt(scale_amount)
 	#gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * sqrt(scale_amount)
 
-
 func _on_character_scaled(amount: float):
 	scaled.emit(amount)
 
@@ -40,8 +49,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+		jumped.emit()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

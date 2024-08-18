@@ -54,10 +54,6 @@ death_effects = Array[ExtResource("6_rfn4h")]([SubResource("Resource_5cdti")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CapsuleShape2D_p7tr0")
 
-[node name="CharacterScaler" parent="." node_paths=PackedStringArray("scale_target") instance=ExtResource("7_tr61q")]
-unique_name_in_owner = true
-scale_target = NodePath("..")
-
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="HorizontalFlipper" type="Node" parent="Flippable" node_paths=PackedStringArray("translation_base", "translation_target")]
@@ -71,3 +67,7 @@ position = Vector2(0, -26.1648)
 scale = Vector2(0.0712695, 0.0712695)
 texture = ExtResource("3_d86yd")
 flip_h = true
+
+[node name="CharacterScaler" parent="Flippable" node_paths=PackedStringArray("scale_target") instance=ExtResource("7_tr61q")]
+unique_name_in_owner = true
+scale_target = NodePath("../..")

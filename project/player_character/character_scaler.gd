@@ -45,6 +45,7 @@ func scale_up():
 	if scale_up_sound:
 		scale_audio_stream_player.stream = scale_up_sound
 		scale_audio_stream_player.play()
+	animation_player.play("grow")
 	
 func scale_down():
 	current_scale_index = max(current_scale_index - 1, 0)
