@@ -17,7 +17,7 @@ extends CharacterBody2D
 @onready var jump_power = calculate_jump_velocity(character_gravity.y, jump_height)
 
 @export var base_move_speed = 100.0
-var move_speed = base_move_speed
+@onready var move_speed = base_move_speed
 
 @onready var base_jump_velocity = -jump_power
 @onready var jump_velocity = -jump_power

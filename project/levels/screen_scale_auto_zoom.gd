@@ -21,10 +21,14 @@ func _on_player_scaled(_val: float):
 	scale_camera()
 
 func _process(_delta):
+	camera.follow_offset = Vector2(0, 0)
+	camera.dead_zone_height = 0.2
+	camera.dead_zone_width = 0.2
 	return
 	scale_camera()
 
 func scale_camera():
+	#return
 	# Get the current viewport height
 	var viewport_height = get_viewport().get_visible_rect().size.y
 	# Get the display height (screen height)
@@ -39,9 +43,12 @@ func scale_camera():
 	var h = player.char_height
 	tween.tween_property(camera, "zoom", camera_scale_vector, 1).set_trans(Tween.TRANS_SINE)
 	#tween.tween_property(camera, "zoom", camera_scale_vector, 1).set_trans(Tween.TRANS_SINE)
+	tween.parallel().tween_property(camera, "_follow_framed_offset", Vector2(0,0), 1)
+	#camera._follow_framed_offset = Vector2(0,0)
 	tween.tween_callback(func():
 		camera.set_follow_target(follow_marker)
 		camera.set_follow_offset(camera_follow_offset)
+		
 		#camera.dead_zone_width = 0.2 * pow(scale_factor, 2)
 		#camera.dead_zone_height = 0.2 * pow(scale_factor, 2)
 	)

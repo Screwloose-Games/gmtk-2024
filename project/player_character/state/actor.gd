@@ -9,6 +9,7 @@ extends Node
 @onready var fall_state: FallState = %FallState
 @onready var walk_state: WalkState = %WalkState
 @onready var jump_state: JumpState = %JumpState
+@onready var land_state: LandState = %LandState
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +24,14 @@ func _physics_process(delta):
 	var direction := Input.get_axis("move_left", "move_right")
 
 	if actor.is_on_floor():
-		if direction:
+		if state_machine.state == fall_state:
+			state_machine.change_state(land_state)
+			land_state.finished.connect(func():
+				state_machine.change_state(idle_state)
+				)
+		elif state_machine.state == land_state:
+			return
+		elif direction:
 			state_machine.change_state(walk_state)
 		else:
 			state_machine.change_state(idle_state)

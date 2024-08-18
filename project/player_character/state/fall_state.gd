@@ -2,7 +2,7 @@ extends State
 
 class_name FallState
 
-@onready var animation_player: AnimationPlayer = %Felicity/AnimationPlayer
+@onready var animation_player: AnimationPlayer = %Felicity/%MainAnimations
 @onready var player_input_handler: Node = %PlayerInputHandler
 
 

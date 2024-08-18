@@ -14,6 +14,12 @@ size = Vector2(657, 325)
 
 [node name="BaseLevel" instance=ExtResource("1_dj08g")]
 
+[node name="PlayerController" parent="World" index="0"]
+position = Vector2(-278, 97)
+
+[node name="Camera2D" parent="World" index="1"]
+position = Vector2(-278, 97)
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." index="2"]
 tile_set = SubResource("TileSet_f8n4j")
 
@@ -57,6 +63,9 @@ script = ExtResource("3_68rgf")
 position = Vector2(3.5, -40.5)
 shape = SubResource("RectangleShape2D_hkniq")
 
-[node name="FinishMarker" parent="." index="9"]
+[node name="PhantomCamera2D" parent="." index="9"]
+position = Vector2(-278, 97)
+
+[node name="FinishMarker" parent="." index="10"]
 position = Vector2(303, 103)
 next_level = ExtResource("5_yh0k5")

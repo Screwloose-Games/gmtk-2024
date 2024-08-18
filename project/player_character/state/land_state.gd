@@ -1,11 +1,11 @@
 extends State
 
-class_name IdleState
+class_name LandState
 
 @onready var main_animation_player: AnimationPlayer = %Felicity/%MainAnimations
-@onready var overlapping_animation_player: AnimationPlayer = %Felicity/%OverlappingAnimations
 @onready var player_input_handler: Node = %PlayerInputHandler
 
+signal finished
 
 #@onready var debugger: StateDebugger = %StateDebugger
 
@@ -13,9 +13,13 @@ func _init():
 	machine = StateMachine.new()
 	add_child(machine)
 
+func _on_animation_finished(anim_name: String):
+	if anim_name == "Land":
+		finished.emit()
+
 func enter_state(_data: Dictionary = {}):
-	main_animation_player.play("Idle")
-	overlapping_animation_player.play("Adjustglasses")
+	main_animation_player.play("Land")
+	main_animation_player.animation_finished.connect(_on_animation_finished)
 	#Fall
 #Idle
 #JumpUp
@@ -35,7 +39,7 @@ func update(delta):
 
 func exit_state():
 	main_animation_player.stop()
-	overlapping_animation_player.stop()
+	main_animation_player.animation_finished.disconnect(_on_animation_finished)
 	machine.change_state(null)
 	#if debugger:
 		#debugger.states.erase(self)

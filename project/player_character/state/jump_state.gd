@@ -13,17 +13,16 @@ func _init():
 	machine = StateMachine.new()
 	add_child(machine)
 
-func _ready():
-	animation_player.animation_finished.connect(_on_jump_animation_finished)
-
-func _on_jump_animation_finished():
-	start_falling()
+func _on_jump_animation_finished(anim_name: String):
+	if anim_name == "JumpUp":
+		start_falling()
 
 func start_falling():
 	state_machine.change_state(fall_state)
 
 func enter_state(_data: Dictionary = {}):
 	animation_player.play("JumpUp")
+	animation_player.animation_finished.connect(_on_jump_animation_finished)
 	#Fall
 #Idle
 #JumpUp
@@ -44,5 +43,6 @@ func update(delta):
 func exit_state():
 	animation_player.stop()
 	machine.change_state(null)
+	animation_player.animation_finished.disconnect(_on_jump_animation_finished)
 	#if debugger:
 		#debugger.states.erase(self)

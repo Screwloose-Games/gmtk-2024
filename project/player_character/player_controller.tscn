@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://det4f2y5mr0ol"]
+[gd_scene load_steps=14 format=3 uid="uid://det4f2y5mr0ol"]
 
 [ext_resource type="Script" path="res://player_character/player_controller.gd" id="1_6ovu0"]
 [ext_resource type="PackedScene" uid="uid://dt4ko00s6iojh" path="res://player_character/character_scaler.tscn" id="2_4yyik"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://player_character/player_input_handler.gd" id="4_glnt7"]
 [ext_resource type="Script" path="res://player_character/state/state_machine.gd" id="7_lognj"]
 [ext_resource type="Script" path="res://player_character/state/idle_state.gd" id="8_odmd3"]
+[ext_resource type="Script" path="res://player_character/state/land_state.gd" id="9_47vew"]
 [ext_resource type="Script" path="res://player_character/state/walk_state.gd" id="9_075mn"]
 [ext_resource type="Script" path="res://player_character/state/fall_state.gd" id="9_nbc1x"]
 [ext_resource type="Script" path="res://player_character/state/jump_state.gd" id="10_55v8w"]
@@ -16,7 +17,8 @@
 radius = 14.0
 height = 80.0
 
-[node name="PlayerController" type="CharacterBody2D"]
+[node name="PlayerController" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 257
 script = ExtResource("1_6ovu0")
 base_move_speed = 120.0
 
@@ -40,6 +42,8 @@ scale = Vector2(-0.1, 0.1)
 
 [node name="CharacterScaler" parent="." node_paths=PackedStringArray("scale_target") instance=ExtResource("2_4yyik")]
 unique_name_in_owner = true
+z_index = 1
+scale = Vector2(1.2, 1.2)
 scale_target = NodePath("..")
 
 [node name="PlayerInputHandler" type="Node" parent="."]
@@ -54,6 +58,10 @@ starting_state = NodePath("IdleState")
 [node name="IdleState" type="Node" parent="StateMachine"]
 unique_name_in_owner = true
 script = ExtResource("8_odmd3")
+
+[node name="LandState" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("9_47vew")
 
 [node name="FallState" type="Node" parent="StateMachine"]
 unique_name_in_owner = true

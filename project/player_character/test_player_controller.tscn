@@ -43,8 +43,9 @@ gradient = SubResource("Gradient_36pg8")
 
 [node name="TestPlayerController" type="Node2D"]
 
-[node name="PlayerController" parent="." groups=["Player"] instance=ExtResource("1_bomc3")]
+[node name="PlayerController" parent="." instance=ExtResource("1_bomc3")]
 position = Vector2(296, 162)
+base_move_speed = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
@@ -72,6 +73,7 @@ follow_mode = 5
 follow_target = NodePath("../PlayerController")
 tween_resource = SubResource("Resource_uc3vi")
 tween_on_load = false
+follow_damping = true
 dead_zone_width = 0.2
 dead_zone_height = 0.2
 draw_limits = true

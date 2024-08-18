@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://dbdjeaaxmxpqi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_nrive"]
-[ext_resource type="PackedScene" uid="uid://dnlir14iywfl8" path="res://scenes/common/simple_character.tscn" id="1_x4ube"]
 [ext_resource type="Script" path="res://levels/scale_camera.gd" id="2_l1ts6"]
 [ext_resource type="Texture2D" uid="uid://dodtkct0a08xb" path="res://sprites/common/CircuitTile.png" id="2_lrgah"]
+[ext_resource type="PackedScene" uid="uid://det4f2y5mr0ol" path="res://player_character/player_controller.tscn" id="3_fajfj"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_l5hjh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_qj412"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_drug0"]
@@ -60,12 +60,12 @@ stretch_mode = 1
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="platformer_character" parent="World" instance=ExtResource("1_x4ube")]
-move_speed = 100.0
+[node name="PlayerController" parent="World" instance=ExtResource("3_fajfj")]
+position = Vector2(-71, -4)
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 physics_interpolation_mode = 1
-position = Vector2(-1.4013e-45, -1.4013e-45)
+position = Vector2(-71, -4)
 zoom = Vector2(2, 2)
 script = ExtResource("2_l1ts6")
 
@@ -73,14 +73,17 @@ script = ExtResource("2_l1ts6")
 script = ExtResource("3_l5hjh")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(-1.4013e-45, -1.4013e-45)
+position = Vector2(-71, -4)
 script = ExtResource("4_qj412")
+priority = 5
 follow_mode = 5
-follow_target = NodePath("../World/platformer_character")
+follow_target = NodePath("../World/PlayerController")
 zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_6wwnk")
 tween_on_load = false
 follow_damping = true
+dead_zone_width = 0.1
+dead_zone_height = 0.1
 draw_limits = true
 
 [node name="ScreenScaleAutoZoom" type="Node" parent="PhantomCamera2D"]
