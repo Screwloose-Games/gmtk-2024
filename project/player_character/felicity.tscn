@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8xckute3tgjg"]
+[gd_scene load_steps=14 format=3 uid="uid://c8xckute3tgjg"]
 
 [ext_resource type="Texture2D" uid="uid://bowfrut4owf7x" path="res://player_character/art/Felicity Preview.png" id="1_l4wtt"]
 [ext_resource type="Script" path="res://player_character/felicity.gd" id="1_preg8"]
 [ext_resource type="Texture2D" uid="uid://djpymik3pafxo" path="res://player_character/art/Felicity Parts.png" id="2_i6n8u"]
+[ext_resource type="PackedScene" uid="uid://4jis8x8x25wt" path="res://player_character/felicity_animation_tree.tscn" id="4_im2yc"]
 
 [sub_resource type="Animation" id="Animation_5hccx"]
 resource_name = "Fall"
@@ -6124,6 +6125,7 @@ metadata/_edit_group_ = true
 [node name="Neck" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest"]
 position = Vector2(-1, -49)
 rotation = -0.0987144
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -1, -49)
 editor_settings/show_bone_gizmo = false
 
@@ -6193,6 +6195,7 @@ editor_settings/show_bone_gizmo = false
 [node name="LeftStrand3" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head/LeftStrand1/LeftStrand2"]
 position = Vector2(-10, 69)
 rotation = 1.36505
+scale = Vector2(1, 1)
 rest = Transform2D(0.204297, 0.978909, -0.978909, 0.204297, -10, 69)
 auto_calculate_length_and_angle = false
 length = 71.392
@@ -6222,7 +6225,7 @@ editor_settings/show_bone_gizmo = false
 [node name="Glasses" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head"]
 position = Vector2(44, -13)
 rotation = 0.00367919
-scale = Vector2(0.999999, 0.999999)
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999993, 0.00367918, -0.00367918, 0.999993, 44, -13)
 editor_settings/show_bone_gizmo = false
 
@@ -6239,6 +6242,7 @@ editor_settings/show_bone_gizmo = false
 [node name="HairSide3" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head/HairSide1/HairSide2"]
 position = Vector2(-11, 71)
 rotation = 1.40928
+scale = Vector2(1, 1)
 rest = Transform2D(0.160811, 0.986985, -0.986985, 0.160811, -11, 71)
 editor_settings/show_bone_gizmo = false
 
@@ -6360,6 +6364,7 @@ editor_settings/show_bone_gizmo = false
 
 [node name="ThighL" type="Bone2D" parent="Felicity_Skeleton2D/Hip"]
 position = Vector2(-28, -1)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -28, -1)
 editor_settings/show_bone_gizmo = false
 
@@ -6387,3 +6392,5 @@ metadata/_edit_lock_ = true
 libraries = {
 "": SubResource("AnimationLibrary_eq7vr")
 }
+
+[node name="AnimationTree" parent="." instance=ExtResource("4_im2yc")]

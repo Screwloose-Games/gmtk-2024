@@ -2,7 +2,7 @@ extends State
 
 class_name IdleState
 
-@onready var animation_player = %Felicity/AnimationPlayer
+@onready var animation_player: AnimationPlayer = %Felicity/AnimationPlayer
 
 #@onready var debugger: StateDebugger = %StateDebugger
 
@@ -11,7 +11,15 @@ func _init():
 	add_child(machine)
 
 func enter_state(_data: Dictionary = {}):
-	animation_player.play("idle")
+	animation_player.play("Idle")
+	#Fall
+#Idle
+#JumpUp
+#Land
+#Push
+#RESET
+#Walk Right
+#jump
 	
 	pass
 	#if debugger:
@@ -22,6 +30,7 @@ func update(delta):
 		machine.state.update(delta)
 
 func exit_state():
+	animation_player.stop("Idle")
 	machine.change_state(null)
 	#if debugger:
 		#debugger.states.erase(self)

@@ -1,0 +1,67 @@
+[gd_scene load_steps=16 format=3 uid="uid://4jis8x8x25wt"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o3uve"]
+animation = &"Fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xp4iv"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_phkq6"]
+animation = &"JumpUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ndvor"]
+animation = &"Land"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_383v0"]
+animation = &"Push"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fpy84"]
+animation = &"Walk Right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cbuoj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4eciv"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ci6c6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w04gm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jn1hk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3p6sh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q3atn"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7atwf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nuosa"]
+states/End/position = Vector2(978, 89)
+states/Fall/node = SubResource("AnimationNodeAnimation_o3uve")
+states/Fall/position = Vector2(675, 52)
+states/Idle/node = SubResource("AnimationNodeAnimation_xp4iv")
+states/Idle/position = Vector2(338, 126)
+states/JumpUp/node = SubResource("AnimationNodeAnimation_phkq6")
+states/JumpUp/position = Vector2(524, 72)
+states/Land/node = SubResource("AnimationNodeAnimation_ndvor")
+states/Land/position = Vector2(817, 114)
+states/Push/node = SubResource("AnimationNodeAnimation_383v0")
+states/Push/position = Vector2(362, 264)
+states/Start/position = Vector2(110, 89)
+"states/Walk Right/node" = SubResource("AnimationNodeAnimation_fpy84")
+"states/Walk Right/position" = Vector2(611, 238)
+transitions = ["Idle", "JumpUp", SubResource("AnimationNodeStateMachineTransition_cbuoj"), "JumpUp", "Fall", SubResource("AnimationNodeStateMachineTransition_4eciv"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_ci6c6"), "Idle", "Push", SubResource("AnimationNodeStateMachineTransition_w04gm"), "Push", "Walk Right", SubResource("AnimationNodeStateMachineTransition_jn1hk"), "Walk Right", "JumpUp", SubResource("AnimationNodeStateMachineTransition_3p6sh"), "Idle", "Walk Right", SubResource("AnimationNodeStateMachineTransition_q3atn"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7atwf")]
+graph_offset = Vector2(106, -40)
+
+[node name="AnimationTree" type="AnimationTree"]
+tree_root = SubResource("AnimationNodeStateMachine_nuosa")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
