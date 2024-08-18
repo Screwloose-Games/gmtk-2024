@@ -25,9 +25,6 @@ position = Vector2(-284, 102)
 [node name="Camera2D" parent="World" index="1"]
 position = Vector2(-284, 102)
 
-[node name="PhantomCamera2D" parent="." index="1"]
-position = Vector2(-284, 102)
-
 [node name="TileMapLayer" type="TileMapLayer" parent="." index="2"]
 tile_set = SubResource("TileSet_f8n4j")
 
@@ -71,8 +68,8 @@ script = ExtResource("3_5eg43")
 position = Vector2(3.5, -40.5)
 shape = SubResource("RectangleShape2D_hkniq")
 
-[node name="FinishMarker" parent="." index="9"]
-position = Vector2(-135, 103)
+[node name="PhantomCamera2D" parent="." index="9"]
+position = Vector2(-284, 102)
 
 [node name="RollableBlock" parent="." index="10" instance=ExtResource("5_0cn6d")]
 position = Vector2(-237, 93)
@@ -257,3 +254,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "hello"
 label_settings = SubResource("LabelSettings_5vvmj")
+
+[node name="FinishMarker" parent="." index="12"]
+position = Vector2(-135, 103)

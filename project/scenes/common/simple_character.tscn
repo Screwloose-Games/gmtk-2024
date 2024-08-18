@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/interaction/hit/hitbox.gd" id="5_03p7k"]
 [ext_resource type="Script" path="res://scripts/interaction/effects/reload_effect.gd" id="6_b56sk"]
 [ext_resource type="Script" path="res://scripts/interaction/effects/empty_effect.gd" id="6_rfn4h"]
-[ext_resource type="Script" path="res://player_character/character_scaler.gd" id="10_6ljup"]
+[ext_resource type="PackedScene" uid="uid://dt4ko00s6iojh" path="res://player_character/character_scaler.tscn" id="7_tr61q"]
 [ext_resource type="Script" path="res://player_character/horizontal_flipper.gd" id="12_yv2ii"]
 
 [sub_resource type="Resource" id="Resource_j6tkt"]
@@ -54,9 +54,8 @@ death_effects = Array[ExtResource("6_rfn4h")]([SubResource("Resource_5cdti")])
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CapsuleShape2D_p7tr0")
 
-[node name="CharacterScaler" type="Node" parent="." node_paths=PackedStringArray("scale_target")]
+[node name="CharacterScaler" parent="." node_paths=PackedStringArray("scale_target") instance=ExtResource("7_tr61q")]
 unique_name_in_owner = true
-script = ExtResource("10_6ljup")
 scale_target = NodePath("..")
 
 [node name="Flippable" type="Node2D" parent="."]

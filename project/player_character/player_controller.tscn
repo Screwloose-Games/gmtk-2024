@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://det4f2y5mr0ol"]
+[gd_scene load_steps=7 format=3 uid="uid://det4f2y5mr0ol"]
 
-[ext_resource type="Script" path="res://player_character/character_scaler.gd" id="1_f2oyo"]
+[ext_resource type="Script" path="res://player_character/player_controller.gd" id="1_6ovu0"]
+[ext_resource type="PackedScene" uid="uid://dt4ko00s6iojh" path="res://player_character/character_scaler.tscn" id="2_4yyik"]
 [ext_resource type="PackedScene" uid="uid://df0n62k5y21a0" path="res://player_character/felicity.tscn" id="2_dhjsc"]
 [ext_resource type="Script" path="res://player_character/horizontal_flipper.gd" id="2_s8gml"]
 [ext_resource type="Script" path="res://player_character/player_input_handler.gd" id="4_glnt7"]
@@ -10,23 +11,24 @@ radius = 14.0
 height = 80.0
 
 [node name="PlayerController" type="CharacterBody2D"]
+script = ExtResource("1_6ovu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -40)
 shape = SubResource("CapsuleShape2D_agpv1")
 
-[node name="CharacterScaler" type="Node" parent="."]
+[node name="CharacterScaler" parent="." instance=ExtResource("2_4yyik")]
 unique_name_in_owner = true
-script = ExtResource("1_f2oyo")
 
 [node name="Flippable" type="Node2D" parent="."]
 
-[node name="HorizontalFlipper" type="Node" parent="Flippable" node_paths=PackedStringArray("translation_target")]
+[node name="HorizontalFlipper" type="Node" parent="Flippable" node_paths=PackedStringArray("translation_base", "translation_target")]
 script = ExtResource("2_s8gml")
+translation_base = NodePath("../..")
 translation_target = NodePath("..")
 
 [node name="Felicity" parent="Flippable" instance=ExtResource("2_dhjsc")]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(-0.1, 0.1)
 
 [node name="PlayerInputHandler" type="Node" parent="."]
 script = ExtResource("4_glnt7")

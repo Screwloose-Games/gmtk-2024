@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbdjeaaxmxpqi"]
+[gd_scene load_steps=18 format=3 uid="uid://dbdjeaaxmxpqi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_nrive"]
 [ext_resource type="PackedScene" uid="uid://dnlir14iywfl8" path="res://scenes/common/simple_character.tscn" id="1_x4ube"]
 [ext_resource type="Script" path="res://levels/scale_camera.gd" id="2_l1ts6"]
+[ext_resource type="Texture2D" uid="uid://dodtkct0a08xb" path="res://sprites/common/CircuitTile.png" id="2_lrgah"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_l5hjh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_qj412"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_drug0"]
@@ -31,8 +32,31 @@ height = 5
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Environment" id="Environment_3pek7"]
+glow_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_w8qbm"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
+
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_nrive")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+visible = false
+texture = ExtResource("2_lrgah")
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D"]
+offset_left = -721.0
+offset_top = -515.0
+offset_right = 6949.0
+offset_bottom = 4595.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_lrgah")
+stretch_mode = 1
 
 [node name="World" type="Node2D" parent="."]
 
@@ -57,6 +81,7 @@ zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_6wwnk")
 tween_on_load = false
 follow_damping = true
+draw_limits = true
 
 [node name="ScreenScaleAutoZoom" type="Node" parent="PhantomCamera2D"]
 script = ExtResource("6_7ixct")
@@ -86,3 +111,7 @@ region_rect = Rect2(0, 0, 20, 100)
 [node name="Sprite2D" type="Sprite2D" parent="FinishMarker"]
 visible = false
 texture = SubResource("GradientTexture2D_k23km")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3pek7")
+camera_attributes = SubResource("CameraAttributesPractical_w8qbm")
