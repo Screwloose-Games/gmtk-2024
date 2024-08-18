@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3lw0ag33dg13"]
+
+[ext_resource type="Script" path="res://test/test_character_body_2d.gd" id="1_bijb8"]
+[ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="1_l1nbg"]
+[ext_resource type="PackedScene" uid="uid://w6r5vtyk4bhh" path="res://blocks/movable_block.tscn" id="2_o84wc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wo05m"]
+
+[sub_resource type="Gradient" id="Gradient_3boxo"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ca0ub"]
+gradient = SubResource("Gradient_3boxo")
+
+[node name="TestPhysics" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(142, 200)
+script = ExtResource("1_bijb8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_wo05m")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = SubResource("GradientTexture2D_ca0ub")
+region_enabled = true
+region_rect = Rect2(0, 0, 20, 20)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_l1nbg")]
+position = Vector2(235, 279)
+scale = Vector2(20, 1)
+
+[node name="MovableBlock" parent="." instance=ExtResource("2_o84wc")]
+position = Vector2(213, 228)

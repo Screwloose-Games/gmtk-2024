@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://b6h4sqok6xlxy" path="res://themes/pixelart/button_normal_style.tres" id="1_o2icn"]
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://fonts/Peaberry/PeaberryMono.ttf" id="1_qo4up"]
-[ext_resource type="Texture2D" uid="uid://c8yfrjpm5qqjt" path="res://sprites/ui/ui-tileset.png" id="2_adtur"]
+[ext_resource type="Texture2D" uid="uid://njsc8l802yng" path="res://sprites/ui/ui-tileset.png" id="2_adtur"]
 [ext_resource type="StyleBox" uid="uid://dj0ib6qvmygdj" path="res://themes/pixelart/button_pressed_style.tres" id="2_igfm3"]
 [ext_resource type="StyleBox" uid="uid://cg0tootlnej3o" path="res://themes/pixelart/slider_grabber_area_texture.tres" id="4_liesh"]
 [ext_resource type="Texture2D" uid="uid://c0coqpvq7hu6j" path="res://sprites/ui/ui-grabber.png" id="4_pfl2f"]
