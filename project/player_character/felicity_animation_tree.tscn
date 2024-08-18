@@ -59,7 +59,7 @@ states/Start/position = Vector2(110, 89)
 "states/Walk Right/node" = SubResource("AnimationNodeAnimation_fpy84")
 "states/Walk Right/position" = Vector2(611, 238)
 transitions = ["Idle", "JumpUp", SubResource("AnimationNodeStateMachineTransition_cbuoj"), "JumpUp", "Fall", SubResource("AnimationNodeStateMachineTransition_4eciv"), "Fall", "Land", SubResource("AnimationNodeStateMachineTransition_ci6c6"), "Idle", "Push", SubResource("AnimationNodeStateMachineTransition_w04gm"), "Push", "Walk Right", SubResource("AnimationNodeStateMachineTransition_jn1hk"), "Walk Right", "JumpUp", SubResource("AnimationNodeStateMachineTransition_3p6sh"), "Idle", "Walk Right", SubResource("AnimationNodeStateMachineTransition_q3atn"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7atwf")]
-graph_offset = Vector2(106, -40)
+graph_offset = Vector2(-80, -64)
 
 [node name="AnimationTree" type="AnimationTree"]
 tree_root = SubResource("AnimationNodeStateMachine_nuosa")

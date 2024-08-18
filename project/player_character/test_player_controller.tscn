@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=4 uid="uid://dpsqsm37v5eod"]
+[gd_scene load_steps=18 format=4 uid="uid://dpsqsm37v5eod"]
 
 [ext_resource type="PackedScene" uid="uid://det4f2y5mr0ol" path="res://player_character/player_controller.tscn" id="1_bomc3"]
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="2_h1t3i"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_nevy2"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="3_p1dn1"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_ciprb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_2x8fe"]
 [ext_resource type="Script" path="res://levels/screen_scale_auto_zoom.gd" id="7_qu3kc"]
+[ext_resource type="Script" path="res://player_character/pause_menu.gd" id="8_buom0"]
+[ext_resource type="Script" path="res://player_character/restart_scene_button.gd" id="8_gd8dv"]
 
 [sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_4o1h6"]
 
@@ -30,6 +33,14 @@ duration = 1.0
 transition = 0
 ease = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lvlx"]
+size = Vector2(80, 80)
+
+[sub_resource type="Gradient" id="Gradient_36pg8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1tcxk"]
+gradient = SubResource("Gradient_36pg8")
+
 [node name="TestPlayerController" type="Node2D"]
 
 [node name="PlayerController" parent="." groups=["Player"] instance=ExtResource("1_bomc3")]
@@ -39,6 +50,9 @@ position = Vector2(296, 162)
 physics_interpolation_mode = 1
 position = Vector2(296, 162)
 
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("2_nevy2")
+
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 modification_stack = SubResource("SkeletonModificationStack2D_ld40q")
 
@@ -47,15 +61,17 @@ position = Vector2(487, 241)
 scale = Vector2(100, 1)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAARAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAAUAAsAAAAAAAAAAAAVAAsAAAAAAAAAAAAWAAsAAAAAAAAAAAAXAAsAAAAAAAAAAAAYAAsAAAAAAAAAAAAZAAsAAAAAAAAAAAAaAAsAAAAAAAAAAAAbAAsAAAAAAAAAAAAcAAsAAAAAAAAAAAAdAAsAAAAAAAAAAAAeAAsAAAAAAAAAAAAfAAsAAAAAAAAAAAAgAAsAAAAAAAAAAAAhAAsAAAAAAAAAAAAiAAsAAAAAAAAAAAAjAAsAAAAAAAAAAAAkAAsAAAAAAAAAAAAlAAsAAAAAAAAAAAAmAAsAAAAAAAAAAAAnAAsAAAAAAAAAAAAoAAsAAAAAAAAAAAApAAsAAAAAAAAAAAAqAAsAAAAAAAAAAAArAAsAAAAAAAAAAAAsAAsAAAAAAAAAAAAtAAsAAAAAAAAAAAAuAAsAAAAAAAAAAAAvAAsAAAAAAAAAAAAwAAsAAAAAAAAAAAAxAAsAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_g5t1m")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 position = Vector2(296, 162)
 script = ExtResource("5_ciprb")
+priority = 5
 follow_mode = 5
 follow_target = NodePath("../PlayerController")
 tween_resource = SubResource("Resource_uc3vi")
+tween_on_load = false
 dead_zone_width = 0.2
 dead_zone_height = 0.2
 draw_limits = true
@@ -63,3 +79,93 @@ draw_limits = true
 [node name="ScaleCamera" type="Node" parent="PhantomCamera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("7_qu3kc")
 camera = NodePath("..")
+camera_scale_base = 0.5
+
+[node name="XLarge" type="StaticBody2D" parent="."]
+position = Vector2(-380.45, 15.9963)
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="XLarge"]
+shape = SubResource("RectangleShape2D_3lvlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="XLarge"]
+texture = SubResource("GradientTexture2D_1tcxk")
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 80)
+
+[node name="Large" type="StaticBody2D" parent="."]
+position = Vector2(-37.9582, 96.2408)
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Large"]
+shape = SubResource("RectangleShape2D_3lvlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Large"]
+texture = SubResource("GradientTexture2D_1tcxk")
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 80)
+
+[node name="Medium" type="StaticBody2D" parent="."]
+position = Vector2(187.568, 135.973)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Medium"]
+shape = SubResource("RectangleShape2D_3lvlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Medium"]
+texture = SubResource("GradientTexture2D_1tcxk")
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 80)
+
+[node name="Small" type="StaticBody2D" parent="."]
+position = Vector2(390.888, 155.546)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Small"]
+shape = SubResource("RectangleShape2D_3lvlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Small"]
+texture = SubResource("GradientTexture2D_1tcxk")
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 80)
+
+[node name="XSmall" type="StaticBody2D" parent="."]
+position = Vector2(465.099, 165.864)
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="XSmall"]
+shape = SubResource("RectangleShape2D_3lvlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="XSmall"]
+texture = SubResource("GradientTexture2D_1tcxk")
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 80)
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+script = ExtResource("8_buom0")
+
+[node name="Control" type="Control" parent="PauseMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="PauseMenu/Control/MarginContainer"]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("8_gd8dv")

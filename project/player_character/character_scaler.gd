@@ -8,8 +8,6 @@ extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-
-
 @onready var scale_audio_stream_player: AudioStreamPlayer = %ScaleAudioStreamPlayer
 
 var is_max_scale: bool:
@@ -22,7 +20,7 @@ var is_on_cooldown: bool = false
 
 signal scaled(amount: float)
 
-var current_scale_index: int = 1:
+var current_scale_index: int = 2:
 	set = set_scale_index
 func set_scale_index(val: int):
 	current_scale_index = val
@@ -60,14 +58,18 @@ func set_cooldown():
 	is_on_cooldown = false
 
 func _unhandled_input(event: InputEvent) -> void:
-	if is_on_cooldown:
-		return
 	if event.is_action_pressed("scale_player_up"):
+		if is_on_cooldown:
+			return
 		if is_max_scale:
 			return
 		scale_up()
+		set_cooldown()
 	elif event.is_action_pressed("scale_player_down"):
+		if is_on_cooldown:
+			return
 		if is_min_scale:
 			return
 		scale_down()
-	await set_cooldown()
+		set_cooldown()
+	

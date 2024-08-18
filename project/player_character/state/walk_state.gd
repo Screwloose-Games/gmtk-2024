@@ -1,10 +1,8 @@
 extends State
 
-class_name IdleState
+class_name WalkState
 
 @onready var animation_player: AnimationPlayer = %Felicity/AnimationPlayer
-@onready var player_input_handler: Node = %PlayerInputHandler
-
 
 #@onready var debugger: StateDebugger = %StateDebugger
 
@@ -13,7 +11,7 @@ func _init():
 	add_child(machine)
 
 func enter_state(_data: Dictionary = {}):
-	animation_player.play("Idle")
+	animation_player.play("Walk Right")
 	#Fall
 #Idle
 #JumpUp

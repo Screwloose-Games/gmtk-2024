@@ -1,25 +1,31 @@
+
+class_name Actor
 extends CharacterBody2D
 
 @onready var character_scaler: Node = %CharacterScaler
 
+@onready var state_machine: StateMachine = %StateMachine
+
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+@export var character_gravity: Vector2 = Vector2(0, 980)
+
+@onready var base_height = collision_shape_2d.shape.height
+@onready var char_height: float:
+	get: return base_height * scale_amount
+@onready var jump_height = 0.9 * base_height
+@onready var jump_power = calculate_jump_velocity(character_gravity.y, jump_height)
+
 @export var base_move_speed = 100.0
 var move_speed = base_move_speed
 
-@export var base_jump_velocity = -400.0
-var jump_velocity = base_jump_velocity
+@onready var base_jump_velocity = -jump_power
+@onready var jump_velocity = -jump_power
 
 signal scaled(amount: float)
 signal jumped
 signal became_airborn
 signal landed
-
-enum State {
-	IDLE,
-	JUMP,
-	WALK,
-	FALL,
-	PUSH
-}
 
 @export var base_push_force: float = 100.0
 
@@ -37,6 +43,10 @@ func set_scale_amount(val: float):
 	move_speed = base_move_speed * sqrt(scale_amount)
 	#gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * sqrt(scale_amount)
 
+func calculate_jump_velocity(gravity_strength: float, jump_height: float) -> float:
+	# Using the formula v0 = sqrt(2 * g * h)
+	return sqrt(2 * gravity_strength * jump_height)
+
 func _on_character_scaled(amount: float):
 	scaled.emit(amount)
 
@@ -44,14 +54,18 @@ func _ready():
 	character_scaler.scaled.connect(_on_character_scaled)
 
 func _physics_process(delta: float) -> void:
+	var grav = get_gravity()
+	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += character_gravity * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+		state_machine.change_state(%JumpState)
 		jumped.emit()
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

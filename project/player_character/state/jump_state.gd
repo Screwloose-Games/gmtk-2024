@@ -1,9 +1,10 @@
 extends State
 
-class_name IdleState
+class_name JumpState
 
 @onready var animation_player: AnimationPlayer = %Felicity/AnimationPlayer
-@onready var player_input_handler: Node = %PlayerInputHandler
+@onready var state_machine: StateMachine = %StateMachine
+@onready var fall_state: FallState = %FallState
 
 
 #@onready var debugger: StateDebugger = %StateDebugger
@@ -12,8 +13,17 @@ func _init():
 	machine = StateMachine.new()
 	add_child(machine)
 
+func _ready():
+	animation_player.animation_finished.connect(_on_jump_animation_finished)
+
+func _on_jump_animation_finished():
+	start_falling()
+
+func start_falling():
+	state_machine.change_state(fall_state)
+
 func enter_state(_data: Dictionary = {}):
-	animation_player.play("Idle")
+	animation_player.play("JumpUp")
 	#Fall
 #Idle
 #JumpUp

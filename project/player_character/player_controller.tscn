@@ -1,13 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://det4f2y5mr0ol"]
+[gd_scene load_steps=13 format=3 uid="uid://det4f2y5mr0ol"]
 
 [ext_resource type="Script" path="res://player_character/player_controller.gd" id="1_6ovu0"]
 [ext_resource type="PackedScene" uid="uid://dt4ko00s6iojh" path="res://player_character/character_scaler.tscn" id="2_4yyik"]
 [ext_resource type="PackedScene" uid="uid://c8xckute3tgjg" path="res://player_character/felicity.tscn" id="2_dhjsc"]
+[ext_resource type="Script" path="res://player_character/state/actor.gd" id="2_joyi1"]
 [ext_resource type="Script" path="res://player_character/horizontal_flipper.gd" id="2_s8gml"]
 [ext_resource type="Script" path="res://player_character/player_input_handler.gd" id="4_glnt7"]
-[ext_resource type="Script" path="res://player_character/animation_controller.gd" id="6_7m3xg"]
 [ext_resource type="Script" path="res://player_character/state/state_machine.gd" id="7_lognj"]
 [ext_resource type="Script" path="res://player_character/state/idle_state.gd" id="8_odmd3"]
+[ext_resource type="Script" path="res://player_character/state/walk_state.gd" id="9_075mn"]
+[ext_resource type="Script" path="res://player_character/state/fall_state.gd" id="9_nbc1x"]
+[ext_resource type="Script" path="res://player_character/state/jump_state.gd" id="10_55v8w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agpv1"]
 radius = 14.0
@@ -15,6 +18,10 @@ height = 80.0
 
 [node name="PlayerController" type="CharacterBody2D"]
 script = ExtResource("1_6ovu0")
+base_move_speed = 120.0
+
+[node name="ActorCore" type="Node" parent="."]
+script = ExtResource("2_joyi1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -40)
@@ -36,15 +43,29 @@ unique_name_in_owner = true
 scale_target = NodePath("..")
 
 [node name="PlayerInputHandler" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("4_glnt7")
 
-[node name="AnimationController" type="Node" parent="."]
-script = ExtResource("6_7m3xg")
-
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 unique_name_in_owner = true
 script = ExtResource("7_lognj")
+starting_state = NodePath("IdleState")
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 unique_name_in_owner = true
 script = ExtResource("8_odmd3")
+
+[node name="FallState" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("9_nbc1x")
+
+[node name="WalkState" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("9_075mn")
+
+[node name="JumpState" type="Node" parent="StateMachine"]
+unique_name_in_owner = true
+script = ExtResource("10_55v8w")
+
+[node name="PlayerCameraMarker" type="Marker2D" parent="." groups=["PlayerCameraMarker"]]
+position = Vector2(0, -41)
