@@ -1,0 +1,297 @@
+[gd_scene load_steps=19 format=3 uid="uid://81vd07bkpt1s"]
+
+[ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_0albf"]
+[ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_srj20"]
+[ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="3_cndw1"]
+[ext_resource type="PackedScene" uid="uid://35f6rd0ykthc" path="res://computer_parts/peg.tscn" id="4_lwrhf"]
+[ext_resource type="PackedScene" uid="uid://dje4gtisv2bgs" path="res://computer_parts/power_con_1_stretch.tscn" id="5_xth8n"]
+[ext_resource type="PackedScene" uid="uid://0ekljb5kgk0g" path="res://computer_parts/fan.tscn" id="6_5ket0"]
+[ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/junction_1.tscn" id="7_rd7tc"]
+[ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_bha10"]
+[ext_resource type="PackedScene" uid="uid://cxrnv2xox2pkl" path="res://blocks/rollable_circle.tscn" id="9_pbty2"]
+[ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="10_1cupd"]
+[ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="11_2btx4"]
+[ext_resource type="Script" path="res://levels/panel.gd" id="14_hnpf8"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="15_1aab3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
+size = Vector2(11668.5, 6623.6)
+
+[sub_resource type="Theme" id="Theme_fibm6"]
+
+[sub_resource type="Texture2D" id="Texture2D_610p8"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("15_1aab3")
+path = "scale_player_up"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_nmp8f"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("15_1aab3")
+path = "scale_player_down"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_xghex"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("15_1aab3")
+path = "ui_accept"
+show_mode = 0
+force_type = 0
+
+[node name="BaseLevel" instance=ExtResource("1_0albf")]
+
+[node name="Parallax2D" parent="." index="0"]
+metadata/_edit_lock_ = true
+
+[node name="CameraArea2D" parent="Parallax2D" index="0" instance=ExtResource("2_srj20")]
+position = Vector2(-155, -237)
+scale = Vector2(0.178, 0.178)
+
+[node name="CameraLimitCollision" type="CollisionShape2D" parent="Parallax2D/CameraArea2D" index="0" groups=["CameraLimitCollision"]]
+position = Vector2(3991.95, 2609.46)
+shape = SubResource("RectangleShape2D_5ibbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
+visible = false
+position = Vector2(712, 203)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_cndw1")
+
+[node name="Peg4" parent="World" index="1" instance=ExtResource("4_lwrhf")]
+position = Vector2(-2895, 418)
+rotation = -1.5708
+
+[node name="PlayerController" parent="World" index="2"]
+position = Vector2(-156, 360)
+
+[node name="Camera2D" parent="World" index="3"]
+position = Vector2(-156, 360)
+
+[node name="PowerConAdjustable" parent="World" index="4" instance=ExtResource("5_xth8n")]
+offset_left = -2660.0
+offset_top = -703.0
+offset_right = 3415.0
+offset_bottom = 1364.0
+scale = Vector2(0.12, 0.12)
+
+[node name="Fan" parent="World" index="5" instance=ExtResource("6_5ket0")]
+position = Vector2(-2939, -74)
+scale = Vector2(0.1, 0.1)
+
+[node name="Juntion1" parent="World" index="6" instance=ExtResource("7_rd7tc")]
+position = Vector2(-3675, 193)
+
+[node name="PowerConAdjustableSmall" parent="World" index="7" instance=ExtResource("8_bha10")]
+offset_left = -3145.0
+offset_top = -673.0
+offset_right = -237.0
+offset_bottom = 995.0
+scale = Vector2(0.12, 0.12)
+
+[node name="PhantomCamera2D" parent="." index="2"]
+position = Vector2(-156, 360)
+
+[node name="FinishMarker" parent="." index="3"]
+position = Vector2(672, 142)
+
+[node name="RollableCircle" parent="." index="5" instance=ExtResource("9_pbty2")]
+position = Vector2(-3276, 495)
+
+[node name="Peg" parent="." index="6" instance=ExtResource("4_lwrhf")]
+position = Vector2(-3023, 306)
+
+[node name="Platform" parent="." index="7" instance=ExtResource("10_1cupd")]
+position = Vector2(-93, 389)
+
+[node name="Platform9" parent="." index="8" instance=ExtResource("10_1cupd")]
+position = Vector2(-94, -184)
+rotation = -3.14159
+
+[node name="Platform10" parent="." index="9" instance=ExtResource("10_1cupd")]
+position = Vector2(162, -184)
+rotation = -3.14159
+
+[node name="Platform11" parent="." index="10" instance=ExtResource("10_1cupd")]
+position = Vector2(419, -184)
+rotation = -3.14159
+
+[node name="Platform12" parent="." index="11" instance=ExtResource("10_1cupd")]
+position = Vector2(676, -184)
+rotation = -3.14159
+
+[node name="Platform5" parent="." index="12" instance=ExtResource("10_1cupd")]
+position = Vector2(-215, 231)
+rotation = 1.5708
+
+[node name="Platform7" parent="." index="13" instance=ExtResource("10_1cupd")]
+position = Vector2(-215, -26)
+rotation = 1.5708
+
+[node name="Platform6" parent="." index="14" instance=ExtResource("10_1cupd")]
+position = Vector2(799, 231)
+rotation = 4.71239
+
+[node name="Platform8" parent="." index="15" instance=ExtResource("10_1cupd")]
+position = Vector2(799, -26)
+rotation = 4.71239
+
+[node name="Platform18" parent="." index="16" instance=ExtResource("10_1cupd")]
+position = Vector2(674, 172)
+
+[node name="Platform17" parent="Platform18" index="1" instance=ExtResource("10_1cupd")]
+position = Vector2(0, 344)
+scale = Vector2(1, 1)
+
+[node name="Platform16" parent="Platform18" index="2" instance=ExtResource("10_1cupd")]
+position = Vector2(0, 696)
+scale = Vector2(1, 1)
+
+[node name="Platform15" parent="Platform18" index="3" instance=ExtResource("10_1cupd")]
+position = Vector2(8, 1040)
+scale = Vector2(1, 1)
+
+[node name="Platform14" parent="Platform18" index="4" instance=ExtResource("10_1cupd")]
+position = Vector2(16, 1384)
+scale = Vector2(1, 1)
+
+[node name="Platform19" parent="." index="17" instance=ExtResource("10_1cupd")]
+position = Vector2(418, 172)
+
+[node name="Platform17" parent="Platform19" index="1" instance=ExtResource("10_1cupd")]
+position = Vector2(0, 344)
+scale = Vector2(1, 1)
+
+[node name="Platform16" parent="Platform19" index="2" instance=ExtResource("10_1cupd")]
+position = Vector2(8, 696)
+scale = Vector2(1, 1)
+
+[node name="Platform15" parent="Platform19" index="3" instance=ExtResource("10_1cupd")]
+position = Vector2(8, 1040)
+scale = Vector2(1, 1)
+
+[node name="Platform18" parent="Platform19" index="4" instance=ExtResource("10_1cupd")]
+position = Vector2(16, 1384)
+scale = Vector2(1, 1)
+
+[node name="Platform20" parent="." index="18" instance=ExtResource("10_1cupd")]
+position = Vector2(163, 303)
+
+[node name="Platform17" parent="Platform20" index="1" instance=ExtResource("10_1cupd")]
+position = Vector2(0, 344)
+scale = Vector2(1, 1)
+
+[node name="Platform2" parent="." index="19" instance=ExtResource("10_1cupd")]
+position = Vector2(163, 389)
+
+[node name="Platform3" parent="." index="20" instance=ExtResource("10_1cupd")]
+position = Vector2(420, 389)
+
+[node name="Platform4" parent="." index="21" instance=ExtResource("10_1cupd")]
+position = Vector2(677, 389)
+
+[node name="Adapter1" parent="." index="22" instance=ExtResource("11_2btx4")]
+position = Vector2(-2805, 741)
+
+[node name="Juntion1" parent="." index="23" instance=ExtResource("7_rd7tc")]
+position = Vector2(-3323, 189)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="24"]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NoticeArea" type="Control" parent="CanvasLayer/Control/Control2" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = -40.0
+offset_right = 112.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/Control2/NoticeArea" index="0"]
+layout_mode = 0
+offset_left = -154.0
+offset_top = -102.0
+offset_right = 49.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Control2/NoticeArea/PanelContainer" index="0"]
+layout_mode = 2
+theme = SubResource("Theme_fibm6")
+bbcode_enabled = true
+text = "[color=\"white\"][i][b]Unlocked CAroT2000[/b][/i]
+Grow:
+Shrink: 
+[b]Flux Responsibly[/b]
+[/color]"
+fit_content = true
+script = ExtResource("14_hnpf8")
+
+[node name="Grow" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="1"]
+layout_mode = 2
+offset_left = -86.0
+offset_top = -81.0
+offset_right = 14.0
+offset_bottom = 19.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_610p8")
+stretch_mode = 4
+
+[node name="Shrink" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="2"]
+layout_mode = 2
+offset_left = -85.0
+offset_top = -57.0
+offset_right = 15.0
+offset_bottom = 43.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_nmp8f")
+stretch_mode = 4
+
+[node name="OkButton" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="3"]
+layout_mode = 2
+offset_left = 19.0
+offset_top = -28.0
+offset_right = 119.0
+offset_bottom = 72.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_xghex")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Control2/NoticeArea" index="4"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -25.0
+offset_right = 34.0
+offset_bottom = -2.0
+text = "OK"
