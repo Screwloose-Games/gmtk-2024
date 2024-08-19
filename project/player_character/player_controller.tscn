@@ -38,6 +38,7 @@ translation_target = NodePath("..")
 
 [node name="Felicity" parent="Flippable" instance=ExtResource("2_dhjsc")]
 unique_name_in_owner = true
+z_index = 5
 scale = Vector2(-0.1, 0.1)
 
 [node name="CharacterScaler" parent="." node_paths=PackedStringArray("scale_target") instance=ExtResource("2_4yyik")]
