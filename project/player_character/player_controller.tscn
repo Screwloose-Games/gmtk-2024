@@ -16,11 +16,11 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agpv1"]
 radius = 14.0
-height = 98.0
+height = 79.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0bg4"]
 radius = 14.0
-height = 98.0
+height = 78.0
 
 [node name="PlayerController" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 257
@@ -31,7 +31,7 @@ base_move_speed = 140.0
 script = ExtResource("2_joyi1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -49)
+position = Vector2(0, -39)
 shape = SubResource("CapsuleShape2D_agpv1")
 
 [node name="Flippable" type="Node2D" parent="."]
@@ -91,5 +91,5 @@ script = ExtResource("13_qs4cy")
 character_scaler = NodePath("../CharacterScaler")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectorArea"]
-position = Vector2(0, -48)
+position = Vector2(0, -39)
 shape = SubResource("CapsuleShape2D_x0bg4")

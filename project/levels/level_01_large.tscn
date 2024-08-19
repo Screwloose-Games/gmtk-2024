@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://obngpd2m7bgj"]
+[gd_scene load_steps=26 format=3 uid="uid://obngpd2m7bgj"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_m831w"]
 [ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="2_7tfvg"]
@@ -22,6 +22,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjpsa"]
+size = Vector2(84.6462, 432.862)
 
 [sub_resource type="Theme" id="Theme_fibm6"]
 
@@ -69,24 +72,33 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_7tfvg")
 
 [node name="Peg4" parent="World" index="2" instance=ExtResource("12_xhqou")]
-position = Vector2(216, 402)
+position = Vector2(216, 395)
 rotation = -1.5708
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="World/Peg4" index="1"]
+position = Vector2(1656, -183.994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Peg4/StaticBody2D2" index="0"]
+position = Vector2(-10.6926, -344.103)
+rotation = -3.14159
+scale = Vector2(4.28386, -3.32716)
+shape = SubResource("RectangleShape2D_jjpsa")
 
 [node name="Peg5" parent="World" index="3" instance=ExtResource("12_xhqou")]
 position = Vector2(589, 479)
 rotation = -1.5708
 
 [node name="PlayerController" parent="World" index="4"]
-position = Vector2(-62, -31)
+position = Vector2(-200, 2)
 
 [node name="Camera2D" parent="World" index="5"]
-position = Vector2(-62, -31)
+position = Vector2(-200, 2)
 
 [node name="Peg2" parent="World" index="6" instance=ExtResource("12_xhqou")]
 position = Vector2(1195, -67)
 
 [node name="Peg3" parent="World" index="7" instance=ExtResource("12_xhqou")]
-position = Vector2(154, 530)
+position = Vector2(154, 535)
 
 [node name="PowerCon1" parent="World" index="8" instance=ExtResource("3_hr5lp")]
 position = Vector2(759, 533)
@@ -150,10 +162,10 @@ offset_bottom = 1604.0
 scale = Vector2(0.12, 0.12)
 
 [node name="Junction4" parent="World" index="21" instance=ExtResource("12_pxshx")]
-position = Vector2(501, 635)
+position = Vector2(482, 635)
 
 [node name="PhantomCamera2D" parent="." index="2"]
-position = Vector2(-62, -31)
+position = Vector2(-200, 2)
 
 [node name="FinishMarker" parent="." index="3"]
 position = Vector2(-90, 571)
@@ -201,7 +213,7 @@ position = Vector2(303, 372)
 position = Vector2(120, -21)
 
 [node name="CollectableScaleDevice" parent="." index="18" instance=ExtResource("17_pxf55")]
-position = Vector2(120, -77)
+position = Vector2(120, -76)
 scale = Vector2(0.2, 0.2)
 collision_layer = 8
 collision_mask = 0
