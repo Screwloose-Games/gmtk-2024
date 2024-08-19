@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://byf7bev65ggop"]
+[gd_scene load_steps=20 format=3 uid="uid://byf7bev65ggop"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_yrfn4"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_f83nd"]
@@ -16,6 +16,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ndvcv"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Theme" id="Theme_fibm6"]
 
@@ -47,6 +50,7 @@ force_type = 0
 
 [node name="Parallax2D" parent="." index="0"]
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CameraArea2D" parent="Parallax2D" index="0" instance=ExtResource("2_f83nd")]
 position = Vector2(-155, -237)
@@ -55,6 +59,10 @@ scale = Vector2(0.178, 0.178)
 [node name="CameraLimitCollision" type="CollisionShape2D" parent="Parallax2D/CameraArea2D" index="0" groups=["CameraLimitCollision"]]
 position = Vector2(3991.95, 2609.46)
 shape = SubResource("RectangleShape2D_5ibbs")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" parent="Parallax2D" index="83"]
+texture = SubResource("ViewportTexture_ndvcv")
 
 [node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
 visible = false
@@ -68,6 +76,8 @@ rotation = -1.5708
 
 [node name="PlayerController" parent="World" index="2"]
 position = Vector2(-156, 360)
+can_grow = true
+can_shrink = true
 
 [node name="Camera2D" parent="World" index="3"]
 position = Vector2(-156, 360)
@@ -97,10 +107,12 @@ scale = Vector2(0.12, 0.12)
 position = Vector2(-156, 360)
 
 [node name="FinishMarker" parent="." index="3"]
-position = Vector2(672, 142)
+position = Vector2(582, 360)
+scale = Vector2(3.52322, 3.52322)
 
 [node name="RollableCircle" parent="." index="5" instance=ExtResource("9_4qqeb")]
-position = Vector2(-3276, 495)
+position = Vector2(292, 295)
+scale = Vector2(2.02024, 2.02024)
 
 [node name="Peg" parent="." index="6" instance=ExtResource("4_68014")]
 position = Vector2(-3023, 306)
@@ -140,67 +152,42 @@ rotation = 4.71239
 position = Vector2(799, -26)
 rotation = 4.71239
 
-[node name="Platform18" parent="." index="16" instance=ExtResource("10_76ucr")]
-position = Vector2(674, 172)
-
-[node name="Platform17" parent="Platform18" index="1" instance=ExtResource("10_76ucr")]
-position = Vector2(0, 344)
-scale = Vector2(1, 1)
-
-[node name="Platform16" parent="Platform18" index="2" instance=ExtResource("10_76ucr")]
-position = Vector2(0, 696)
-scale = Vector2(1, 1)
-
-[node name="Platform15" parent="Platform18" index="3" instance=ExtResource("10_76ucr")]
-position = Vector2(8, 1040)
-scale = Vector2(1, 1)
-
-[node name="Platform14" parent="Platform18" index="4" instance=ExtResource("10_76ucr")]
-position = Vector2(16, 1384)
-scale = Vector2(1, 1)
-
-[node name="Platform19" parent="." index="17" instance=ExtResource("10_76ucr")]
-position = Vector2(418, 172)
-
-[node name="Platform17" parent="Platform19" index="1" instance=ExtResource("10_76ucr")]
-position = Vector2(0, 344)
-scale = Vector2(1, 1)
-
-[node name="Platform16" parent="Platform19" index="2" instance=ExtResource("10_76ucr")]
-position = Vector2(8, 696)
-scale = Vector2(1, 1)
-
-[node name="Platform15" parent="Platform19" index="3" instance=ExtResource("10_76ucr")]
-position = Vector2(8, 1040)
-scale = Vector2(1, 1)
-
-[node name="Platform18" parent="Platform19" index="4" instance=ExtResource("10_76ucr")]
-position = Vector2(16, 1384)
-scale = Vector2(1, 1)
-
-[node name="Platform20" parent="." index="18" instance=ExtResource("10_76ucr")]
-position = Vector2(163, 303)
-
-[node name="Platform17" parent="Platform20" index="1" instance=ExtResource("10_76ucr")]
-position = Vector2(0, 344)
-scale = Vector2(1, 1)
-
-[node name="Platform2" parent="." index="19" instance=ExtResource("10_76ucr")]
+[node name="Platform2" parent="." index="16" instance=ExtResource("10_76ucr")]
 position = Vector2(163, 389)
 
-[node name="Platform3" parent="." index="20" instance=ExtResource("10_76ucr")]
+[node name="Platform3" parent="." index="17" instance=ExtResource("10_76ucr")]
 position = Vector2(420, 389)
 
-[node name="Platform4" parent="." index="21" instance=ExtResource("10_76ucr")]
+[node name="Platform4" parent="." index="18" instance=ExtResource("10_76ucr")]
 position = Vector2(677, 389)
 
-[node name="Adapter1" parent="." index="22" instance=ExtResource("11_fytlc")]
+[node name="Adapter1" parent="." index="19" instance=ExtResource("11_fytlc")]
 position = Vector2(-2805, 741)
 
-[node name="Juntion1" parent="." index="23" instance=ExtResource("7_1gkk5")]
-position = Vector2(-3323, 189)
+[node name="Juntion1" parent="." index="20" instance=ExtResource("7_1gkk5")]
+position = Vector2(-1247, -225)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="24"]
+[node name="Juntion2" parent="." index="21" instance=ExtResource("7_1gkk5")]
+position = Vector2(292, -109)
+scale = Vector2(0.0443578, 0.0443578)
+
+[node name="Juntion3" parent="." index="22" instance=ExtResource("7_1gkk5")]
+position = Vector2(292, -42)
+scale = Vector2(0.0443578, 0.0443578)
+
+[node name="Juntion4" parent="." index="23" instance=ExtResource("7_1gkk5")]
+position = Vector2(292, 25)
+scale = Vector2(0.0443578, 0.0443578)
+
+[node name="Juntion5" parent="." index="24" instance=ExtResource("7_1gkk5")]
+position = Vector2(292, 92)
+scale = Vector2(0.0443578, 0.0443578)
+
+[node name="Juntion6" parent="." index="25" instance=ExtResource("7_1gkk5")]
+position = Vector2(292, 160)
+scale = Vector2(0.0443578, 0.0443578)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="26"]
 visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
@@ -295,3 +282,9 @@ offset_top = -25.0
 offset_right = 34.0
 offset_bottom = -2.0
 text = "OK"
+
+[node name="PauseMenu" parent="." index="27"]
+visible = false
+
+[node name="Control" parent="PauseMenu" index="0"]
+metadata/_edit_lock_ = true

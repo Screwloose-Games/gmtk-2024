@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dww1yku4bo0d4"]
+[gd_scene load_steps=22 format=3 uid="uid://dww1yku4bo0d4"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_x32gq"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_p2qwu"]
@@ -18,6 +18,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d1mwn"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Theme" id="Theme_fibm6"]
 
@@ -57,6 +60,9 @@ scale = Vector2(0.178, 0.178)
 [node name="CameraLimitCollision" type="CollisionShape2D" parent="Parallax2D/CameraArea2D" index="0" groups=["CameraLimitCollision"]]
 position = Vector2(3991.95, 2609.46)
 shape = SubResource("RectangleShape2D_5ibbs")
+
+[node name="TextureRect2" parent="Parallax2D" index="83"]
+texture = SubResource("ViewportTexture_d1mwn")
 
 [node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
 visible = false
@@ -169,8 +175,6 @@ position = Vector2(261, 342)
 [node name="CollectableScaleDevice" parent="." index="24" instance=ExtResource("17_s8ubf")]
 position = Vector2(261, 288)
 scale = Vector2(0.2, 0.2)
-collision_layer = 8
-collision_mask = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="25"]
 visible = false

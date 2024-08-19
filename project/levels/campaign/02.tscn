@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://81vd07bkpt1s"]
+[gd_scene load_steps=20 format=3 uid="uid://81vd07bkpt1s"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_0albf"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_srj20"]
@@ -16,6 +16,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5xp3e"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Theme" id="Theme_fibm6"]
 
@@ -55,6 +58,9 @@ scale = Vector2(0.178, 0.178)
 [node name="CameraLimitCollision" type="CollisionShape2D" parent="Parallax2D/CameraArea2D" index="0" groups=["CameraLimitCollision"]]
 position = Vector2(3991.95, 2609.46)
 shape = SubResource("RectangleShape2D_5ibbs")
+
+[node name="TextureRect2" parent="Parallax2D" index="83"]
+texture = SubResource("ViewportTexture_5xp3e")
 
 [node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
 visible = false
