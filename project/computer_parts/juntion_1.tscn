@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjodcirvll5u2"]
+
+[ext_resource type="Texture2D" uid="uid://bqj6npwvoal83" path="res://sprites/common/Juntion1.png" id="1_uvkdb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxa3i"]
+size = Vector2(4090, 4376)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67jps"]
+size = Vector2(3307, 3093)
+
+[node name="Juntion1" type="Sprite2D"]
+position = Vector2(1183, 202)
+texture = ExtResource("1_uvkdb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-38, -822)
+shape = SubResource("RectangleShape2D_dxa3i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(381.5, 1473.5)
+shape = SubResource("RectangleShape2D_67jps")

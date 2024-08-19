@@ -9,7 +9,6 @@ signal level_complete(level: Level)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	finish_area_2d.body_entered.connect(_on_player_finished)
-	pass # Replace with function body.
 
 func _on_player_finished(player: CharacterBody2D):
 	print("Level finished")

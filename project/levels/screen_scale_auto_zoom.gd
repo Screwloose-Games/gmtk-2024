@@ -2,7 +2,7 @@ extends Node
 
 @export var camera: PhantomCamera2D
 @export var camera_follow_offset: Vector2 = Vector2(0, 0)
-@export var camera_scale_base: float = 1.0
+@export var camera_zoom_base: float = 1.0
 
 var player: Node2D
 
@@ -59,4 +59,4 @@ func scale_camera():
 
 func calculate_camera_scale(game_scale_factor: float) -> float:
 	var player_scale = player.scale_amount
-	return camera_scale_base * game_scale_factor / player_scale
+	return camera_zoom_base * game_scale_factor / player_scale

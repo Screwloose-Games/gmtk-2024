@@ -77,9 +77,6 @@ script = ExtResource("4_nknan")
 position = Vector2(-123, -33)
 shape = SubResource("RectangleShape2D_hkniq")
 
-[node name="FinishMarker" parent="." index="13"]
-position = Vector2(299, 87)
-
 [node name="StaticBody2D" parent="." index="14" instance=ExtResource("2_7omux")]
 position = Vector2(-545, 240)
 scale = Vector2(1, 10)
@@ -87,3 +84,6 @@ scale = Vector2(1, 10)
 [node name="StaticBody2D8" parent="." index="15" instance=ExtResource("2_7omux")]
 position = Vector2(-545, 42)
 scale = Vector2(1, 10)
+
+[node name="FinishMarker" parent="." index="16"]
+position = Vector2(299, 87)
