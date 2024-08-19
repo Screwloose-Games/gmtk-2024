@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://ch3ccb400cnp6"]
+
+[ext_resource type="Texture2D" uid="uid://e7bek10v8mf0" path="res://sprites/common/CArrOTpickup.png" id="1_sauyk"]
+[ext_resource type="Script" path="res://pickups/collectable_effect.gd" id="2_7nwkw"]
+[ext_resource type="PackedScene" uid="uid://cmpl20c3bkm0b" path="res://pickups/collectable_area.tscn" id="2_27tyu"]
+[ext_resource type="Script" path="res://pickups/add_scaler_device.gd" id="3_6mq56"]
+
+[sub_resource type="Resource" id="Resource_mjlgq"]
+script = ExtResource("3_6mq56")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g01qc"]
+size = Vector2(117, 315)
+
+[node name="ScalerDevicePickup" type="Node2D"]
+
+[node name="CollectableArea" parent="." instance=ExtResource("2_27tyu")]
+scale = Vector2(0.25, 0.25)
+collision_layer = 8
+collision_mask = 0
+effects = Array[ExtResource("2_7nwkw")]([SubResource("Resource_mjlgq")])
+
+[node name="CArrOTpickup" type="Sprite2D" parent="CollectableArea"]
+texture = ExtResource("1_sauyk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableArea"]
+position = Vector2(-1.5, 6.5)
+shape = SubResource("RectangleShape2D_g01qc")

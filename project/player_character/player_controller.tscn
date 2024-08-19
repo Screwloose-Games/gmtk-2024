@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://det4f2y5mr0ol"]
+[gd_scene load_steps=16 format=3 uid="uid://det4f2y5mr0ol"]
 
 [ext_resource type="Script" path="res://player_character/player_controller.gd" id="1_6ovu0"]
 [ext_resource type="PackedScene" uid="uid://dt4ko00s6iojh" path="res://player_character/character_scaler.tscn" id="2_4yyik"]
@@ -12,8 +12,13 @@
 [ext_resource type="Script" path="res://player_character/state/walk_state.gd" id="9_075mn"]
 [ext_resource type="Script" path="res://player_character/state/fall_state.gd" id="9_nbc1x"]
 [ext_resource type="Script" path="res://player_character/state/jump_state.gd" id="10_55v8w"]
+[ext_resource type="Script" path="res://player_character/collector_area.gd" id="13_qs4cy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agpv1"]
+radius = 14.0
+height = 98.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0bg4"]
 radius = 14.0
 height = 98.0
 
@@ -43,8 +48,8 @@ scale = Vector2(-0.12, 0.12)
 
 [node name="CharacterScaler" parent="." node_paths=PackedStringArray("scale_target") instance=ExtResource("2_4yyik")]
 unique_name_in_owner = true
-z_index = 1
-scale = Vector2(1.2, 1.2)
+z_index = 6
+scale = Vector2(1.4, 1.4)
 scale_target = NodePath("..")
 
 [node name="PlayerInputHandler" type="Node" parent="."]
@@ -78,3 +83,13 @@ script = ExtResource("10_55v8w")
 
 [node name="PlayerCameraMarker" type="Marker2D" parent="." groups=["PlayerCameraMarker"]]
 position = Vector2(0, -41)
+
+[node name="CollectorArea" type="Area2D" parent="." node_paths=PackedStringArray("character_scaler")]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("13_qs4cy")
+character_scaler = NodePath("../CharacterScaler")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectorArea"]
+position = Vector2(0, -48)
+shape = SubResource("CapsuleShape2D_x0bg4")

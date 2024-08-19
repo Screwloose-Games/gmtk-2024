@@ -346,7 +346,6 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_ob2c6")
 volume_db = -6.0
-autoplay = true
 bus = &"Music"
 
 [connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Button" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]

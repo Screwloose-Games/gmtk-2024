@@ -1,3 +1,4 @@
+class_name CharacterScaler
 extends Node2D
 
 @export var scale_target: Node2D
@@ -5,10 +6,20 @@ extends Node2D
 @export var scale_up_sound: AudioStream
 @export var scale_down_sound: AudioStream
 @export var scale_delay: float = 0.25
+@export var can_grow: bool = false
+@export var can_shrink: bool = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var scale_audio_stream_player: AudioStreamPlayer = %ScaleAudioStreamPlayer
+
+func activate():
+	can_shrink = true
+	can_grow = true
+
+func deactivate():
+	can_shrink = false
+	can_grow = false
 
 var is_max_scale: bool:
 	get: return current_scale_index == scale_levels.size() - 1
@@ -59,6 +70,8 @@ func set_cooldown():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("scale_player_up"):
+		if !can_grow:
+			return
 		if is_on_cooldown:
 			return
 		if is_max_scale:
@@ -66,6 +79,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		scale_up()
 		set_cooldown()
 	elif event.is_action_pressed("scale_player_down"):
+		if !can_shrink:
+			return
 		if is_on_cooldown:
 			return
 		if is_min_scale:

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsacrs3mgr37i"]
+
+[sub_resource type="Gradient" id="Gradient_8lava"]
+offsets = PackedFloat32Array(0, 0.025974, 0.840909, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.172078, 0.172078, 0.172078, 1, 0.762662, 0.762662, 0.762662, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7h5ms"]
+gradient = SubResource("Gradient_8lava")
+
+[sub_resource type="Gradient" id="Gradient_w52fe"]
+offsets = PackedFloat32Array(0, 0.0616883, 0.191558, 1)
+colors = PackedColorArray(0.281187, 0.281187, 0.281187, 1, 0.204545, 0.204545, 0.204545, 1, 0.884382, 0.884382, 0.884382, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_20nk7"]
+gradient = SubResource("Gradient_w52fe")
+
+[node name="UiMouseWheelMove" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 54.0
+offset_right = 30.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(-2, -76)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(-43, 20)
+offset = Vector2(28, -69)
+texture = SubResource("GradientTexture2D_7h5ms")
+polygon = PackedVector2Array(20, -2, 40, -1, 50, 19, 53, 60, 47, 99, 28, 121, 6, 126, -4, 114, -23, 69, -19, 27, -15.9097, -1.94481, 2.96367, -2.15928)
+uv = PackedVector2Array(20, -2, 40, -1, 50, 19, 53, 60, 47, 99, 28, 121, 6, 126, -4, 114, -23, 69, -19, 27, -16, -2, 2.96367, -2.15928)
+internal_vertex_count = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-7, -68)
+color = Color(0.791999, 0.791999, 0.791999, 1)
+offset = Vector2(-12, 19)
+texture = SubResource("GradientTexture2D_20nk7")
+polygon = PackedVector2Array(12, 19, 12, 44, 18, 51, 23, 43, 22, 18, 18, 9)

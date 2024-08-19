@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3qpn1plwd43h"]
+
+[ext_resource type="Texture2D" uid="uid://c0nry5q5aa0gk" path="res://sprites/common/RedBox.png" id="1_ksh1f"]
+
+[node name="RedBox" type="Node2D"]
+scale = Vector2(0.125, 0.125)
+
+[node name="RedBox" type="Sprite2D" parent="."]
+texture = ExtResource("1_ksh1f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-173.5, -174, -173.5, 141.3, -171, 154, -169.5, 156.8, -162, 166, -160.5, 167.5, -145, 173, -142.5, 174, 140.8, 174, 152, 172, 159, 168, 166, 162, 169, 158, 173, 148, 173.5, 143, 173.5, -174)

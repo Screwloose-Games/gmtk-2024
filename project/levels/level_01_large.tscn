@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://obngpd2m7bgj"]
+[gd_scene load_steps=25 format=3 uid="uid://obngpd2m7bgj"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_m831w"]
 [ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="2_7tfvg"]
@@ -15,9 +15,39 @@
 [ext_resource type="PackedScene" uid="uid://35f6rd0ykthc" path="res://computer_parts/peg.tscn" id="12_xhqou"]
 [ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="13_xfa5m"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="14_qurje"]
+[ext_resource type="PackedScene" uid="uid://c3qpn1plwd43h" path="res://computer_parts/red_box.tscn" id="16_0ptn6"]
+[ext_resource type="PackedScene" uid="uid://csv1bv5a1bw7y" path="res://pickups/collectable_scale_device.tscn" id="17_pxf55"]
+[ext_resource type="Script" path="res://levels/panel.gd" id="18_2jj7d"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="19_4v070"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
+
+[sub_resource type="Theme" id="Theme_fibm6"]
+
+[sub_resource type="Texture2D" id="Texture2D_610p8"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("19_4v070")
+path = "scale_player_up"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_nmp8f"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("19_4v070")
+path = "scale_player_down"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_xghex"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("19_4v070")
+path = "ui_accept"
+show_mode = 0
+force_type = 0
 
 [node name="BaseLevel" instance=ExtResource("1_m831w")]
 
@@ -166,3 +196,108 @@ position = Vector2(1157, 702)
 
 [node name="Juntion1" parent="." index="16" instance=ExtResource("7_3kavb")]
 position = Vector2(303, 372)
+
+[node name="RedBox" parent="." index="17" instance=ExtResource("16_0ptn6")]
+position = Vector2(120, -21)
+
+[node name="CollectableScaleDevice" parent="." index="18" instance=ExtResource("17_pxf55")]
+position = Vector2(120, -77)
+scale = Vector2(0.2, 0.2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="19"]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NoticeArea" type="Control" parent="CanvasLayer/Control/Control2" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = -40.0
+offset_right = 112.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/Control2/NoticeArea" index="0"]
+layout_mode = 0
+offset_left = -154.0
+offset_top = -102.0
+offset_right = 49.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Control2/NoticeArea/PanelContainer" index="0"]
+layout_mode = 2
+theme = SubResource("Theme_fibm6")
+bbcode_enabled = true
+text = "[color=\"white\"][i][b]Unlocked CAroT2000[/b][/i]
+Grow:
+Shrink: 
+[b]Flux Responsibly[/b]
+[/color]"
+fit_content = true
+script = ExtResource("18_2jj7d")
+
+[node name="Grow" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="1"]
+layout_mode = 2
+offset_left = -86.0
+offset_top = -81.0
+offset_right = 14.0
+offset_bottom = 19.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_610p8")
+stretch_mode = 4
+
+[node name="Shrink" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="2"]
+layout_mode = 2
+offset_left = -85.0
+offset_top = -57.0
+offset_right = 15.0
+offset_bottom = 43.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_nmp8f")
+stretch_mode = 4
+
+[node name="OkButton" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="3"]
+layout_mode = 2
+offset_left = 19.0
+offset_top = -28.0
+offset_right = 119.0
+offset_bottom = 72.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_xghex")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Control2/NoticeArea" index="4"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -25.0
+offset_right = 34.0
+offset_bottom = -2.0
+text = "OK"
