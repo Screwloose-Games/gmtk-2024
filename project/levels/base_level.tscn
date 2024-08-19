@@ -1,16 +1,34 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbdjeaaxmxpqi"]
+[gd_scene load_steps=36 format=3 uid="uid://dbdjeaaxmxpqi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_nrive"]
 [ext_resource type="Script" path="res://levels/scale_camera.gd" id="2_l1ts6"]
 [ext_resource type="Texture2D" uid="uid://dodtkct0a08xb" path="res://sprites/common/CircuitTile.png" id="2_lrgah"]
+[ext_resource type="Shader" uid="uid://cw5fjbt1la28f" path="res://shaders/color_replace_shader.res" id="3_2hy8g"]
+[ext_resource type="Texture2D" uid="uid://bqj6npwvoal83" path="res://sprites/common/Juntion1.png" id="3_2utvq"]
 [ext_resource type="PackedScene" uid="uid://det4f2y5mr0ol" path="res://player_character/player_controller.tscn" id="3_fajfj"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_l5hjh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_qj412"]
+[ext_resource type="Texture2D" uid="uid://wwoevemrrqmp" path="res://sprites/common/Platform.png" id="5_88h2q"]
+[ext_resource type="Texture2D" uid="uid://ef2sxy76efew" path="res://sprites/common/Chip2.png" id="5_a6tqk"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_drug0"]
+[ext_resource type="Texture2D" uid="uid://dp6e1pgdsm0mm" path="res://sprites/common/ScreewHead.png" id="6_6pc17"]
 [ext_resource type="Script" path="res://levels/screen_scale_auto_zoom.gd" id="6_7ixct"]
 [ext_resource type="Script" path="res://camera/camera_set_limit_target.gd" id="7_1x8r0"]
+[ext_resource type="Texture2D" uid="uid://f2d0re2xlg0p" path="res://sprites/common/BoardDoodad3.png" id="7_fikct"]
+[ext_resource type="Shader" path="res://shaders/post_processing/chromatic-vignette.gdshader" id="8_6spsj"]
+[ext_resource type="Texture2D" uid="uid://b0iydd5afpy32" path="res://sprites/common/BoardDoodad4.png" id="8_ihxp5"]
 [ext_resource type="Script" path="res://levels/finish_marker.gd" id="8_rlg55"]
+[ext_resource type="Texture2D" uid="uid://r6cgeane8yod" path="res://sprites/common/CopperNode.png" id="9_ri0hp"]
+[ext_resource type="Texture2D" uid="uid://bimamu3sym8qc" path="res://sprites/common/BoardDoodad5.png" id="10_aa2vc"]
 [ext_resource type="Texture2D" uid="uid://bdedpua4otbcq" path="res://door/door.png" id="10_bnixe"]
+[ext_resource type="Texture2D" uid="uid://dtk4nd7th8v6t" path="res://sprites/common/Fan.png" id="12_siaya"]
+[ext_resource type="Texture2D" uid="uid://b5s5hvc7hwoeg" path="res://sprites/common/FanShell.png" id="14_va3os"]
+[ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="20_oe55e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ck6i4"]
+shader = ExtResource("3_2hy8g")
+shader_parameter/replaceAmount = 0.316
+shader_parameter/replaceColor = Color(0.271017, 0.343931, 0.232001, 0.996078)
 
 [sub_resource type="Resource" id="Resource_6wwnk"]
 script = ExtResource("5_drug0")
@@ -32,32 +50,557 @@ height = 5
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_nel8t"]
+colors = PackedColorArray(0, 0.015, 0.18, 1, 0.999592, 1, 0.900641, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t3p6l"]
+gradient = SubResource("Gradient_nel8t")
+use_hdr = true
+fill_from = Vector2(0.126126, 0.108108)
+
 [sub_resource type="Environment" id="Environment_3pek7"]
+background_mode = 3
+ambient_light_source = 2
+ambient_light_color = Color(0.290331, 0.311045, 0.624958, 1)
+ambient_light_energy = 1.45
+reflected_light_source = 1
+tonemap_exposure = 0.85
+ssil_intensity = 1.15
 glow_enabled = true
+glow_intensity = 4.54
+glow_strength = 0.93
+glow_hdr_threshold = 0.33
+glow_hdr_scale = 0.84
+adjustment_enabled = true
+adjustment_contrast = 1.3
+adjustment_saturation = 0.63
+adjustment_color_correction = SubResource("GradientTexture2D_t3p6l")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_w8qbm"]
 dof_blur_far_enabled = true
 dof_blur_near_enabled = true
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urrah"]
+shader = ExtResource("20_oe55e")
+shader_parameter/vignette_intensity = 0.495
+shader_parameter/vignette_opacity = 0.619
+shader_parameter/vignette_rgb = Color(0, 0, 0.294118, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcvb4"]
+shader = ExtResource("8_6spsj")
+shader_parameter/r_displacement = Vector2(5, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-5, 0)
+shader_parameter/height = 0.6
+shader_parameter/width = 0.6
+shader_parameter/fade = 0.735
+
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_nrive")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+scale = Vector2(2.365, 2.365)
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(1024, 1024)
+repeat_times = 3
+screen_offset = Vector2(0.165, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 visible = false
+modulate = Color(0.712129, 0.712129, 0.712129, 1)
 texture = ExtResource("2_lrgah")
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D"]
-offset_left = -721.0
-offset_top = -515.0
-offset_right = 6949.0
-offset_bottom = 4595.0
+modulate = Color(0.7392, 0.8864, 0.96, 1)
+texture_repeat = 3
+offset_left = -721.388
+offset_top = -517.97
+offset_right = 6948.61
+offset_bottom = 4592.03
 scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource("2_lrgah")
 stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Juntion1" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(715.913, 138.578)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_2utvq")
+
+[node name="Juntion2" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(308.398, -86.8275)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_2utvq")
+
+[node name="Chip2" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(969.521, 359.831)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_a6tqk")
+centered = false
+
+[node name="Platform" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(513.084, 194.357)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_88h2q")
+
+[node name="Platform2" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(513.084, 229.029)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_88h2q")
+
+[node name="Platform3" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(1019.67, 442.513)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_88h2q")
+
+[node name="Platform4" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(1019.67, 459.437)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_88h2q")
+
+[node name="ScreewHead" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(221.294, 129.663)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="ScreewHead6" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(277.108, 463.701)
+rotation = -0.537561
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="ScreewHead7" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(177.742, 533.469)
+rotation = 1.18159
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="ScreewHead2" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(275.417, 144.462)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="ScreewHead8" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(341.002, 144.462)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="ScreewHead9" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(341.002, 92.8765)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="ScreewHead10" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(276.262, 92.8765)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="ScreewHead3" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(383.662, 208.31)
+rotation = 0.644027
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="ScreewHead4" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(482.182, 56.5129)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="ScreewHead5" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(792.964, -32.7049)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_6pc17")
+
+[node name="BoardDoodad3" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(102.478, 119.938)
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("7_fikct")
+
+[node name="BoardDoodad4" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(610.3, 426.492)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("7_fikct")
+
+[node name="BoardDoodad5" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(610.3, 451.439)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("7_fikct")
+
+[node name="BoardDoodad10" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(213.683, 422.263)
+rotation = -1.5708
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("7_fikct")
+
+[node name="BoardDoodad11" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(213.683, 445.519)
+rotation = -1.5708
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("7_fikct")
+
+[node name="BoardDoodad12" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(418.757, 541.079)
+rotation = 3.14159
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("7_fikct")
+
+[node name="BoardDoodad6" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(624.254, 342.771)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("8_ihxp5")
+
+[node name="BoardDoodad7" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(813.683, -380.274)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("8_ihxp5")
+
+[node name="CopperNode" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(546.03, 378.289)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode2" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(538.419, 378.289)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode3" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(562.098, 397.316)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode4" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(456.389, 403.659)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode5" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(482.182, 466.238)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode6" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(559.983, 474.695)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode8" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(559.983, 467.507)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode9" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(559.983, 460.318)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode10" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(359.138, 397.739)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode11" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(310.512, 382.517)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode12" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(326.157, 456.09)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode13" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(339.264, 456.09)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode14" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(764.87, 465.539)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode15" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(764.87, 450.74)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode16" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(764.87, 437.632)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode17" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(764.87, 424.101)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode18" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(764.87, 408.879)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode19" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(819.838, 387.738)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode20" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(819.838, 374.207)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode21" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(816.456, 482.875)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode22" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(824.912, 482.875)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode23" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(735.272, 603.383)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode24" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(735.272, 613.531)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode25" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(735.272, 623.256)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode26" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(735.272, 632.558)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode27" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(735.272, 641.015)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode28" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(735.272, 650.317)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode29" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(735.272, 659.197)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode30" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(428.741, 613.131)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode31" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(428.741, 623.279)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode32" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(428.741, 633.004)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode33" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(428.741, 642.306)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode34" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(428.741, 650.763)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode35" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(428.741, 660.065)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode36" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(428.741, 668.945)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode44" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(486.646, 705.708)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode45" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(498.062, 705.708)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode46" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(510.324, 705.708)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode47" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(521.741, 705.708)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode48" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(533.157, 705.708)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode49" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(544.574, 705.708)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode37" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(355.591, 206.788)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode38" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(355.591, 216.936)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode39" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(355.591, 226.661)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode40" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(355.591, 235.964)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode41" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(355.591, 244.421)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode42" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(355.591, 253.723)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode43" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(355.591, 262.602)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="CopperNode7" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(594.233, 489.071)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("9_ri0hp")
+
+[node name="BoardDoodad8" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(814.106, -173.931)
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("10_aa2vc")
+
+[node name="BoardDoodad9" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(102.901, 323.743)
+rotation = 1.5708
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("10_aa2vc")
+
+[node name="Juntion3" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(114.74, 352.073)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("3_2utvq")
+
+[node name="Fan" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(128.866, 706.39)
+scale = Vector2(0.0591966, 0.0591966)
+texture = ExtResource("12_siaya")
+
+[node name="FanShell" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(129.711, 707.659)
+scale = Vector2(0.0655391, 0.0655391)
+texture = ExtResource("14_va3os")
 
 [node name="World" type="Node2D" parent="."]
 
@@ -120,3 +663,25 @@ texture = SubResource("GradientTexture2D_k23km")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3pek7")
 camera_attributes = SubResource("CameraAttributesPractical_w8qbm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
+layer = 10
+
+[node name="ColorRect2" type="ColorRect" parent="WorldEnvironment/CanvasLayer"]
+material = SubResource("ShaderMaterial_urrah")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="WorldEnvironment/CanvasLayer"]
+z_index = 2
+material = SubResource("ShaderMaterial_tcvb4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
