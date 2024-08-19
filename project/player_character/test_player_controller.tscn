@@ -5646,7 +5646,6 @@ b = Vector2(267.802, -7.73651)
 
 [node name="ScaleChecker" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_vhuwi")]
 player = NodePath("../PlayerController")
-speed = null
 
 [node name="PlayerController" parent="." instance=ExtResource("1_bomc3")]
 position = Vector2(3107.29, -808.393)
