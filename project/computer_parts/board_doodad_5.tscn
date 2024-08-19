@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvg5iynmm8377"]
+
+[ext_resource type="Texture2D" uid="uid://bimamu3sym8qc" path="res://sprites/common/BoardDoodad5.png" id="1_qwfso"]
+
+[node name="BoardDoodad5" type="Sprite2D"]
+position = Vector2(1874, 2031)
+texture = ExtResource("1_qwfso")

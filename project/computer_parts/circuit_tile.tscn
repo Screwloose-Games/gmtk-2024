@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://iy4t3coygg2"]
+
+[ext_resource type="Texture2D" uid="uid://dodtkct0a08xb" path="res://sprites/common/CircuitTile.png" id="1_3frcq"]
+
+[node name="CircuitTile" type="Sprite2D"]
+position = Vector2(367, 3914)
+texture = ExtResource("1_3frcq")

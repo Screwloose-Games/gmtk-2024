@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://df4hnul0ae6xn"]
+
+[ext_resource type="Texture2D" uid="uid://r6cgeane8yod" path="res://sprites/common/CopperNode.png" id="1_flu3s"]
+
+[node name="CopperNode" type="Sprite2D"]
+position = Vector2(-3360, 3087)
+texture = ExtResource("1_flu3s")
