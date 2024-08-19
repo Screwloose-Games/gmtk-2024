@@ -1,0 +1,330 @@
+[gd_scene load_steps=21 format=3 uid="uid://v76me5cfguvd"]
+
+[ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_n1b3e"]
+[ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_6sxo6"]
+[ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="3_sc0to"]
+[ext_resource type="PackedScene" uid="uid://35f6rd0ykthc" path="res://computer_parts/peg.tscn" id="4_r4puo"]
+[ext_resource type="PackedScene" uid="uid://dje4gtisv2bgs" path="res://computer_parts/power_con_1_stretch.tscn" id="5_mceq7"]
+[ext_resource type="PackedScene" uid="uid://0ekljb5kgk0g" path="res://computer_parts/fan.tscn" id="6_t1e34"]
+[ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/junction_1.tscn" id="7_qmo5a"]
+[ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_pr5mu"]
+[ext_resource type="PackedScene" uid="uid://c3qpn1plwd43h" path="res://computer_parts/red_box.tscn" id="10_era37"]
+[ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="10_tshbu"]
+[ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="11_xa523"]
+[ext_resource type="Script" path="res://levels/panel.gd" id="12_jvcok"]
+[ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="13_624yg"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="13_jt2pn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
+size = Vector2(11668.5, 6623.6)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ndvcv"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Theme" id="Theme_fibm6"]
+
+[sub_resource type="Texture2D" id="Texture2D_610p8"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("13_jt2pn")
+path = "scale_player_up"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_nmp8f"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("13_jt2pn")
+path = "scale_player_down"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_xghex"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("13_jt2pn")
+path = "ui_accept"
+show_mode = 0
+force_type = 0
+
+[node name="BaseLevel" instance=ExtResource("1_n1b3e")]
+
+[node name="Parallax2D" parent="." index="0"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CameraArea2D" parent="Parallax2D" index="0" instance=ExtResource("2_6sxo6")]
+position = Vector2(-155, -237)
+scale = Vector2(0.178, 0.178)
+
+[node name="CameraLimitCollision" type="CollisionShape2D" parent="Parallax2D/CameraArea2D" index="0" groups=["CameraLimitCollision"]]
+position = Vector2(3991.95, 2609.46)
+shape = SubResource("RectangleShape2D_5ibbs")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" parent="Parallax2D" index="83"]
+texture = SubResource("ViewportTexture_ndvcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
+visible = false
+position = Vector2(712, 203)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_sc0to")
+
+[node name="Peg4" parent="World" index="1" instance=ExtResource("4_r4puo")]
+position = Vector2(-2895, 418)
+rotation = -1.5708
+
+[node name="PlayerController" parent="World" index="2"]
+position = Vector2(-152, 271)
+can_grow = true
+can_shrink = true
+
+[node name="Camera2D" parent="World" index="3"]
+position = Vector2(-152, 271)
+
+[node name="PowerConAdjustable" parent="World" index="4" instance=ExtResource("5_mceq7")]
+offset_left = -2660.0
+offset_top = -703.0
+offset_right = 3415.0
+offset_bottom = 1364.0
+scale = Vector2(0.12, 0.12)
+
+[node name="Fan" parent="World" index="5" instance=ExtResource("6_t1e34")]
+position = Vector2(-2939, -74)
+scale = Vector2(0.1, 0.1)
+
+[node name="Juntion1" parent="World" index="6" instance=ExtResource("7_qmo5a")]
+position = Vector2(-3675, 193)
+
+[node name="PowerConAdjustableSmall" parent="World" index="7" instance=ExtResource("8_pr5mu")]
+offset_left = -3145.0
+offset_top = -673.0
+offset_right = -237.0
+offset_bottom = 995.0
+scale = Vector2(0.12, 0.12)
+
+[node name="PhantomCamera2D" parent="." index="2"]
+position = Vector2(-152, 271)
+
+[node name="FinishMarker" parent="." index="3"]
+position = Vector2(676, 320)
+scale = Vector2(3.52322, 3.52322)
+metadata/_edit_group_ = true
+
+[node name="FinishAreaCollision" parent="FinishMarker/FinishArea2D" index="0"]
+position = Vector2(0, -19.8682)
+
+[node name="DoorSprite" parent="FinishMarker" index="1"]
+position = Vector2(0, -19.8682)
+
+[node name="Peg" parent="." index="5" instance=ExtResource("4_r4puo")]
+position = Vector2(-3023, 306)
+
+[node name="RedBox" parent="." index="6" instance=ExtResource("10_era37")]
+position = Vector2(58, 338)
+scale = Vector2(0.130138, 0.130138)
+
+[node name="Platform" parent="." index="7" instance=ExtResource("10_tshbu")]
+position = Vector2(-93, 389)
+
+[node name="Platform14" parent="Platform" index="0" instance=ExtResource("10_tshbu")]
+show_behind_parent = true
+position = Vector2(0, -664)
+scale = Vector2(1, 1)
+
+[node name="Platform13" parent="Platform" index="2" instance=ExtResource("10_tshbu")]
+show_behind_parent = true
+position = Vector2(-8, -352)
+scale = Vector2(1, 1)
+
+[node name="Platform13" parent="." index="8" instance=ExtResource("10_tshbu")]
+position = Vector2(106, 160)
+
+[node name="Platform9" parent="." index="9" instance=ExtResource("10_tshbu")]
+position = Vector2(-94, -184)
+rotation = -3.14159
+
+[node name="Platform10" parent="." index="10" instance=ExtResource("10_tshbu")]
+position = Vector2(162, -184)
+rotation = -3.14159
+
+[node name="Platform11" parent="." index="11" instance=ExtResource("10_tshbu")]
+position = Vector2(419, -184)
+rotation = -3.14159
+
+[node name="Platform12" parent="." index="12" instance=ExtResource("10_tshbu")]
+position = Vector2(676, -184)
+rotation = -3.14159
+
+[node name="Platform5" parent="." index="13" instance=ExtResource("10_tshbu")]
+position = Vector2(-215, 231)
+rotation = 1.5708
+
+[node name="Platform7" parent="." index="14" instance=ExtResource("10_tshbu")]
+position = Vector2(-215, -26)
+rotation = 1.5708
+
+[node name="Platform6" parent="." index="15" instance=ExtResource("10_tshbu")]
+position = Vector2(799, 231)
+rotation = 4.71239
+
+[node name="Platform8" parent="." index="16" instance=ExtResource("10_tshbu")]
+position = Vector2(799, -26)
+rotation = 4.71239
+
+[node name="Platform2" parent="." index="17" instance=ExtResource("10_tshbu")]
+position = Vector2(163, 389)
+
+[node name="Platform3" parent="." index="18" instance=ExtResource("10_tshbu")]
+position = Vector2(420, 389)
+
+[node name="Platform14" parent="Platform3" index="1" instance=ExtResource("10_tshbu")]
+show_behind_parent = true
+position = Vector2(-8, -352)
+scale = Vector2(1, 1)
+
+[node name="Platform15" parent="Platform3" index="2" instance=ExtResource("10_tshbu")]
+show_behind_parent = true
+position = Vector2(0, -696)
+scale = Vector2(1, 1)
+
+[node name="Platform16" parent="Platform3" index="3" instance=ExtResource("10_tshbu")]
+show_behind_parent = true
+position = Vector2(0, -1040)
+scale = Vector2(1, 1)
+
+[node name="Platform4" parent="." index="19" instance=ExtResource("10_tshbu")]
+position = Vector2(677, 389)
+
+[node name="Platform13" parent="Platform4" index="1" instance=ExtResource("10_tshbu")]
+show_behind_parent = true
+position = Vector2(0, -352)
+scale = Vector2(1, 1)
+
+[node name="Adapter1" parent="." index="20" instance=ExtResource("11_xa523")]
+position = Vector2(-2805, 741)
+
+[node name="StaticBody2D2" parent="Adapter1" index="1" instance=ExtResource("13_624yg")]
+
+[node name="Juntion1" parent="." index="21" instance=ExtResource("7_qmo5a")]
+position = Vector2(-1247, -225)
+
+[node name="Juntion2" parent="." index="22" instance=ExtResource("7_qmo5a")]
+position = Vector2(323, -109)
+scale = Vector2(0.0443578, 0.0443578)
+metadata/_edit_group_ = true
+
+[node name="Juntion3" parent="Juntion2" index="1" instance=ExtResource("7_qmo5a")]
+position = Vector2(0, 1510.44)
+scale = Vector2(1, 1)
+
+[node name="Juntion4" parent="Juntion2" index="2" instance=ExtResource("7_qmo5a")]
+position = Vector2(0, 3020.89)
+scale = Vector2(1, 1)
+
+[node name="Juntion5" parent="Juntion2" index="3" instance=ExtResource("7_qmo5a")]
+position = Vector2(0, 4553.88)
+scale = Vector2(1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="23"]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NoticeArea" type="Control" parent="CanvasLayer/Control/Control2" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = -40.0
+offset_right = 112.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/Control2/NoticeArea" index="0"]
+layout_mode = 0
+offset_left = -154.0
+offset_top = -102.0
+offset_right = 49.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Control2/NoticeArea/PanelContainer" index="0"]
+layout_mode = 2
+theme = SubResource("Theme_fibm6")
+bbcode_enabled = true
+text = "[color=\"white\"][i][b]Unlocked CAroT2000[/b][/i]
+Grow:
+Shrink: 
+[b]Flux Responsibly[/b]
+[/color]"
+fit_content = true
+script = ExtResource("12_jvcok")
+
+[node name="Grow" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="1"]
+layout_mode = 2
+offset_left = -86.0
+offset_top = -81.0
+offset_right = 14.0
+offset_bottom = 19.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_610p8")
+stretch_mode = 4
+
+[node name="Shrink" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="2"]
+layout_mode = 2
+offset_left = -85.0
+offset_top = -57.0
+offset_right = 15.0
+offset_bottom = 43.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_nmp8f")
+stretch_mode = 4
+
+[node name="OkButton" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="3"]
+layout_mode = 2
+offset_left = 19.0
+offset_top = -28.0
+offset_right = 119.0
+offset_bottom = 72.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_xghex")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Control2/NoticeArea" index="4"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -25.0
+offset_right = 34.0
+offset_bottom = -2.0
+text = "OK"
+
+[node name="PauseMenu" parent="." index="24"]
+visible = false
+
+[node name="Control" parent="PauseMenu" index="0"]
+metadata/_edit_lock_ = true
