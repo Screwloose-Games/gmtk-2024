@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://obngpd2m7bgj"]
+[gd_scene load_steps=27 format=3 uid="uid://obngpd2m7bgj"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_m831w"]
 [ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="2_7tfvg"]
@@ -22,6 +22,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pd3p1"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjpsa"]
 size = Vector2(84.6462, 432.862)
@@ -61,6 +64,9 @@ scale = Vector2(0.178, 0.178)
 [node name="CameraLimitCollision" type="CollisionShape2D" parent="Parallax2D/CameraArea2D" index="0" groups=["CameraLimitCollision"]]
 position = Vector2(4929.78, 2446.63)
 shape = SubResource("RectangleShape2D_5ibbs")
+
+[node name="TextureRect2" parent="Parallax2D" index="83"]
+texture = SubResource("ViewportTexture_pd3p1")
 
 [node name="Juntion2" parent="World" index="0" instance=ExtResource("7_3kavb")]
 position = Vector2(302, 250)
@@ -215,8 +221,6 @@ position = Vector2(120, -21)
 [node name="CollectableScaleDevice" parent="." index="18" instance=ExtResource("17_pxf55")]
 position = Vector2(120, -76)
 scale = Vector2(0.2, 0.2)
-collision_layer = 8
-collision_mask = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="19"]
 visible = false

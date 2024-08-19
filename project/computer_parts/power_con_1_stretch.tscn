@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://m8chguax6u3g" path="res://sprites/common/PowerCon1.png" id="1_ts70j"]
 [ext_resource type="Script" path="res://computer_parts/power_con_1_stretch.gd" id="2_dksun"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_td7fs"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1ilm"]
 size = Vector2(4327, 1353.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0epk"]
@@ -14,7 +14,7 @@ size = Vector2(1603.25, 482.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30tc8"]
 size = Vector2(1804, 379)
 
-[node name="PowerConAdjustable" type="NinePatchRect"]
+[node name="PowerConAdjustable2" type="NinePatchRect"]
 offset_right = 4327.0
 offset_bottom = 1668.0
 texture = ExtResource("1_ts70j")
@@ -29,7 +29,7 @@ script = ExtResource("2_dksun")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 unique_name_in_owner = true
 position = Vector2(2163.5, 687.25)
-shape = SubResource("RectangleShape2D_td7fs")
+shape = SubResource("RectangleShape2D_d1ilm")
 debug_color = Color(0.964706, 0, 0, 0.419608)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]

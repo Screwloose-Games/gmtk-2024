@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://m8chguax6u3g" path="res://sprites/common/PowerCon1.png" id="1_3qprk"]
 [ext_resource type="Script" path="res://computer_parts/power_con_1_stretch.gd" id="2_2rbkp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq1fh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idms8"]
 size = Vector2(3108, 1182.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqyij"]
@@ -28,7 +28,7 @@ script = ExtResource("2_2rbkp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 unique_name_in_owner = true
 position = Vector2(1554, 601.75)
-shape = SubResource("RectangleShape2D_h26kj")
+shape = SubResource("RectangleShape2D_idms8")
 debug_color = Color(0.964706, 0, 0, 0.419608)
 
 [node name="Control" type="Control" parent="."]
