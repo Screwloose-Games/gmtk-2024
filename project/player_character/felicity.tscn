@@ -6781,6 +6781,7 @@ editor_settings/show_bone_gizmo = false
 [node name="LeftStrand3" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head/LeftStrand1/LeftStrand2"]
 position = Vector2(-10, 69)
 rotation = 1.36505
+scale = Vector2(1, 1)
 rest = Transform2D(0.204297, 0.978909, -0.978909, 0.204297, -10, 69)
 auto_calculate_length_and_angle = false
 length = 71.392
@@ -6901,6 +6902,7 @@ editor_settings/show_bone_gizmo = false
 
 [node name="JacketL2" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/JacketL1"]
 position = Vector2(4, 100)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 4, 100)
 editor_settings/show_bone_gizmo = false
 
