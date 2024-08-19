@@ -15,18 +15,18 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agpv1"]
 radius = 14.0
-height = 80.0
+height = 98.0
 
 [node name="PlayerController" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 257
 script = ExtResource("1_6ovu0")
-base_move_speed = 120.0
+base_move_speed = 140.0
 
 [node name="ActorCore" type="Node" parent="."]
 script = ExtResource("2_joyi1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -40)
+position = Vector2(0, -49)
 shape = SubResource("CapsuleShape2D_agpv1")
 
 [node name="Flippable" type="Node2D" parent="."]
@@ -39,7 +39,7 @@ translation_target = NodePath("..")
 [node name="Felicity" parent="Flippable" instance=ExtResource("2_dhjsc")]
 unique_name_in_owner = true
 z_index = 5
-scale = Vector2(-0.1, 0.1)
+scale = Vector2(-0.12, 0.12)
 
 [node name="CharacterScaler" parent="." node_paths=PackedStringArray("scale_target") instance=ExtResource("2_4yyik")]
 unique_name_in_owner = true

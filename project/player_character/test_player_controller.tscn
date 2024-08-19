@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dpsqsm37v5eod"]
+[gd_scene load_steps=34 format=4 uid="uid://dpsqsm37v5eod"]
 
 [ext_resource type="PackedScene" uid="uid://det4f2y5mr0ol" path="res://player_character/player_controller.tscn" id="1_bomc3"]
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="2_h1t3i"]
@@ -5615,6 +5615,31 @@ size = Vector2(80, 80)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1tcxk"]
 gradient = SubResource("Gradient_36pg8")
 
+[sub_resource type="Gradient" id="Gradient_e4l4f"]
+offsets = PackedFloat32Array(0, 0.0974026, 0.951299, 1)
+colors = PackedColorArray(0, 0, 0.254902, 1, 0.132829, 0.141429, 0.372894, 1, 0.514712, 0.548039, 0.712121, 1, 0.838789, 0.8931, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5lp0s"]
+gradient = SubResource("Gradient_e4l4f")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bd1w5"]
+a = Vector2(-36.8599, 13.6791)
+b = Vector2(-291.652, 136.949)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hmxj2"]
+a = Vector2(63.8389, -16.3839)
+b = Vector2(-37.7222, 12.744)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_v30xi"]
+a = Vector2(63.0198, -16.3839)
+b = Vector2(181.781, 1.44952)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_tgb82"]
+a = Vector2(181.218, 1.80188)
+b = Vector2(267.802, -7.73651)
+
 [node name="TestPlayerController" type="Node2D"]
 
 [node name="PlayerController" parent="." instance=ExtResource("1_bomc3")]
@@ -5657,7 +5682,6 @@ draw_limits = true
 [node name="ScaleCamera" type="Node" parent="PhantomCamera2D" node_paths=PackedStringArray("camera")]
 script = ExtResource("7_qu3kc")
 camera = NodePath("..")
-camera_scale_base = 0.5
 
 [node name="XLarge" type="StaticBody2D" parent="."]
 position = Vector2(-380.45, 15.9963)
@@ -5749,16 +5773,43 @@ text = "Restart"
 script = ExtResource("8_gd8dv")
 
 [node name="BoardDoodad1" parent="." instance=ExtResource("10_kxmfc")]
-position = Vector2(742.655, 563.063)
+position = Vector2(716.655, 277.063)
+scale = Vector2(0.05, 0.05)
 
 [node name="BoardDoodad2" parent="." instance=ExtResource("11_77qx8")]
 position = Vector2(744.709, -12.773)
 
 [node name="BoardDoodad4" parent="." instance=ExtResource("11_77qx8")]
-position = Vector2(1008.73, -27.7001)
-
-[node name="BoardDoodad3" parent="." instance=ExtResource("10_kxmfc")]
-position = Vector2(1001.36, 560.567)
+position = Vector2(1060.73, 16.2999)
 
 [node name="Fan" parent="." instance=ExtResource("13_6fgg4")]
-position = Vector2(396.51, 281.661)
+position = Vector2(-537.49, 707.661)
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-1726.12, 921.295)
+scale = Vector2(1.29354, 1.78227)
+points = PackedVector2Array(3708.12, -862.453, 3959.84, -983.816, 4059.93, -1016.31, 4177.68, -999.336, 4260.44, -1007.35)
+texture = SubResource("GradientTexture2D_5lp0s")
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Line2D"]
+position = Vector2(3997.26, -1000.98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/StaticBody2D"]
+shape = SubResource("SegmentShape2D_bd1w5")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Line2D/StaticBody2D"]
+shape = SubResource("SegmentShape2D_hmxj2")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Line2D/StaticBody2D"]
+shape = SubResource("SegmentShape2D_v30xi")
+one_way_collision = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Line2D/StaticBody2D"]
+shape = SubResource("SegmentShape2D_tgb82")
+one_way_collision = true

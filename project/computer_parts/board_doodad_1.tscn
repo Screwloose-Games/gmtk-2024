@@ -1,24 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://dlsh4rl2jmvh7"]
 
-[ext_resource type="Texture2D" uid="uid://cbcvvdj5d7pow" path="res://computer_parts/BoardDoodad1.png" id="1_0ftoq"]
+[ext_resource type="Texture2D" uid="uid://djkr52ol8nihp" path="res://sprites/common/Junction2.png" id="1_vb58q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w14nc"]
-size = Vector2(277.625, 300)
+size = Vector2(281.266, 301.97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhnpy"]
-size = Vector2(222.719, 120.25)
+size = Vector2(226.832, 121.889)
 
 [node name="BoardDoodad1" type="StaticBody2D"]
 
 [node name="BoardDoodad1" type="Sprite2D" parent="."]
 position = Vector2(15, -191)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_0ftoq")
+texture = ExtResource("1_vb58q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(15.1875, -136)
+position = Vector2(14.707, 623.745)
+scale = Vector2(14.5529, 14.5529)
 shape = SubResource("RectangleShape2D_w14nc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-12.3595, -336.125)
+position = Vector2(-376.84, -2314.92)
+scale = Vector2(14.5529, 14.5529)
 shape = SubResource("RectangleShape2D_jhnpy")

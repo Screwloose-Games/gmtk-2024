@@ -28,6 +28,7 @@ SceneTransitionManager="*res://scenes/preloads/scene_transition_manager.tscn"
 SaveManager="*res://scenes/preloads/save_manager.tscn"
 CameraShakeManager="*res://scenes/preloads/camera_shake_manager.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
 
 [display]
 
@@ -37,9 +38,13 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="D:/projects/godot/gmtk-2024/movies/character01/character01.png"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
@@ -138,3 +143,4 @@ common/max_fps=0
 
 environment/volumetric_fog/use_filter=0
 environment/defaults/default_clear_color=Color(0.0980392, 0.172549, 0.392157, 1)
+viewport/transparent_background=true

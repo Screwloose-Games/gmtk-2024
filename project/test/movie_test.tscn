@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvp86snnggti2"]
+
+[ext_resource type="PackedScene" uid="uid://det4f2y5mr0ol" path="res://player_character/player_controller.tscn" id="1_tyoc4"]
+[ext_resource type="PackedScene" uid="uid://dlsh4rl2jmvh7" path="res://computer_parts/board_doodad_1.tscn" id="2_cj6xi"]
+
+[node name="MovieTest" type="Node2D"]
+
+[node name="PlayerController" parent="." instance=ExtResource("1_tyoc4")]
+position = Vector2(233, 293)
+
+[node name="BoardDoodad1" parent="." instance=ExtResource("2_cj6xi")]
+position = Vector2(234, 580)
+rotation = 3.14159
+scale = Vector2(0.1, 0.1)
