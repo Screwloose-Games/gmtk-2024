@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=4 uid="uid://dpsqsm37v5eod"]
+[gd_scene load_steps=36 format=4 uid="uid://dpsqsm37v5eod"]
 
 [ext_resource type="PackedScene" uid="uid://det4f2y5mr0ol" path="res://player_character/player_controller.tscn" id="1_bomc3"]
+[ext_resource type="PackedScene" uid="uid://c13t5n87qgaob" path="res://scale_checker.tscn" id="1_vhuwi"]
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="2_h1t3i"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_nevy2"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="3_p1dn1"]
@@ -5642,6 +5643,10 @@ a = Vector2(181.218, 1.80188)
 b = Vector2(267.802, -7.73651)
 
 [node name="TestPlayerController" type="Node2D"]
+
+[node name="ScaleChecker" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_vhuwi")]
+player = NodePath("../PlayerController")
+speed = null
 
 [node name="PlayerController" parent="." instance=ExtResource("1_bomc3")]
 position = Vector2(3107.29, -808.393)

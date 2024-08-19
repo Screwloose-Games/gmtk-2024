@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c13t5n87qgaob"]
+
+[ext_resource type="Script" path="res://player_character/scale_checker.gd" id="1_f2kke"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agpv1"]
+radius = 14.0
+height = 79.0
+
+[node name="ScaleChecker" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_f2kke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -39)
+shape = SubResource("CapsuleShape2D_agpv1")

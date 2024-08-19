@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://det4f2y5mr0ol"]
+[gd_scene load_steps=17 format=3 uid="uid://det4f2y5mr0ol"]
 
 [ext_resource type="Script" path="res://player_character/player_controller.gd" id="1_6ovu0"]
 [ext_resource type="PackedScene" uid="uid://dt4ko00s6iojh" path="res://player_character/character_scaler.tscn" id="2_4yyik"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://player_character/state/fall_state.gd" id="9_nbc1x"]
 [ext_resource type="Script" path="res://player_character/state/jump_state.gd" id="10_55v8w"]
 [ext_resource type="Script" path="res://player_character/collector_area.gd" id="13_qs4cy"]
+[ext_resource type="PackedScene" uid="uid://c13t5n87qgaob" path="res://scale_checker.tscn" id="14_ut0xs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agpv1"]
 radius = 14.0
@@ -93,3 +94,5 @@ character_scaler = NodePath("../CharacterScaler")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectorArea"]
 position = Vector2(0, -39)
 shape = SubResource("CapsuleShape2D_x0bg4")
+
+[node name="ScaleChecker" parent="." instance=ExtResource("14_ut0xs")]

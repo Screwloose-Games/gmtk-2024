@@ -140,6 +140,7 @@ scale_player_up2={
 2d_physics/layer_4="PlayerCollectable"
 2d_physics/layer_5="Dynamic Object"
 2d_physics/layer_6="Hit Box"
+2d_physics/layer_8="player_collision_check"
 2d_physics/layer_9="player_finish"
 
 [physics]
