@@ -1,12 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqp5ttlspj0vl"]
+[gd_scene load_steps=6 format=3 uid="uid://dqp5ttlspj0vl"]
 
 [ext_resource type="Texture2D" uid="uid://m8chguax6u3g" path="res://sprites/common/PowerCon1.png" id="1_3qprk"]
 [ext_resource type="Script" path="res://computer_parts/power_con_1_stretch.gd" id="2_2rbkp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x7o4"]
-size = Vector2(4775, 1182.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0epk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7lv2"]
+size = Vector2(3108, 1182.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqyij"]
 size = Vector2(1636.5, 482.5)
@@ -29,12 +27,9 @@ script = ExtResource("2_2rbkp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 unique_name_in_owner = true
-position = Vector2(2387.5, 601.75)
-shape = SubResource("RectangleShape2D_4x7o4")
+position = Vector2(1554, 601.75)
+shape = SubResource("RectangleShape2D_m7lv2")
 debug_color = Color(0.964706, 0, 0, 0.419608)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_n0epk")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

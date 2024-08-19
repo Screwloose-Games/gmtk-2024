@@ -3,5 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://c5dnd8qifa7ry" path="res://sprites/common/Adapter2.png" id="1_ur6wd"]
 
 [node name="Adapter2" type="Sprite2D"]
-position = Vector2(12033.7, 2904.49)
 texture = ExtResource("1_ur6wd")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1888, -1011, -1303, -1011, -1176, -1112, -1176, -1367, 1833, -1358, 1875, -1299, 1875, 1303, 1807, 1371, -1795, 1363, -1880, 1286)

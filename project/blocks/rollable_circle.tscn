@@ -5,8 +5,6 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ebv6g"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_55op1"]
-
 [sub_resource type="Gradient" id="Gradient_xfjj4"]
 offsets = PackedFloat32Array(0, 0.472561, 0.506098)
 colors = PackedColorArray(0, 0, 0, 1, 0.0313726, 0.0313726, 0.0313726, 1, 0.623529, 0.623529, 0.623529, 0)
@@ -23,14 +21,14 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_c4dnv"]
 gradient = SubResource("Gradient_0cp1q")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_55op1"]
+radius = 31.0
+
 [node name="RollableCircle" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_ebv6g")
 center_of_mass_mode = 1
 center_of_mass = Vector2(1, 1)
 script = ExtResource("1_cn8hu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_55op1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -43,5 +41,8 @@ scale = Vector2(0.0625, 4)
 texture = SubResource("GradientTexture1D_c4dnv")
 
 [node name="ScreewHead2" type="Sprite2D" parent="."]
-scale = Vector2(0.02, 0.02)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("2_17c77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_55op1")

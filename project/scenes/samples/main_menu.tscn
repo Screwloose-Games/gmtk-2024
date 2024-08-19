@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://fonts/Peaberry/PeaberryMono.ttf" id="1_i2dk5"]
 [ext_resource type="StyleBox" uid="uid://b6h4sqok6xlxy" path="res://themes/pixelart/button_normal_style.tres" id="2_40phc"]
-[ext_resource type="PackedScene" path="res://scenes/scene_transitions/circle_transition.tscn" id="3_lqaap"]
+[ext_resource type="PackedScene" uid="uid://b2jlwpok70miu" path="res://scenes/scene_transitions/circle_transition.tscn" id="3_lqaap"]
 [ext_resource type="StyleBox" uid="uid://dj0ib6qvmygdj" path="res://themes/pixelart/button_pressed_style.tres" id="3_u8ajb"]
 [ext_resource type="Texture2D" uid="uid://njsc8l802yng" path="res://sprites/ui/ui-tileset.png" id="4_05n6c"]
 [ext_resource type="Script" path="res://scripts/ui/audio_menu.gd" id="4_mjs4o"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="6_8dq4u"]
-[ext_resource type="PackedScene" uid="uid://cfc6kcoguyopo" path="res://levels/level_01_movement.tscn" id="8_clvgk"]
+[ext_resource type="PackedScene" uid="uid://obngpd2m7bgj" path="res://levels/level_01_large.tscn" id="8_o234l"]
 [ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="AudioStream" uid="uid://b2prt2348r4yu" path="res://audio/music/Felicitys_Theme_V1.mp3" id="12_ob2c6"]
 
@@ -208,7 +208,7 @@ script = ExtResource("1_7gw0o")
 start_button = NodePath("../MarginContainer/VBoxContainer/start_button")
 settings_button = NodePath("../MarginContainer/VBoxContainer/settings_button")
 exit_button = NodePath("../MarginContainer/VBoxContainer/exit_button")
-start_scene_path = ExtResource("8_clvgk")
+start_scene_path = ExtResource("8_o234l")
 transition_path = ExtResource("3_lqaap")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu"]

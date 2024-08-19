@@ -1,25 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlsh4rl2jmvh7"]
+[gd_scene load_steps=2 format=3 uid="uid://dlsh4rl2jmvh7"]
 
 [ext_resource type="Texture2D" uid="uid://djkr52ol8nihp" path="res://sprites/common/Junction2.png" id="1_vb58q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w14nc"]
-size = Vector2(281.266, 301.97)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhnpy"]
-size = Vector2(226.832, 121.889)
-
 [node name="BoardDoodad1" type="StaticBody2D"]
+scale = Vector2(0.125, 0.125)
 
 [node name="BoardDoodad1" type="Sprite2D" parent="."]
 position = Vector2(15, -191)
 texture = ExtResource("1_vb58q")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14.707, 623.745)
-scale = Vector2(14.5529, 14.5529)
-shape = SubResource("RectangleShape2D_w14nc")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-376.84, -2314.92)
-scale = Vector2(14.5529, 14.5529)
-shape = SubResource("RectangleShape2D_jhnpy")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-618.826, -1203.43, 397.234, -1196.35, 437.643, -1160.43, 437.643, -1021.25, 365.805, -980.839, 388.255, -671.039, 617.237, -648.59, 693.564, -572.262, 702.544, 729.794, 630.706, 810.611, 518.46, 828.57, -482.776, 819.591, -559.103, 779.182, -590.532, 725.304, -590.532, 339.177, -626.451, 307.748, -675.839, 294.278, -662.37, -940.43, -660.358, -1160.22)
