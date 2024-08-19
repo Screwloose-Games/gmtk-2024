@@ -12,6 +12,8 @@ script = ExtResource("3_b1dgj")
 size = Vector2(117, 315)
 
 [node name="CollectableScaleDevice" instance=ExtResource("1_x0peq")]
+collision_layer = 8
+collision_mask = 0
 effects = Array[ExtResource("2_fwgrl")]([SubResource("Resource_vtcr3")])
 
 [node name="CArrOTpickup" type="Sprite2D" parent="." index="0"]

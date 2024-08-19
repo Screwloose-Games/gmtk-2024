@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dpsqsm37v5eod"]
+[gd_scene load_steps=35 format=4 uid="uid://dpsqsm37v5eod"]
 
 [ext_resource type="PackedScene" uid="uid://det4f2y5mr0ol" path="res://player_character/player_controller.tscn" id="1_bomc3"]
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="2_h1t3i"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dlsh4rl2jmvh7" path="res://computer_parts/board_doodad_1.tscn" id="10_kxmfc"]
 [ext_resource type="PackedScene" uid="uid://bp7gqhdx7oep5" path="res://computer_parts/board_doodad_2.tscn" id="11_77qx8"]
 [ext_resource type="PackedScene" uid="uid://0ekljb5kgk0g" path="res://computer_parts/fan.tscn" id="13_6fgg4"]
+[ext_resource type="PackedScene" uid="uid://csv1bv5a1bw7y" path="res://pickups/collectable_scale_device.tscn" id="14_p8hyf"]
 
 [sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_4o1h6"]
 
@@ -5813,3 +5814,6 @@ one_way_collision = true
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Line2D/StaticBody2D"]
 shape = SubResource("SegmentShape2D_tgb82")
 one_way_collision = true
+
+[node name="CollectableScaleDevice" parent="." instance=ExtResource("14_p8hyf")]
+position = Vector2(3046.26, -800.431)
