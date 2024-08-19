@@ -1,31 +1,140 @@
-[gd_scene load_steps=10 format=3 uid="uid://3vljfoa6v2ag"]
+[gd_scene load_steps=28 format=3 uid="uid://3vljfoa6v2ag"]
 
-[ext_resource type="PackedScene" uid="uid://dlsh4rl2jmvh7" path="res://computer_parts/board_doodad_1.tscn" id="1_d5yrs"]
-[ext_resource type="PackedScene" uid="uid://bp7gqhdx7oep5" path="res://computer_parts/board_doodad_2.tscn" id="2_6u10l"]
-[ext_resource type="PackedScene" uid="uid://do41ceqap1bm1" path="res://computer_parts/board_doodad_3.tscn" id="3_xits7"]
-[ext_resource type="PackedScene" uid="uid://d3xgqtglpvke0" path="res://computer_parts/board_doodad_4.tscn" id="4_epyut"]
-[ext_resource type="PackedScene" uid="uid://bvg5iynmm8377" path="res://computer_parts/board_doodad_5.tscn" id="5_jdmgg"]
-[ext_resource type="PackedScene" uid="uid://badvhy6y1hh04" path="res://computer_parts/chip_1.tscn" id="6_8i5yd"]
-[ext_resource type="PackedScene" uid="uid://dry4jh08gv5tk" path="res://computer_parts/chip_2.tscn" id="7_xspph"]
-[ext_resource type="PackedScene" uid="uid://iy4t3coygg2" path="res://computer_parts/circuit_tile.tscn" id="8_sohns"]
-[ext_resource type="PackedScene" uid="uid://df4hnul0ae6xn" path="res://computer_parts/copper_node.tscn" id="9_jn2au"]
+[ext_resource type="Texture2D" uid="uid://db24fn36y33po" path="res://sprites/common/Adapter1.png" id="1_34jf6"]
+[ext_resource type="Texture2D" uid="uid://c5dnd8qifa7ry" path="res://sprites/common/Adapter2.png" id="2_1s7b0"]
+[ext_resource type="Texture2D" uid="uid://6r5s156cjd04" path="res://sprites/common/Adapter3.png" id="3_f3sfi"]
+[ext_resource type="Texture2D" uid="uid://clye0bj8jm4pv" path="res://sprites/common/BoardDoodad1.png" id="4_txyqq"]
+[ext_resource type="Texture2D" uid="uid://dwamu1fl8r4kp" path="res://sprites/common/BoardDoodad1_up.png" id="5_baxka"]
+[ext_resource type="Texture2D" uid="uid://djvpmqr2quq6o" path="res://sprites/common/BoardDoodad2.png" id="6_87qaf"]
+[ext_resource type="Texture2D" uid="uid://f2d0re2xlg0p" path="res://sprites/common/BoardDoodad3.png" id="7_rxot1"]
+[ext_resource type="Texture2D" uid="uid://b0iydd5afpy32" path="res://sprites/common/BoardDoodad4.png" id="8_ubf4e"]
+[ext_resource type="Texture2D" uid="uid://bimamu3sym8qc" path="res://sprites/common/BoardDoodad5.png" id="9_tegr8"]
+[ext_resource type="Texture2D" uid="uid://e7bek10v8mf0" path="res://sprites/common/CArrOTpickup.png" id="10_dldaq"]
+[ext_resource type="Texture2D" uid="uid://dc48kohmjeirt" path="res://sprites/common/Chip1.png" id="11_ell7w"]
+[ext_resource type="Texture2D" uid="uid://ef2sxy76efew" path="res://sprites/common/Chip2.png" id="12_hkq1f"]
+[ext_resource type="Texture2D" uid="uid://dodtkct0a08xb" path="res://sprites/common/CircuitTile.png" id="13_04oe5"]
+[ext_resource type="Texture2D" uid="uid://r6cgeane8yod" path="res://sprites/common/CopperNode.png" id="14_6a71w"]
+[ext_resource type="PackedScene" uid="uid://0ekljb5kgk0g" path="res://computer_parts/fan.tscn" id="15_8iy5v"]
+[ext_resource type="Texture2D" uid="uid://dqnvyneq7rl8f" path="res://sprites/common/gun.png" id="18_bu82f"]
+[ext_resource type="Texture2D" uid="uid://djkr52ol8nihp" path="res://sprites/common/Junction2.png" id="19_0p8ev"]
+[ext_resource type="Texture2D" uid="uid://derdjrheegbkb" path="res://sprites/common/Junction3.png" id="20_4lnfq"]
+[ext_resource type="Texture2D" uid="uid://cy441rg3pu63h" path="res://sprites/common/Junction4.png" id="21_v0gqb"]
+[ext_resource type="Texture2D" uid="uid://bqj6npwvoal83" path="res://sprites/common/Juntion1.png" id="22_7n7ho"]
+[ext_resource type="Texture2D" uid="uid://m8chguax6u3g" path="res://sprites/common/PowerCon1.png" id="23_h4w2u"]
+[ext_resource type="Texture2D" uid="uid://u1dfj4qh2t42" path="res://sprites/common/PowerCon2.png" id="24_tyoav"]
+[ext_resource type="Texture2D" uid="uid://b3g8o27ufq6by" path="res://sprites/common/PowerCon3.png" id="25_s8cno"]
+[ext_resource type="Texture2D" uid="uid://dtkb4i6xfpmra" path="res://sprites/common/PowerCon4.png" id="26_dhbuj"]
+[ext_resource type="Texture2D" uid="uid://b2j4ixxw5d3w8" path="res://sprites/common/Projector.png" id="27_dp6bi"]
+[ext_resource type="Texture2D" uid="uid://svme77yl281y" path="res://sprites/common/ProjectorGlow.png" id="28_nnld0"]
+[ext_resource type="Texture2D" uid="uid://dp6e1pgdsm0mm" path="res://sprites/common/ScreewHead.png" id="29_f0nsy"]
 
 [node name="ComputerWhole" type="Node2D"]
+position = Vector2(-448, 1184)
 
-[node name="BoardDoodad1" parent="." instance=ExtResource("1_d5yrs")]
+[node name="Adapter1" type="Sprite2D" parent="."]
+position = Vector2(-13083.6, -12815.3)
+texture = ExtResource("1_34jf6")
 
-[node name="BoardDoodad2" parent="." instance=ExtResource("2_6u10l")]
+[node name="Adapter2" type="Sprite2D" parent="."]
+position = Vector2(-8411.63, -12719.3)
+texture = ExtResource("2_1s7b0")
 
-[node name="BoardDoodad3" parent="." instance=ExtResource("3_xits7")]
+[node name="Adapter3" type="Sprite2D" parent="."]
+position = Vector2(-3803.63, -11343.3)
+texture = ExtResource("3_f3sfi")
 
-[node name="BoardDoodad4" parent="." instance=ExtResource("4_epyut")]
+[node name="BoardDoodad1" type="Sprite2D" parent="."]
+position = Vector2(-15067.6, -6159.31)
+texture = ExtResource("4_txyqq")
 
-[node name="BoardDoodad5" parent="." instance=ExtResource("5_jdmgg")]
+[node name="BoardDoodad1Up" type="Sprite2D" parent="."]
+position = Vector2(-13403.6, -6127.31)
+texture = ExtResource("5_baxka")
 
-[node name="Chip1" parent="." instance=ExtResource("6_8i5yd")]
+[node name="BoardDoodad2" type="Sprite2D" parent="."]
+position = Vector2(-16667.6, -6479.31)
+texture = ExtResource("6_87qaf")
 
-[node name="Chip2" parent="." instance=ExtResource("7_xspph")]
+[node name="BoardDoodad3" type="Sprite2D" parent="."]
+position = Vector2(-16635.6, -4367.31)
+texture = ExtResource("7_rxot1")
 
-[node name="CircuitTile" parent="." instance=ExtResource("8_sohns")]
+[node name="BoardDoodad4" type="Sprite2D" parent="."]
+position = Vector2(-15035.6, -4399.31)
+texture = ExtResource("8_ubf4e")
 
-[node name="CopperNode" parent="." instance=ExtResource("9_jn2au")]
+[node name="BoardDoodad5" type="Sprite2D" parent="."]
+position = Vector2(-13467.6, -4431.31)
+texture = ExtResource("9_tegr8")
+
+[node name="CArrOTpickup" type="Sprite2D" parent="."]
+position = Vector2(-12603.6, -1071.31)
+texture = ExtResource("10_dldaq")
+
+[node name="Chip1" type="Sprite2D" parent="."]
+position = Vector2(-9979.63, 112.692)
+texture = ExtResource("11_ell7w")
+
+[node name="Chip2" type="Sprite2D" parent="."]
+position = Vector2(-8443.63, 240.692)
+texture = ExtResource("12_hkq1f")
+
+[node name="CircuitTile" type="Sprite2D" parent="."]
+position = Vector2(-15643.6, -207.308)
+texture = ExtResource("13_04oe5")
+
+[node name="CopperNode" type="Sprite2D" parent="."]
+position = Vector2(-6171.63, 208.692)
+texture = ExtResource("14_6a71w")
+
+[node name="Fan" parent="." instance=ExtResource("15_8iy5v")]
+position = Vector2(4707.23, 2763.48)
+scale = Vector2(1, 1)
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(-795.629, -2159.31)
+texture = ExtResource("18_bu82f")
+
+[node name="Junction2" type="Sprite2D" parent="."]
+position = Vector2(-795.629, -2159.31)
+texture = ExtResource("19_0p8ev")
+
+[node name="Junction3" type="Sprite2D" parent="."]
+position = Vector2(-795.629, -2159.31)
+texture = ExtResource("20_4lnfq")
+
+[node name="Junction4" type="Sprite2D" parent="."]
+position = Vector2(-795.629, -2159.31)
+texture = ExtResource("21_v0gqb")
+
+[node name="Juntion1" type="Sprite2D" parent="."]
+position = Vector2(-795.629, -2159.31)
+texture = ExtResource("22_7n7ho")
+
+[node name="PowerCon1" type="Sprite2D" parent="."]
+position = Vector2(-795.629, -2159.31)
+texture = ExtResource("23_h4w2u")
+
+[node name="PowerCon2" type="Sprite2D" parent="."]
+position = Vector2(6820.37, -8367.31)
+texture = ExtResource("24_tyoav")
+
+[node name="PowerCon3" type="Sprite2D" parent="."]
+position = Vector2(1172.96, -8811.77)
+texture = ExtResource("25_s8cno")
+
+[node name="PowerCon4" type="Sprite2D" parent="."]
+position = Vector2(-9167.77, -6345.38)
+texture = ExtResource("26_dhbuj")
+
+[node name="Projector" type="Sprite2D" parent="."]
+position = Vector2(-795.629, -2159.31)
+texture = ExtResource("27_dp6bi")
+
+[node name="ProjectorGlow" type="Sprite2D" parent="."]
+position = Vector2(-795.629, -2159.31)
+texture = ExtResource("28_nnld0")
+
+[node name="ScreewHead" type="Sprite2D" parent="."]
+position = Vector2(8164.37, -591.308)
+texture = ExtResource("29_f0nsy")

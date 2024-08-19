@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kvse8ctupe6s"]
+
+[ext_resource type="Texture2D" uid="uid://c5dnd8qifa7ry" path="res://sprites/common/Adapter2.png" id="1_ur6wd"]
+
+[node name="Adapter2" type="Sprite2D"]
+position = Vector2(12033.7, 2904.49)
+texture = ExtResource("1_ur6wd")

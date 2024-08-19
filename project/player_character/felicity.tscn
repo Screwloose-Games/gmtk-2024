@@ -6599,7 +6599,6 @@ editor_settings/show_bone_gizmo = false
 [node name="RightSrand3" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head/RightSrand1/RightSrand2"]
 position = Vector2(15, 65)
 rotation = 1.69805
-scale = Vector2(1, 1)
 rest = Transform2D(-0.12691, 0.991914, -0.991914, -0.12691, 15, 65)
 auto_calculate_length_and_angle = false
 length = 52.945
@@ -6609,7 +6608,7 @@ editor_settings/show_bone_gizmo = false
 [node name="Glasses" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head"]
 position = Vector2(44, -13)
 rotation = 0.00367919
-scale = Vector2(1, 1)
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999993, 0.00367918, -0.00367918, 0.999993, 44, -13)
 editor_settings/show_bone_gizmo = false
 
@@ -6638,7 +6637,6 @@ editor_settings/show_bone_gizmo = false
 [node name="HairSideBack2" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/Neck/Head/HairSideBack1"]
 position = Vector2(24, 97)
 rotation = 1.5562
-scale = Vector2(1, 1)
 rest = Transform2D(0.0145922, 0.999894, -0.999894, 0.0145922, 24, 97)
 editor_settings/show_bone_gizmo = false
 
@@ -6704,7 +6702,6 @@ editor_settings/show_bone_gizmo = false
 
 [node name="JacketL2" type="Bone2D" parent="Felicity_Skeleton2D/Hip/Waist/Chest/JacketL1"]
 position = Vector2(4, 100)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 4, 100)
 editor_settings/show_bone_gizmo = false
 

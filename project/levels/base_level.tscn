@@ -44,6 +44,7 @@ script = ExtResource("1_nrive")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1024, 1024)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 visible = false
@@ -88,6 +89,7 @@ draw_limits = true
 
 [node name="ScreenScaleAutoZoom" type="Node" parent="PhantomCamera2D"]
 script = ExtResource("6_7ixct")
+camera_zoom_base = 0.4
 
 [node name="CameraLimiter" type="Node" parent="PhantomCamera2D"]
 script = ExtResource("7_1x8r0")

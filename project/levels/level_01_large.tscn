@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://obngpd2m7bgj"]
+
+[ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_m831w"]
+[ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="2_7tfvg"]
+[ext_resource type="PackedScene" uid="uid://drl3trfhsn2r5" path="res://computer_parts/power_con_1.tscn" id="3_hr5lp"]
+[ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="4_ov18x"]
+[ext_resource type="PackedScene" uid="uid://dje4gtisv2bgs" path="res://computer_parts/power_con_1_stretch.tscn" id="4_y8ees"]
+[ext_resource type="PackedScene" uid="uid://0ekljb5kgk0g" path="res://computer_parts/fan.tscn" id="5_tleyp"]
+[ext_resource type="PackedScene" uid="uid://dlsh4rl2jmvh7" path="res://computer_parts/board_doodad_1.tscn" id="6_bienn"]
+[ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/juntion_1.tscn" id="7_3kavb"]
+[ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_ytgdd"]
+[ext_resource type="PackedScene" uid="uid://cxrnv2xox2pkl" path="res://blocks/rollable_circle.tscn" id="10_i4fu7"]
+[ext_resource type="PackedScene" uid="uid://kvse8ctupe6s" path="res://computer_parts/adapter_2.tscn" id="11_jraed"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
+size = Vector2(11668.5, 6623.6)
+
+[node name="BaseLevel" instance=ExtResource("1_m831w")]
+
+[node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
+position = Vector2(712, 203)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_7tfvg")
+
+[node name="PlayerController" parent="World" index="1"]
+position = Vector2(-62, -31)
+
+[node name="Camera2D" parent="World" index="2"]
+position = Vector2(-62, -31)
+
+[node name="PowerCon1" parent="World" index="3" instance=ExtResource("3_hr5lp")]
+visible = false
+position = Vector2(-2274, -395)
+scale = Vector2(0.178, 0.15)
+
+[node name="PowerConAdjustable" parent="World" index="4" instance=ExtResource("4_y8ees")]
+offset_left = -215.0
+offset_top = 1.0
+offset_right = 5860.0
+offset_bottom = 2068.0
+scale = Vector2(0.12, 0.12)
+
+[node name="PowerConAdjustable2" parent="World" index="5" instance=ExtResource("4_y8ees")]
+offset_left = 404.0
+offset_top = -297.0
+offset_right = 4304.0
+offset_bottom = 1770.0
+scale = Vector2(0.12, 0.12)
+
+[node name="Fan" parent="World" index="6" instance=ExtResource("5_tleyp")]
+position = Vector2(684, 180)
+scale = Vector2(0.1, 0.1)
+
+[node name="BoardDoodad1" parent="World" index="7" instance=ExtResource("6_bienn")]
+position = Vector2(1632, 39)
+scale = Vector2(0.05, 0.05)
+
+[node name="Juntion1" parent="World" index="8" instance=ExtResource("7_3kavb")]
+position = Vector2(1012, 100)
+scale = Vector2(0.04, 0.04)
+
+[node name="PowerConAdjustableSmall" parent="World" index="9" instance=ExtResource("8_ytgdd")]
+offset_left = 1074.0
+offset_top = -64.0
+offset_right = 3982.0
+offset_bottom = 1604.0
+scale = Vector2(0.12, 0.12)
+
+[node name="PhantomCamera2D" parent="." index="2"]
+position = Vector2(-62, -31)
+
+[node name="FinishMarker" parent="." index="3"]
+position = Vector2(-90, 571)
+
+[node name="CameraArea2D" parent="." index="5" instance=ExtResource("4_ov18x")]
+position = Vector2(-155, -237)
+scale = Vector2(0.178, 0.178)
+
+[node name="CameraLimitCollision" type="CollisionShape2D" parent="CameraArea2D" index="0" groups=["CameraLimitCollision"]]
+position = Vector2(4929.78, 2446.63)
+shape = SubResource("RectangleShape2D_5ibbs")
+
+[node name="RollableCircle" parent="CameraArea2D" index="1" instance=ExtResource("10_i4fu7")]
+position = Vector2(8646.07, 747.191)
+scale = Vector2(2, 2)
+
+[node name="Adapter2" parent="CameraArea2D" index="2" instance=ExtResource("11_jraed")]
+position = Vector2(10123.6, 3466.29)
+scale = Vector2(0.65, 0.65)
