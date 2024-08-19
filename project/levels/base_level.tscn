@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dbdjeaaxmxpqi"]
+[gd_scene load_steps=40 format=3 uid="uid://dbdjeaaxmxpqi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_nrive"]
 [ext_resource type="Script" path="res://levels/scale_camera.gd" id="2_l1ts6"]
@@ -22,13 +22,19 @@
 [ext_resource type="Texture2D" uid="uid://bimamu3sym8qc" path="res://sprites/common/BoardDoodad5.png" id="10_aa2vc"]
 [ext_resource type="Texture2D" uid="uid://bdedpua4otbcq" path="res://door/door.png" id="10_bnixe"]
 [ext_resource type="Texture2D" uid="uid://dtk4nd7th8v6t" path="res://sprites/common/Fan.png" id="12_siaya"]
+[ext_resource type="PackedScene" uid="uid://b2rkmga63u8tp" path="res://computer_parts/fan_bg.tscn" id="14_rnsmn"]
 [ext_resource type="Texture2D" uid="uid://b5s5hvc7hwoeg" path="res://sprites/common/FanShell.png" id="14_va3os"]
 [ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="20_oe55e"]
+[ext_resource type="Script" path="res://player_character/pause_menu.gd" id="26_tgcpc"]
+[ext_resource type="Script" path="res://player_character/restart_scene_button.gd" id="27_ivj0j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ck6i4"]
 shader = ExtResource("3_2hy8g")
 shader_parameter/replaceAmount = 0.316
 shader_parameter/replaceColor = Color(0.271017, 0.343931, 0.232001, 0.996078)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xfykj"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Resource" id="Resource_6wwnk"]
 script = ExtResource("5_drug0")
@@ -591,16 +597,31 @@ scale = Vector2(0.03, 0.03)
 texture = ExtResource("3_2utvq")
 
 [node name="Fan" type="Sprite2D" parent="Parallax2D"]
+visible = false
 material = SubResource("ShaderMaterial_ck6i4")
 position = Vector2(128.866, 706.39)
 scale = Vector2(0.0591966, 0.0591966)
 texture = ExtResource("12_siaya")
 
 [node name="FanShell" type="Sprite2D" parent="Parallax2D"]
+visible = false
 material = SubResource("ShaderMaterial_ck6i4")
 position = Vector2(129.711, 707.659)
 scale = Vector2(0.0655391, 0.0655391)
 texture = ExtResource("14_va3os")
+
+[node name="Fan2" parent="Parallax2D" instance=ExtResource("14_rnsmn")]
+visible = false
+scale = Vector2(0.025, 0.025)
+
+[node name="TextureRect2" type="TextureRect" parent="Parallax2D"]
+offset_left = -33.0
+offset_top = -456.0
+offset_right = 291.0
+offset_bottom = -182.0
+texture = SubResource("ViewportTexture_xfykj")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="World" type="Node2D" parent="."]
 
@@ -685,3 +706,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+script = ExtResource("26_tgcpc")
+
+[node name="Control" type="Control" parent="PauseMenu"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="PauseMenu/Control/MarginContainer"]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("27_ivj0j")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(2056, 2056)
+
+[node name="Fan" parent="SubViewport" instance=ExtResource("14_rnsmn")]
+position = Vector2(1024, 1024)
+scale = Vector2(20, 20)
