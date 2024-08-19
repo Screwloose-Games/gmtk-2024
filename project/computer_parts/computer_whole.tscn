@@ -1,0 +1,31 @@
+[gd_scene load_steps=10 format=3 uid="uid://3vljfoa6v2ag"]
+
+[ext_resource type="PackedScene" uid="uid://dlsh4rl2jmvh7" path="res://computer_parts/board_doodad_1.tscn" id="1_d5yrs"]
+[ext_resource type="PackedScene" uid="uid://bp7gqhdx7oep5" path="res://computer_parts/board_doodad_2.tscn" id="2_6u10l"]
+[ext_resource type="PackedScene" uid="uid://do41ceqap1bm1" path="res://computer_parts/board_doodad_3.tscn" id="3_xits7"]
+[ext_resource type="PackedScene" uid="uid://d3xgqtglpvke0" path="res://computer_parts/board_doodad_4.tscn" id="4_epyut"]
+[ext_resource type="PackedScene" uid="uid://bvg5iynmm8377" path="res://computer_parts/board_doodad_5.tscn" id="5_jdmgg"]
+[ext_resource type="PackedScene" uid="uid://badvhy6y1hh04" path="res://computer_parts/chip_1.tscn" id="6_8i5yd"]
+[ext_resource type="PackedScene" uid="uid://dry4jh08gv5tk" path="res://computer_parts/chip_2.tscn" id="7_xspph"]
+[ext_resource type="PackedScene" uid="uid://iy4t3coygg2" path="res://computer_parts/circuit_tile.tscn" id="8_sohns"]
+[ext_resource type="PackedScene" uid="uid://df4hnul0ae6xn" path="res://computer_parts/copper_node.tscn" id="9_jn2au"]
+
+[node name="ComputerWhole" type="Node2D"]
+
+[node name="BoardDoodad1" parent="." instance=ExtResource("1_d5yrs")]
+
+[node name="BoardDoodad2" parent="." instance=ExtResource("2_6u10l")]
+
+[node name="BoardDoodad3" parent="." instance=ExtResource("3_xits7")]
+
+[node name="BoardDoodad4" parent="." instance=ExtResource("4_epyut")]
+
+[node name="BoardDoodad5" parent="." instance=ExtResource("5_jdmgg")]
+
+[node name="Chip1" parent="." instance=ExtResource("6_8i5yd")]
+
+[node name="Chip2" parent="." instance=ExtResource("7_xspph")]
+
+[node name="CircuitTile" parent="." instance=ExtResource("8_sohns")]
+
+[node name="CopperNode" parent="." instance=ExtResource("9_jn2au")]

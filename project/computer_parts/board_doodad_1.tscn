@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlsh4rl2jmvh7"]
+
+[ext_resource type="Texture2D" uid="uid://clye0bj8jm4pv" path="res://sprites/common/BoardDoodad1.png" id="1_fxd05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w14nc"]
+size = Vector2(255.625, 273)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhnpy"]
+size = Vector2(205.438, 104.5)
+
+[node name="BoardDoodad1" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.1875, -159.5)
+shape = SubResource("RectangleShape2D_w14nc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-21, -344)
+shape = SubResource("RectangleShape2D_jhnpy")
+
+[node name="BoardDoodad1" type="Sprite2D" parent="."]
+position = Vector2(5, -209)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fxd05")

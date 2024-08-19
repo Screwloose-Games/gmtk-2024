@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://0ekljb5kgk0g"]
+
+[ext_resource type="Texture2D" uid="uid://dtk4nd7th8v6t" path="res://sprites/common/Fan.png" id="1_vwo61"]
+[ext_resource type="Texture2D" uid="uid://cfhk4cat6oe3h" path="res://sprites/common/Fan Shell.png" id="2_1u6yc"]
+[ext_resource type="Script" path="res://computer_parts/fan.gd" id="2_etkyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woouy"]
+size = Vector2(880, 959)
+
+[node name="Fan" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Fan" type="Sprite2D" parent="."]
+position = Vector2(363, 141)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_vwo61")
+script = ExtResource("2_etkyo")
+
+[node name="FanShell" type="Sprite2D" parent="."]
+position = Vector2(363, 141)
+texture = ExtResource("2_1u6yc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(364, 139.5)
+shape = SubResource("RectangleShape2D_woouy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(364, 139.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_woouy")

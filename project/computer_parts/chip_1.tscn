@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://badvhy6y1hh04"]
+
+[ext_resource type="Texture2D" uid="uid://dc48kohmjeirt" path="res://sprites/common/Chip1.png" id="1_b4yvl"]
+
+[node name="Chip1" type="Sprite2D"]
+position = Vector2(-1631, 2226)
+texture = ExtResource("1_b4yvl")

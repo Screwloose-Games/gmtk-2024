@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://becqshgxi1uu6"]
+
+[ext_resource type="Texture2D" uid="uid://clye0bj8jm4pv" path="res://sprites/common/BoardDoodad1.png" id="1_a4huc"]
+
+[node name="StretchPart" type="Node2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_a4huc")
