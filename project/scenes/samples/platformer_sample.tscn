@@ -129,7 +129,6 @@ shape = SubResource("RectangleShape2D_ysyjb")
 
 [node name="platformer_character" parent="." groups=["Saveable"] instance=ExtResource("7_y5jga")]
 position = Vector2(12, 8)
-move_speed = 200.0
 
 [node name="minimap_viewport" parent="." instance=ExtResource("6_147y0")]
 

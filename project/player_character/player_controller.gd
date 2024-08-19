@@ -12,6 +12,8 @@ var _is_coyote_time : bool = false
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 @export var character_gravity: Vector2 = Vector2(0, 980)
+@export var can_grow: bool = false
+@export var can_shrink: bool = false
 
 @onready var base_height = collision_shape_2d.shape.height
 @onready var char_height: float:
@@ -106,7 +108,8 @@ func _can_jump():
 
 func _ready():
 	character_scaler.scaled.connect(_on_character_scaled)
-
+	character_scaler.can_grow = can_grow
+	character_scaler.can_shrink = can_shrink
 
 func _physics_process(delta: float) -> void:
 	var grav = get_gravity()
