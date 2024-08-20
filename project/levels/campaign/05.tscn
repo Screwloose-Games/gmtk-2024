@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="3_vc362"]
 [ext_resource type="PackedScene" uid="uid://35f6rd0ykthc" path="res://computer_parts/peg.tscn" id="4_avc0c"]
 [ext_resource type="PackedScene" uid="uid://dje4gtisv2bgs" path="res://computer_parts/power_con_1_stretch.tscn" id="5_78ur4"]
-[ext_resource type="PackedScene" uid="uid://b6dm5xkqjtgs3" path="res://computer_parts/power_con_3.tscn" id="6_52rgn"]
+[ext_resource type="PackedScene" path="res://computer_parts/power_con_3.tscn" id="6_52rgn"]
 [ext_resource type="PackedScene" uid="uid://0ekljb5kgk0g" path="res://computer_parts/fan.tscn" id="6_rc5r6"]
 [ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/junction_1.tscn" id="7_rcr54"]
 [ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_hg0fg"]
@@ -306,7 +306,6 @@ offset_bottom = -2.0
 text = "OK"
 
 [node name="PauseMenu" parent="." index="25"]
-layer = 1
 visible = false
 
 [node name="LevelMask" type="CanvasLayer" parent="." index="27"]

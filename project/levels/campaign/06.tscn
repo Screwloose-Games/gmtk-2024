@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://levels/panel.gd" id="12_nrilf"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="13_x4uya"]
 [ext_resource type="Texture2D" uid="uid://byoime7wk5n3y" path="res://sprites/common/BlueLED.png" id="15_chry6"]
-[ext_resource type="PackedScene" uid="uid://b6dm5xkqjtgs3" path="res://computer_parts/power_con_3.tscn" id="16_gelve"]
+[ext_resource type="PackedScene" path="res://computer_parts/power_con_3.tscn" id="16_gelve"]
 [ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="17_wyvo7"]
 [ext_resource type="Shader" path="res://shaders/Cutout.gdshader" id="18_g0v61"]
 
@@ -341,7 +341,6 @@ offset_bottom = -2.0
 text = "OK"
 
 [node name="PauseMenu" parent="." index="21"]
-layer = 1
 visible = false
 
 [node name="BlueLed" type="Sprite2D" parent="." index="23"]

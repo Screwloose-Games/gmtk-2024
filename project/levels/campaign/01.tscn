@@ -202,9 +202,9 @@ grow_vertical = 0
 [node name="NinePatchRect" type="NinePatchRect" parent="DeviceCollectDialog/Control/Control2" index="0"]
 layout_mode = 0
 offset_left = -249.0
-offset_top = -279.0
+offset_top = -289.0
 offset_right = 261.0
-offset_bottom = 81.0
+offset_bottom = 85.0
 texture = ExtResource("17_0koke")
 patch_margin_left = 155
 patch_margin_top = 148
@@ -220,9 +220,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 72.0
-offset_top = -40.0
-offset_right = 112.0
+offset_left = 71.0
+offset_top = -50.0
+offset_right = 111.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -239,8 +240,10 @@ layout_mode = 2
 theme = SubResource("Theme_fibm6")
 bbcode_enabled = true
 text = "[color=\"a86800\"][i][b]Unlocked CAroT2000[/b][/i]
+[font_size=\"13\"]
 Grow: Mouse Wheel Up,
-Shrink: Mouse Wheel Down,
+Shrink: Mouse Wheel Down
+[/font_size]
 [b]Flux Responsibly[/b]
 [/color]"
 fit_content = true
@@ -255,10 +258,10 @@ color = Color(0.658824, 0.407843, 0, 1)
 
 [node name="Grow" type="TextureRect" parent="DeviceCollectDialog/Control/Control2/NoticeArea" index="1"]
 layout_mode = 2
-offset_left = 3.0
-offset_top = -81.0
-offset_right = 103.0
-offset_bottom = 19.0
+offset_left = -3.0
+offset_top = -69.0
+offset_right = 97.0
+offset_bottom = 31.0
 scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -267,10 +270,10 @@ stretch_mode = 4
 
 [node name="Shrink" type="TextureRect" parent="DeviceCollectDialog/Control/Control2/NoticeArea" index="2"]
 layout_mode = 2
-offset_left = 4.0
-offset_top = -57.0
-offset_right = 104.0
-offset_bottom = 43.0
+offset_left = -2.0
+offset_top = -46.0
+offset_right = 98.0
+offset_bottom = 54.0
 scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -279,10 +282,10 @@ stretch_mode = 4
 
 [node name="OkButton" type="TextureRect" parent="DeviceCollectDialog/Control/Control2/NoticeArea" index="3"]
 layout_mode = 2
-offset_left = 33.0
-offset_top = -22.0
-offset_right = 133.0
-offset_bottom = 78.0
+offset_left = 30.0
+offset_top = -3.0
+offset_right = 130.0
+offset_bottom = 97.0
 scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -291,10 +294,9 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="DeviceCollectDialog/Control/Control2/NoticeArea" index="4"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = -19.0
-offset_right = 48.0
-offset_bottom = 4.0
+offset_left = 5.0
+offset_right = 45.0
+offset_bottom = 23.0
 text = "OK"
 label_settings = SubResource("LabelSettings_qpk07")
 

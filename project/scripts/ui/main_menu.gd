@@ -12,6 +12,8 @@ enum Menu { MAIN_MENU, SETTINGS_MENU }
 var current_menu : Menu = Menu.MAIN_MENU
 
 func _enter_tree():
+	PlayerState.can_grow = false
+	PlayerState.can_shrink = false
 	start_button.pressed.connect(_on_start_button_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
 	exit_button.pressed.connect(_on_exit_pressed)

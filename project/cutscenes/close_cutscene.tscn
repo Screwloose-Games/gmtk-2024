@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfw1726g7dng2"]
+
+[ext_resource type="Script" path="res://cutscenes/close_cutscene.gd" id="1_swj8p"]
+[ext_resource type="Texture2D" uid="uid://dodtkct0a08xb" path="res://sprites/common/CircuitTile.png" id="2_bly8m"]
+[ext_resource type="Texture2D" uid="uid://bowfrut4owf7x" path="res://player_character/art/Felicity Preview.png" id="3_8h4b5"]
+[ext_resource type="PackedScene" uid="uid://c8xckute3tgjg" path="res://player_character/felicity.tscn" id="4_aiy7y"]
+[ext_resource type="AudioStream" uid="uid://ckdhaj5ritikq" path="res://audio/sfx/8BitRetroSFXPack1_Contemporary_Explosion01.wav" id="5_343uw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_komru"]
+font_size = 60
+
+[node name="ClosingCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swj8p")
+
+[node name="CircuitTile" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(367, 211)
+texture = ExtResource("2_bly8m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.172549, 0.392157, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+clip_contents = true
+layout_mode = 0
+offset_left = -299.0
+offset_top = -20.0
+offset_right = 623.0
+offset_bottom = 621.0
+texture = ExtResource("3_8h4b5")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Finally" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 325.0
+offset_top = 98.0
+offset_right = 581.0
+offset_bottom = 121.0
+text = "I've finally stabilized the formula!"
+
+[node name="Huge" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 325.0
+offset_top = 122.0
+offset_right = 613.0
+offset_bottom = 195.0
+bbcode_enabled = true
+text = "This is gonna be [font_size=\"30\"][color=\"darkblue\"][b]HUGE![/b][/color][/font_size]"
+
+[node name="Little" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 279.0
+offset_top = 163.0
+offset_right = 661.0
+offset_bottom = 212.0
+bbcode_enabled = true
+text = "It's all the [font_size=\"10\"][color=yellow][i]LITTLE[/i][/color][/font_size] things that finally paid off!"
+
+[node name="Bang" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 286.0
+offset_top = 126.0
+offset_right = 592.0
+offset_bottom = 236.0
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[shake rate=20.0 level=65 connected=1][color=\"red\"]BANG!!![/color][/shake]"
+fit_content = true
+
+[node name="OhNo" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 325.0
+offset_top = 177.0
+offset_right = 381.0
+offset_bottom = 200.0
+text = "Ut oh..."
+
+[node name="Felicity" parent="." instance=ExtResource("4_aiy7y")]
+unique_name_in_owner = true
+position = Vector2(81, 168)
+scale = Vector2(0.1, 0.1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_343uw")
+volume_db = -6.0
+bus = &"SFX"
+
+[node name="ToBeContinued" type="Label" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -41.5
+offset_right = 258.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "To be continued..."
+label_settings = SubResource("LabelSettings_komru")

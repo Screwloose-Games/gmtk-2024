@@ -332,7 +332,6 @@ offset_bottom = -2.0
 text = "OK"
 
 [node name="PauseMenu" parent="." index="22"]
-layer = 1
 visible = false
 
 [node name="Junction3" parent="." index="24" instance=ExtResource("18_q3iuq")]

@@ -147,7 +147,6 @@ next_level = ExtResource("9_yeeqy")
 position = Vector2(-3023, 306)
 
 [node name="PauseMenu" parent="." index="6"]
-layer = 1
 visible = false
 
 [node name="Adapter1" parent="." index="7" instance=ExtResource("11_fytlc")]
@@ -158,24 +157,24 @@ scale = Vector2(0.126565, 0.132455)
 position = Vector2(908, 298.656)
 scale = Vector2(0.128538, 0.128608)
 
-[node name="Juntion2" parent="." index="10" instance=ExtResource("7_1gkk5")]
+[node name="Juntion6" parent="." index="10" instance=ExtResource("7_1gkk5")]
+position = Vector2(292, -174)
+scale = Vector2(0.0443578, 0.0443578)
+
+[node name="Juntion2" parent="." index="11" instance=ExtResource("7_1gkk5")]
 position = Vector2(292, -109)
 scale = Vector2(0.0443578, 0.0443578)
 
-[node name="Juntion3" parent="." index="11" instance=ExtResource("7_1gkk5")]
+[node name="Juntion3" parent="." index="12" instance=ExtResource("7_1gkk5")]
 position = Vector2(292, -42)
 scale = Vector2(0.0443578, 0.0443578)
 
-[node name="Juntion4" parent="." index="12" instance=ExtResource("7_1gkk5")]
+[node name="Juntion4" parent="." index="13" instance=ExtResource("7_1gkk5")]
 position = Vector2(292, 25)
 scale = Vector2(0.0443578, 0.0443578)
 
-[node name="Juntion5" parent="." index="13" instance=ExtResource("7_1gkk5")]
+[node name="Juntion5" parent="." index="14" instance=ExtResource("7_1gkk5")]
 position = Vector2(292, 92)
-scale = Vector2(0.0443578, 0.0443578)
-
-[node name="Juntion6" parent="." index="14" instance=ExtResource("7_1gkk5")]
-position = Vector2(292, 160)
 scale = Vector2(0.0443578, 0.0443578)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="15"]

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dlsh4rl2jmvh7" path="res://computer_parts/board_doodad_1.tscn" id="10_xxp7f"]
 [ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="11_2y2sg"]
 [ext_resource type="PackedScene" uid="uid://coqpftlg1hceo" path="res://computer_parts/junction_4.tscn" id="12_d3vtm"]
-[ext_resource type="Texture2D" uid="uid://c488iym2k0s12" path="res://sprites/common/Gateway.png" id="13_p3nhn"]
+[ext_resource type="PackedScene" uid="uid://bfw1726g7dng2" path="res://cutscenes/close_cutscene.tscn" id="13_xyyjl"]
 [ext_resource type="PackedScene" uid="uid://cxrnv2xox2pkl" path="res://blocks/rollable_circle.tscn" id="14_l8kxi"]
 [ext_resource type="PackedScene" uid="uid://kvse8ctupe6s" path="res://computer_parts/adapter_2.tscn" id="15_dq166"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="16_xaxhs"]
@@ -193,6 +193,7 @@ position = Vector2(-200, 2)
 
 [node name="FinishMarker" parent="." index="3"]
 position = Vector2(-90, 571)
+next_level = ExtResource("13_xyyjl")
 
 [node name="FinishArea2D" parent="FinishMarker" index="0"]
 scale = Vector2(1.02, 1.02)
@@ -202,7 +203,6 @@ position = Vector2(-0.5, -19)
 
 [node name="DoorSprite" parent="FinishMarker" index="1"]
 scale = Vector2(0.025, 0.025)
-texture = ExtResource("13_p3nhn")
 
 [node name="RollableCircle" parent="." index="5" instance=ExtResource("14_l8kxi")]
 position = Vector2(1377, -94)

@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/ui/audio_menu.gd" id="4_mjs4o"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="6_8dq4u"]
 [ext_resource type="Texture2D" uid="uid://bj60fo0a03uqg" path="res://sprites/common/FFLL_Title.png" id="6_32u2b"]
-[ext_resource type="PackedScene" uid="uid://dww1yku4bo0d4" path="res://levels/campaign/01.tscn" id="8_mp58h"]
+[ext_resource type="PackedScene" uid="uid://cdybwkyb0ujsm" path="res://cutscenes/open_cutscene.tscn" id="9_0cysr"]
 [ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="AudioStream" uid="uid://b2prt2348r4yu" path="res://audio/music/Felicitys_Theme_V1.mp3" id="12_ob2c6"]
 
@@ -220,7 +220,7 @@ script = ExtResource("1_7gw0o")
 start_button = NodePath("../MarginContainer/VBoxContainer/start_button")
 settings_button = NodePath("../MarginContainer/VBoxContainer/settings_button")
 exit_button = NodePath("../MarginContainer/VBoxContainer/exit_button")
-start_scene_path = ExtResource("8_mp58h")
+start_scene_path = ExtResource("9_0cysr")
 transition_path = ExtResource("3_lqaap")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
