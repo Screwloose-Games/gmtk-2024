@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dbdjeaaxmxpqi"]
+[gd_scene load_steps=44 format=3 uid="uid://dbdjeaaxmxpqi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_nrive"]
 [ext_resource type="Script" path="res://levels/scale_camera.gd" id="2_l1ts6"]
@@ -20,15 +20,17 @@
 [ext_resource type="Script" path="res://levels/finish_marker.gd" id="8_rlg55"]
 [ext_resource type="Texture2D" uid="uid://r6cgeane8yod" path="res://sprites/common/CopperNode.png" id="9_ri0hp"]
 [ext_resource type="Texture2D" uid="uid://bimamu3sym8qc" path="res://sprites/common/BoardDoodad5.png" id="10_aa2vc"]
-[ext_resource type="Texture2D" uid="uid://bdedpua4otbcq" path="res://door/door.png" id="10_bnixe"]
 [ext_resource type="Texture2D" uid="uid://dtk4nd7th8v6t" path="res://sprites/common/Fan.png" id="12_siaya"]
 [ext_resource type="PackedScene" uid="uid://b2rkmga63u8tp" path="res://computer_parts/fan_bg.tscn" id="14_rnsmn"]
 [ext_resource type="Texture2D" uid="uid://b5s5hvc7hwoeg" path="res://sprites/common/FanShell.png" id="14_va3os"]
 [ext_resource type="Texture2D" uid="uid://cbicoxq36xmoi" path="res://sprites/common/PinkLED.png" id="15_xbv8e"]
 [ext_resource type="Texture2D" uid="uid://byoime7wk5n3y" path="res://sprites/common/BlueLED.png" id="16_2ng7p"]
 [ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="20_oe55e"]
+[ext_resource type="Texture2D" uid="uid://c488iym2k0s12" path="res://sprites/common/Gateway.png" id="25_p2vug"]
+[ext_resource type="Texture2D" uid="uid://d4f370i1lvqse" path="res://sprites/common/Spiral.png" id="26_of67n"]
 [ext_resource type="Script" path="res://player_character/pause_menu.gd" id="26_tgcpc"]
 [ext_resource type="Script" path="res://player_character/restart_scene_button.gd" id="27_ivj0j"]
+[ext_resource type="Script" path="res://computer_parts/fan.gd" id="27_tvgjm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ck6i4"]
 shader = ExtResource("3_2hy8g")
@@ -750,13 +752,20 @@ shape = SubResource("RectangleShape2D_03elf")
 
 [node name="DoorSprite" type="Sprite2D" parent="FinishMarker"]
 position = Vector2(0, -19)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("10_bnixe")
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("25_p2vug")
 region_rect = Rect2(0, 0, 20, 100)
 
 [node name="Sprite2D" type="Sprite2D" parent="FinishMarker"]
 visible = false
 texture = SubResource("GradientTexture2D_k23km")
+
+[node name="Spiral" type="Sprite2D" parent="FinishMarker"]
+position = Vector2(0, -19)
+scale = Vector2(0.072, 0.072)
+texture = ExtResource("26_of67n")
+script = ExtResource("27_tvgjm")
+speed = 0.25
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3pek7")

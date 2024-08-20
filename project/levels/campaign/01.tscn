@@ -260,7 +260,6 @@ offset_bottom = -2.0
 text = "OK"
 
 [node name="Control" parent="PauseMenu" index="0"]
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Adapter2" parent="." index="23" instance=ExtResource("15_cqiet")]
