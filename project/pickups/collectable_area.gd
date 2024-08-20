@@ -15,7 +15,6 @@ func get_collected_by(collector_area: CollectorComponent):
 	collected_by.emit(collector_area)
 	for effect in effects:
 		effect.get_collected_by(collector_area)
-	queue_free.call_deferred()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://obngpd2m7bgj"]
+[gd_scene load_steps=32 format=3 uid="uid://obngpd2m7bgj"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_m831w"]
 [ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="2_7tfvg"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://kvse8ctupe6s" path="res://computer_parts/adapter_2.tscn" id="11_jraed"]
 [ext_resource type="PackedScene" uid="uid://coqpftlg1hceo" path="res://computer_parts/junction_4.tscn" id="12_pxshx"]
 [ext_resource type="PackedScene" uid="uid://35f6rd0ykthc" path="res://computer_parts/peg.tscn" id="12_xhqou"]
-[ext_resource type="Texture2D" uid="uid://c488iym2k0s12" path="res://sprites/common/Gateway.png" id="13_efk8u"]
 [ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="13_xfa5m"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="14_qurje"]
 [ext_resource type="Texture2D" uid="uid://b2j4ixxw5d3w8" path="res://sprites/common/Projector.png" id="16_mre7l"]
@@ -205,7 +204,6 @@ position = Vector2(-0.5, -19)
 
 [node name="DoorSprite" parent="FinishMarker" index="1"]
 scale = Vector2(0.025, 0.025)
-texture = ExtResource("13_efk8u")
 
 [node name="RollableCircle" parent="." index="5" instance=ExtResource("10_i4fu7")]
 position = Vector2(1377, -94)
