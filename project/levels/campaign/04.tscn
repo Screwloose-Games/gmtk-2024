@@ -88,7 +88,6 @@ position = Vector2(1019.67, 459.437)
 scale = Vector2(0.05, 0.05)
 
 [node name="TextureRect2" parent="Parallax2D" index="85"]
-[node name="TextureRect2" parent="Parallax2D" index="85"]
 texture = SubResource("ViewportTexture_ndvcv")
 
 [node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
