@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://byf7bev65ggop"]
+[gd_scene load_steps=24 format=3 uid="uid://byf7bev65ggop"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_yrfn4"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_f83nd"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://levels/panel.gd" id="12_kg5qw"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="13_ee1mx"]
 [ext_resource type="PackedScene" uid="uid://w6r5vtyk4bhh" path="res://blocks/movable_block.tscn" id="14_gw5jp"]
+[ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="14_h06bl"]
+[ext_resource type="Shader" path="res://shaders/Cutout.gdshader" id="15_6jule"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
@@ -45,6 +47,23 @@ script = ExtResource("13_ee1mx")
 path = "ui_accept"
 show_mode = 0
 force_type = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f51gh"]
+shader = ExtResource("14_h06bl")
+shader_parameter/vignette_intensity = 3.25
+shader_parameter/vignette_opacity = 0.123
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btpj4"]
+shader = ExtResource("15_6jule")
+shader_parameter/fill_amount = 0.5
+shader_parameter/mask_rotation = 0.0
+shader_parameter/mask_offset = Vector2(0, 0)
+shader_parameter/mask_size = Vector2(0.675, 0.72)
+shader_parameter/mask_rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/mask_scale_pivot = Vector2(0.5, 0.5)
+shader_parameter/invert_mask = false
+shader_parameter/use_different_texture = false
 
 [node name="BaseLevel2" instance=ExtResource("1_yrfn4")]
 
@@ -128,6 +147,7 @@ next_level = ExtResource("9_yeeqy")
 position = Vector2(-3023, 306)
 
 [node name="PauseMenu" parent="." index="6"]
+layer = 1
 visible = false
 
 [node name="Adapter1" parent="." index="7" instance=ExtResource("11_fytlc")]
@@ -256,3 +276,33 @@ text = "OK"
 
 [node name="MovableBlock" parent="." index="16" instance=ExtResource("14_gw5jp")]
 position = Vector2(292, 312)
+
+[node name="LevelMask" type="CanvasLayer" parent="." index="17"]
+follow_viewport_enabled = true
+
+[node name="Vignette" type="ColorRect" parent="LevelMask" index="0"]
+material = SubResource("ShaderMaterial_f51gh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -461.0
+offset_top = -186.0
+offset_right = 338.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelMask" type="ColorRect" parent="LevelMask" index="1"]
+material = SubResource("ShaderMaterial_btpj4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1830.0
+offset_top = -892.0
+offset_right = 1711.0
+offset_bottom = 952.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
