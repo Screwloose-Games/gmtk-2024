@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dww1yku4bo0d4"]
+[gd_scene load_steps=34 format=3 uid="uid://dww1yku4bo0d4"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_x32gq"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_p2qwu"]
@@ -12,7 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="11_3ihmi"]
 [ext_resource type="Texture2D" uid="uid://b2j4ixxw5d3w8" path="res://sprites/common/Projector.png" id="12_gpohq"]
 [ext_resource type="Texture2D" uid="uid://svme77yl281y" path="res://sprites/common/ProjectorGlow.png" id="13_qf6ty"]
+[ext_resource type="AudioStream" uid="uid://dcl6cjdvmi42j" path="res://audio/sfx/curious-reveal.wav" id="15_6fps7"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="15_cqiet"]
+[ext_resource type="Script" path="res://levels/campaign/show_notice_box_scale_device.gd" id="15_d3g72"]
+[ext_resource type="Texture2D" uid="uid://ctaxy2xsycs1f" path="res://sprites/common/Saybox1.png" id="17_0koke"]
+[ext_resource type="Script" path="res://levels/campaign/device_collect_dialog.gd" id="17_jidtd"]
 [ext_resource type="PackedScene" uid="uid://kvse8ctupe6s" path="res://computer_parts/adapter_2.tscn" id="17_ofygr"]
 [ext_resource type="PackedScene" uid="uid://csv1bv5a1bw7y" path="res://pickups/collectable_scale_device.tscn" id="17_s8ubf"]
 [ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="18_miasq"]
@@ -25,6 +29,8 @@ size = Vector2(11668.5, 6623.6)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_d1mwn"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3hbx"]
 
 [sub_resource type="Theme" id="Theme_fibm6"]
 
@@ -51,6 +57,10 @@ script = ExtResource("19_4ih1x")
 path = "ui_accept"
 show_mode = 0
 force_type = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_qpk07"]
+font_color = Color(0.658824, 0.407843, 0, 1)
+outline_color = Color(0.658824, 0.407843, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jp5rn"]
 shader = ExtResource("18_miasq")
@@ -163,10 +173,15 @@ texture = ExtResource("13_qf6ty")
 position = Vector2(261, 288)
 scale = Vector2(0.2, 0.2)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="20"]
-visible = false
+[node name="ShowNoticeBox" type="Node" parent="CollectableScaleDevice" index="2"]
+script = ExtResource("15_d3g72")
 
-[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+[node name="DeviceCollectDialog" type="CanvasLayer" parent="." index="20"]
+unique_name_in_owner = true
+layer = 12
+script = ExtResource("17_jidtd")
+
+[node name="Control" type="Control" parent="DeviceCollectDialog" index="0"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -174,7 +189,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control2" type="Control" parent="CanvasLayer/Control" index="0"]
+[node name="Control2" type="Control" parent="DeviceCollectDialog/Control" index="0"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -184,7 +199,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="NoticeArea" type="Control" parent="CanvasLayer/Control/Control2" index="0"]
+[node name="NinePatchRect" type="NinePatchRect" parent="DeviceCollectDialog/Control/Control2" index="0"]
+layout_mode = 0
+offset_left = -249.0
+offset_top = -279.0
+offset_right = 261.0
+offset_bottom = 81.0
+texture = ExtResource("17_0koke")
+patch_margin_left = 155
+patch_margin_top = 148
+patch_margin_right = 160
+patch_margin_bottom = 196
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="NoticeArea" type="Control" parent="DeviceCollectDialog/Control/Control2" index="1"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -197,29 +226,38 @@ offset_right = 112.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/Control2/NoticeArea" index="0"]
+[node name="PanelContainer" type="PanelContainer" parent="DeviceCollectDialog/Control/Control2/NoticeArea" index="0"]
 layout_mode = 0
-offset_left = -154.0
+offset_left = -187.0
 offset_top = -102.0
-offset_right = 49.0
+offset_right = 16.0
+offset_bottom = 13.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f3hbx")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Control2/NoticeArea/PanelContainer" index="0"]
+[node name="RichTextLabel" type="RichTextLabel" parent="DeviceCollectDialog/Control/Control2/NoticeArea/PanelContainer" index="0"]
 layout_mode = 2
 theme = SubResource("Theme_fibm6")
 bbcode_enabled = true
-text = "[color=\"white\"][i][b]Unlocked CAroT2000[/b][/i]
-Grow:
-Shrink: 
+text = "[color=\"a86800\"][i][b]Unlocked CAroT2000[/b][/i]
+Grow: Mouse Wheel Up,
+Shrink: Mouse Wheel Down,
 [b]Flux Responsibly[/b]
 [/color]"
 fit_content = true
 script = ExtResource("18_w1a1n")
 
-[node name="Grow" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="1"]
+[node name="ColorRect" type="ColorRect" parent="DeviceCollectDialog/Control/Control2/NoticeArea/PanelContainer/RichTextLabel" index="1"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.658824, 0.407843, 0, 1)
+
+[node name="Grow" type="TextureRect" parent="DeviceCollectDialog/Control/Control2/NoticeArea" index="1"]
 layout_mode = 2
-offset_left = -86.0
+offset_left = 3.0
 offset_top = -81.0
-offset_right = 14.0
+offset_right = 103.0
 offset_bottom = 19.0
 scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 8
@@ -227,11 +265,11 @@ size_flags_vertical = 8
 texture = SubResource("Texture2D_610p8")
 stretch_mode = 4
 
-[node name="Shrink" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="2"]
+[node name="Shrink" type="TextureRect" parent="DeviceCollectDialog/Control/Control2/NoticeArea" index="2"]
 layout_mode = 2
-offset_left = -85.0
+offset_left = 4.0
 offset_top = -57.0
-offset_right = 15.0
+offset_right = 104.0
 offset_bottom = 43.0
 scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 8
@@ -239,25 +277,31 @@ size_flags_vertical = 8
 texture = SubResource("Texture2D_nmp8f")
 stretch_mode = 4
 
-[node name="OkButton" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="3"]
+[node name="OkButton" type="TextureRect" parent="DeviceCollectDialog/Control/Control2/NoticeArea" index="3"]
 layout_mode = 2
-offset_left = 19.0
-offset_top = -28.0
-offset_right = 119.0
-offset_bottom = 72.0
+offset_left = 33.0
+offset_top = -22.0
+offset_right = 133.0
+offset_bottom = 78.0
 scale = Vector2(0.25, 0.25)
 size_flags_horizontal = 8
 size_flags_vertical = 8
 texture = SubResource("Texture2D_xghex")
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Control2/NoticeArea" index="4"]
+[node name="Label" type="Label" parent="DeviceCollectDialog/Control/Control2/NoticeArea" index="4"]
 layout_mode = 0
-offset_left = -6.0
-offset_top = -25.0
-offset_right = 34.0
-offset_bottom = -2.0
+offset_left = 8.0
+offset_top = -19.0
+offset_right = 48.0
+offset_bottom = 4.0
 text = "OK"
+label_settings = SubResource("LabelSettings_qpk07")
+
+[node name="CollectDeviceAudio" type="AudioStreamPlayer" parent="DeviceCollectDialog" index="1"]
+unique_name_in_owner = true
+stream = ExtResource("15_6fps7")
+bus = &"SFX"
 
 [node name="Control" parent="PauseMenu" index="0"]
 metadata/_edit_group_ = true
