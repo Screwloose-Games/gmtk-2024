@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://v76me5cfguvd"]
+[gd_scene load_steps=29 format=3 uid="uid://v76me5cfguvd"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_n1b3e"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_6sxo6"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="13_624yg"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="13_jt2pn"]
 [ext_resource type="PackedScene" uid="uid://dwn68s33x2gts" path="res://computer_parts/junction_3.tscn" id="18_q3iuq"]
+[ext_resource type="Shader" path="res://shaders/Cutout.gdshader" id="19_8cyax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
@@ -56,6 +57,23 @@ script = ExtResource("13_jt2pn")
 path = "ui_accept"
 show_mode = 0
 force_type = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmuhh"]
+shader = ExtResource("10_1pe36")
+shader_parameter/vignette_intensity = 3.25
+shader_parameter/vignette_opacity = 0.123
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_muuku"]
+shader = ExtResource("19_8cyax")
+shader_parameter/fill_amount = 0.5
+shader_parameter/mask_rotation = 0.0
+shader_parameter/mask_offset = Vector2(0, 0)
+shader_parameter/mask_size = Vector2(0.935, 0.715)
+shader_parameter/mask_rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/mask_scale_pivot = Vector2(0.5, 0.5)
+shader_parameter/invert_mask = false
+shader_parameter/use_different_texture = false
 
 [node name="BaseLevel" instance=ExtResource("1_n1b3e")]
 
@@ -314,6 +332,7 @@ offset_bottom = -2.0
 text = "OK"
 
 [node name="PauseMenu" parent="." index="22"]
+layer = 1
 visible = false
 
 [node name="Junction3" parent="." index="24" instance=ExtResource("18_q3iuq")]
@@ -323,3 +342,33 @@ scale = Vector2(0.125, 0.125)
 [node name="Junction4" parent="." index="25" instance=ExtResource("18_q3iuq")]
 position = Vector2(433, 129)
 scale = Vector2(0.125, 0.125)
+
+[node name="LevelMask" type="CanvasLayer" parent="." index="26"]
+follow_viewport_enabled = true
+
+[node name="Vignette" type="ColorRect" parent="LevelMask" index="0"]
+material = SubResource("ShaderMaterial_pmuhh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -461.0
+offset_top = -302.0
+offset_right = 1212.0
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelMask" type="ColorRect" parent="LevelMask" index="1"]
+material = SubResource("ShaderMaterial_muuku")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1545.0
+offset_top = -928.0
+offset_right = 1996.0
+offset_bottom = 916.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
