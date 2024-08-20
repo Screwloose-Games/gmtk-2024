@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://obngpd2m7bgj"]
+[gd_scene load_steps=33 format=3 uid="uid://obngpd2m7bgj"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_m831w"]
 [ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="2_7tfvg"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://kvse8ctupe6s" path="res://computer_parts/adapter_2.tscn" id="11_jraed"]
 [ext_resource type="PackedScene" uid="uid://coqpftlg1hceo" path="res://computer_parts/junction_4.tscn" id="12_pxshx"]
 [ext_resource type="PackedScene" uid="uid://35f6rd0ykthc" path="res://computer_parts/peg.tscn" id="12_xhqou"]
+[ext_resource type="Texture2D" uid="uid://c488iym2k0s12" path="res://sprites/common/Gateway.png" id="13_efk8u"]
 [ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="13_xfa5m"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="14_qurje"]
 [ext_resource type="Texture2D" uid="uid://b2j4ixxw5d3w8" path="res://sprites/common/Projector.png" id="16_mre7l"]
@@ -196,6 +197,16 @@ position = Vector2(-200, 2)
 [node name="FinishMarker" parent="." index="3"]
 position = Vector2(-90, 571)
 
+[node name="FinishArea2D" parent="FinishMarker" index="0"]
+scale = Vector2(1.02, 1.02)
+
+[node name="FinishAreaCollision" parent="FinishMarker/FinishArea2D" index="0"]
+position = Vector2(-0.5, -19)
+
+[node name="DoorSprite" parent="FinishMarker" index="1"]
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("13_efk8u")
+
 [node name="RollableCircle" parent="." index="5" instance=ExtResource("10_i4fu7")]
 position = Vector2(1377, -94)
 
@@ -357,11 +368,9 @@ anchor_bottom = 1.0
 offset_left = -496.0
 offset_top = -485.0
 offset_right = 1229.0
-offset_bottom = 254.0
+offset_bottom = 460.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="LevelMask" type="ColorRect" parent="LevelMask" index="1"]
 material = SubResource("ShaderMaterial_cieuv")
@@ -371,11 +380,10 @@ anchor_bottom = 1.0
 offset_left = -1392.0
 offset_top = -1031.0
 offset_right = 2149.0
-offset_bottom = 813.0
+offset_bottom = 1083.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
