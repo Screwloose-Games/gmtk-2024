@@ -85,7 +85,7 @@ scale = Vector2(0.05, 0.05)
 position = Vector2(1019.67, 459.437)
 scale = Vector2(0.05, 0.05)
 
-[node name="TextureRect2" parent="Parallax2D" index="83"]
+[node name="TextureRect2" parent="Parallax2D" index="85"]
 texture = SubResource("ViewportTexture_ndvcv")
 
 [node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
@@ -152,9 +152,6 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" parent="WorldEnvironment/CanvasLayer" index="1"]
-metadata/_edit_lock_ = true
-
 [node name="Peg" parent="." index="5" instance=ExtResource("4_r4puo")]
 position = Vector2(-3023, 306)
 
@@ -202,42 +199,42 @@ rotation = 1.5708
 position = Vector2(-215, -26)
 rotation = 1.5708
 
-[node name="Platform6" parent="." index="15" instance=ExtResource("10_tshbu")]
-position = Vector2(799, 231)
-rotation = 4.71239
-
-[node name="Platform8" parent="." index="16" instance=ExtResource("10_tshbu")]
+[node name="Platform8" parent="." index="15" instance=ExtResource("10_tshbu")]
 position = Vector2(799, -26)
 rotation = 4.71239
 
-[node name="Platform2" parent="." index="17" instance=ExtResource("10_tshbu")]
+[node name="Platform2" parent="." index="16" instance=ExtResource("10_tshbu")]
 position = Vector2(163, 389)
 
-[node name="Platform3" parent="." index="18" instance=ExtResource("10_tshbu")]
+[node name="Platform3" parent="." index="17" instance=ExtResource("10_tshbu")]
 position = Vector2(420, 389)
 
-[node name="Platform14" parent="Platform3" index="1" instance=ExtResource("10_tshbu")]
+[node name="Platform16" parent="Platform3" index="0" instance=ExtResource("10_tshbu")]
 show_behind_parent = true
-position = Vector2(-8, -352)
+position = Vector2(-8, -1040)
 scale = Vector2(1, 1)
 
 [node name="Platform15" parent="Platform3" index="2" instance=ExtResource("10_tshbu")]
 show_behind_parent = true
-position = Vector2(0, -696)
+position = Vector2(-8, -696)
 scale = Vector2(1, 1)
 
-[node name="Platform16" parent="Platform3" index="3" instance=ExtResource("10_tshbu")]
+[node name="Platform14" parent="Platform3" index="3" instance=ExtResource("10_tshbu")]
 show_behind_parent = true
-position = Vector2(0, -1040)
+position = Vector2(-8, -352)
 scale = Vector2(1, 1)
 
-[node name="Platform4" parent="." index="19" instance=ExtResource("10_tshbu")]
+[node name="Platform4" parent="." index="18" instance=ExtResource("10_tshbu")]
 position = Vector2(677, 389)
 
 [node name="Platform13" parent="Platform4" index="1" instance=ExtResource("10_tshbu")]
 show_behind_parent = true
 position = Vector2(0, -352)
 scale = Vector2(1, 1)
+
+[node name="Platform6" parent="." index="19" instance=ExtResource("10_tshbu")]
+position = Vector2(799, 231)
+rotation = -1.5708
 
 [node name="Adapter1" parent="." index="20" instance=ExtResource("11_xa523")]
 position = Vector2(-2805, 741)
@@ -362,6 +359,3 @@ text = "OK"
 
 [node name="PauseMenu" parent="." index="24"]
 visible = false
-
-[node name="Control" parent="PauseMenu" index="0"]
-metadata/_edit_lock_ = true
