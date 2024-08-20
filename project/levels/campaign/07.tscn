@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/junction_1.tscn" id="7_4a38a"]
 [ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_07rgu"]
 [ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="9_elg48"]
-[ext_resource type="PackedScene" uid="uid://0jcitxecjtqa" path="res://levels/level_08_large.tscn" id="9_yupik"]
+[ext_resource type="PackedScene" path="res://levels/level_08_large.tscn" id="9_yupik"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="10_3lhkh"]
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="11_ju8sn"]
 [ext_resource type="Script" path="res://levels/panel.gd" id="12_c6wk8"]
@@ -92,29 +92,26 @@ position = Vector2(0, -19.8682)
 position = Vector2(-474, 23)
 scale = Vector2(0.1, 0.1)
 
-[node name="Peg8" parent="." index="6" instance=ExtResource("4_a61w2")]
-position = Vector2(2.9999, 196)
-
-[node name="Platform16" parent="." index="7" instance=ExtResource("9_elg48")]
-position = Vector2(-99, 201)
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="8"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="6"]
 visible = false
 position = Vector2(712, 203)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_fbwgu")
 
-[node name="Peg4" parent="." index="9" instance=ExtResource("4_a61w2")]
+[node name="Peg4" parent="." index="7" instance=ExtResource("4_a61w2")]
 position = Vector2(-2895, 418)
 rotation = -1.5708
 
-[node name="Platform17" parent="." index="10" instance=ExtResource("9_elg48")]
+[node name="Platform17" parent="." index="8" instance=ExtResource("9_elg48")]
 position = Vector2(-102, 179)
 
-[node name="Peg2" parent="." index="11" instance=ExtResource("4_a61w2")]
+[node name="Peg2" parent="." index="9" instance=ExtResource("4_a61w2")]
 position = Vector2(57, 354)
 
-[node name="Peg6" parent="." index="12" instance=ExtResource("4_a61w2")]
+[node name="Peg" parent="." index="10" instance=ExtResource("4_a61w2")]
+position = Vector2(732, 272)
+
+[node name="Peg6" parent="." index="11" instance=ExtResource("4_a61w2")]
 position = Vector2(332, 164)
 rotation = 3.14159
 
@@ -158,7 +155,7 @@ scale = Vector2(1, 1)
 position = Vector2(-0.000392214, 2800)
 scale = Vector2(1, 1)
 
-[node name="Peg7" parent="." index="13" instance=ExtResource("4_a61w2")]
+[node name="Peg7" parent="." index="12" instance=ExtResource("4_a61w2")]
 position = Vector2(2, 28)
 rotation = 3.14159
 
@@ -182,23 +179,11 @@ scale = Vector2(1, 1)
 position = Vector2(-0.00405534, 1600)
 scale = Vector2(1, 1)
 
-[node name="Platform4" parent="." index="14" instance=ExtResource("9_elg48")]
-position = Vector2(677, 389)
+[node name="Platform14" parent="." index="13" instance=ExtResource("9_elg48")]
+position = Vector2(727, 306)
 
-[node name="Platform14" parent="Platform4" index="1" instance=ExtResource("9_elg48")]
-show_behind_parent = true
-position = Vector2(400, -664)
-scale = Vector2(1, 1)
-
-[node name="Platform14" parent="Platform4/Platform14" index="1" instance=ExtResource("9_elg48")]
-show_behind_parent = true
-position = Vector2(208, -664)
-scale = Vector2(1, 1)
-
-[node name="Platform15" parent="Platform4" index="2" instance=ExtResource("9_elg48")]
-show_behind_parent = true
-position = Vector2(-176, -336)
-scale = Vector2(1, 1)
+[node name="Platform15" parent="." index="14" instance=ExtResource("9_elg48")]
+position = Vector2(655, 347)
 
 [node name="Adapter1" parent="." index="15" instance=ExtResource("10_3lhkh")]
 position = Vector2(991, 187)
@@ -333,12 +318,9 @@ text = "OK"
 [node name="Juntion2" parent="." index="22" instance=ExtResource("7_4a38a")]
 position = Vector2(-3675, 193)
 
-[node name="Peg" parent="." index="23" instance=ExtResource("4_a61w2")]
-position = Vector2(732, 272)
-
-[node name="MovableBlock" parent="." index="24" instance=ExtResource("14_dclsb")]
+[node name="MovableBlock" parent="." index="23" instance=ExtResource("14_dclsb")]
 position = Vector2(337, 313)
 scale_amount = 2.0
 
-[node name="PauseMenu" parent="." index="25"]
+[node name="PauseMenu" parent="." index="24"]
 visible = false

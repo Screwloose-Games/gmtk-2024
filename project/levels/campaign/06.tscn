@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cig4unam6lg17"]
+[gd_scene load_steps=23 format=3 uid="uid://cig4unam6lg17"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_wb02a"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_jg5cr"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="11_u4lp1"]
 [ext_resource type="Script" path="res://levels/panel.gd" id="12_nrilf"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="13_x4uya"]
+[ext_resource type="Texture2D" uid="uid://byoime7wk5n3y" path="res://sprites/common/BlueLED.png" id="15_chry6"]
+[ext_resource type="PackedScene" uid="uid://b6dm5xkqjtgs3" path="res://computer_parts/power_con_3.tscn" id="16_gelve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
@@ -70,37 +72,19 @@ position = Vector2(712, 203)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_s8ky4")
 
-[node name="Peg4" parent="World" index="1" instance=ExtResource("4_xwpmn")]
-position = Vector2(-2895, 418)
-rotation = -1.5708
-
-[node name="PlayerController" parent="World" index="2"]
+[node name="PlayerController" parent="World" index="1"]
 position = Vector2(-152, 271)
 can_grow = true
 can_shrink = true
 
-[node name="Camera2D" parent="World" index="3"]
+[node name="Camera2D" parent="World" index="2"]
 position = Vector2(-152, 271)
 
-[node name="PowerConAdjustable" parent="World" index="4" instance=ExtResource("5_hidui")]
-offset_left = -2660.0
-offset_top = -703.0
-offset_right = 3415.0
-offset_bottom = 1364.0
-scale = Vector2(0.12, 0.12)
-
-[node name="Fan" parent="World" index="5" instance=ExtResource("6_5eu1w")]
-position = Vector2(-2939, -74)
-scale = Vector2(0.1, 0.1)
-
-[node name="Juntion1" parent="World" index="6" instance=ExtResource("7_rkw0a")]
-position = Vector2(-3675, 193)
-
-[node name="PowerConAdjustableSmall" parent="World" index="7" instance=ExtResource("8_3fw0c")]
-offset_left = -3145.0
-offset_top = -673.0
-offset_right = -237.0
-offset_bottom = 995.0
+[node name="PowerConAdjustable" parent="World" index="3" instance=ExtResource("5_hidui")]
+offset_left = -222.0
+offset_top = -586.0
+offset_right = 5861.0
+offset_bottom = 1481.0
 scale = Vector2(0.12, 0.12)
 
 [node name="PhantomCamera2D" parent="." index="2"]
@@ -121,23 +105,17 @@ position = Vector2(0, -19.8682)
 [node name="Peg" parent="." index="5" instance=ExtResource("4_xwpmn")]
 position = Vector2(-615, 230)
 
-[node name="Platform" parent="." index="6" instance=ExtResource("9_20nyf")]
-position = Vector2(-93, 389)
-
-[node name="Platform14" parent="Platform" index="0" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(0, -664)
-scale = Vector2(1, 1)
-
-[node name="Platform13" parent="Platform" index="2" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(-8, -352)
-scale = Vector2(1, 1)
+[node name="Platform15" parent="." index="6" instance=ExtResource("9_20nyf")]
+position = Vector2(-93, 306)
 
 [node name="Platform13" parent="." index="7" instance=ExtResource("9_20nyf")]
 position = Vector2(420, 347)
 
-[node name="Peg6" parent="." index="8" instance=ExtResource("4_xwpmn")]
+[node name="Peg4" parent="." index="8" instance=ExtResource("4_xwpmn")]
+position = Vector2(-2895, 418)
+rotation = -1.5708
+
+[node name="Peg6" parent="." index="9" instance=ExtResource("4_xwpmn")]
 position = Vector2(320, 230)
 rotation = 3.14159
 
@@ -173,92 +151,23 @@ scale = Vector2(1, 1)
 position = Vector2(-0.000297993, 2176)
 scale = Vector2(1, 1)
 
-[node name="Platform9" parent="." index="9" instance=ExtResource("9_20nyf")]
-position = Vector2(-94, -184)
+[node name="Peg7" parent="." index="10" instance=ExtResource("4_xwpmn")]
+position = Vector2(571, 190)
 rotation = -3.14159
 
-[node name="Platform10" parent="." index="10" instance=ExtResource("9_20nyf")]
-position = Vector2(162, -184)
-rotation = -3.14159
-metadata/_edit_group_ = true
-
-[node name="Platform16" parent="Platform10" index="1" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(-8.00171, -648)
-scale = Vector2(1, 1)
-
-[node name="Platform15" parent="Platform10" index="2" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(-8.00081, -320)
-scale = Vector2(1, 1)
-
-[node name="Platform11" parent="." index="11" instance=ExtResource("9_20nyf")]
-position = Vector2(419, -184)
-rotation = -3.14159
-metadata/_edit_group_ = true
-
-[node name="Platform17" parent="Platform11" index="0" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(-8.00254, -984)
-scale = Vector2(1, 1)
-
-[node name="Platform18" parent="Platform11" index="1" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(-8.00254, -984)
-scale = Vector2(1, 1)
-
-[node name="Platform16" parent="Platform11" index="2" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(-0.00170898, -656)
-scale = Vector2(1, 1)
-
-[node name="Platform15" parent="Platform11" index="4" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(-0.000810623, -320)
-scale = Vector2(1, 1)
-
-[node name="Platform12" parent="." index="12" instance=ExtResource("9_20nyf")]
-position = Vector2(676, -184)
-rotation = -3.14159
-
-[node name="Platform14" parent="." index="13" instance=ExtResource("9_20nyf")]
-position = Vector2(657, 42)
-rotation = -3.14159
-
-[node name="Peg7" parent="Platform14" index="1" instance=ExtResource("4_xwpmn")]
-show_behind_parent = true
-position = Vector2(687.997, -1184)
-scale = Vector2(1, 1)
-
-[node name="Peg7" parent="Platform14/Peg7" index="1" instance=ExtResource("4_xwpmn")]
+[node name="Peg7" parent="Peg7" index="1" instance=ExtResource("4_xwpmn")]
 position = Vector2(0, 312)
 scale = Vector2(1, 1)
 
-[node name="Peg8" parent="Platform14/Peg7" index="2" instance=ExtResource("4_xwpmn")]
+[node name="Peg8" parent="Peg7" index="2" instance=ExtResource("4_xwpmn")]
 position = Vector2(0, 624)
 scale = Vector2(1, 1)
 
-[node name="Peg9" parent="Platform14/Peg7" index="3" instance=ExtResource("4_xwpmn")]
+[node name="Peg9" parent="Peg7" index="3" instance=ExtResource("4_xwpmn")]
 position = Vector2(0, 936)
 scale = Vector2(1, 1)
 
-[node name="Platform5" parent="." index="14" instance=ExtResource("9_20nyf")]
-position = Vector2(-215, 231)
-rotation = 1.5708
-
-[node name="Platform7" parent="." index="15" instance=ExtResource("9_20nyf")]
-position = Vector2(-215, -26)
-rotation = 1.5708
-
-[node name="Platform6" parent="." index="16" instance=ExtResource("9_20nyf")]
-position = Vector2(799, 231)
-rotation = 4.71239
-
-[node name="Platform8" parent="." index="17" instance=ExtResource("9_20nyf")]
-position = Vector2(799, -26)
-rotation = 4.71239
-
-[node name="Platform2" parent="." index="18" instance=ExtResource("9_20nyf")]
+[node name="Platform2" parent="." index="11" instance=ExtResource("9_20nyf")]
 position = Vector2(163, 389)
 
 [node name="Peg2" parent="Platform2" index="1" instance=ExtResource("4_xwpmn")]
@@ -281,31 +190,42 @@ show_behind_parent = true
 position = Vector2(168, -280)
 scale = Vector2(1, 1)
 
-[node name="Platform3" parent="." index="19" instance=ExtResource("9_20nyf")]
-position = Vector2(420, 389)
+[node name="Juntion2" parent="." index="12" instance=ExtResource("7_rkw0a")]
+position = Vector2(858, 199)
 
-[node name="Platform4" parent="." index="20" instance=ExtResource("9_20nyf")]
-position = Vector2(677, 389)
+[node name="PowerConAdjustableSmall" parent="." index="13" instance=ExtResource("8_3fw0c")]
+offset_left = -318.0
+offset_top = 320.0
+offset_right = 2590.0
+offset_bottom = 1988.0
+scale = Vector2(0.12, 0.12)
 
-[node name="Platform14" parent="Platform4" index="1" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(0, -664)
-scale = Vector2(1, 1)
+[node name="Platform16" parent="." index="14" instance=ExtResource("9_20nyf")]
+position = Vector2(677, 306)
 
-[node name="Platform15" parent="Platform4" index="2" instance=ExtResource("9_20nyf")]
-show_behind_parent = true
-position = Vector2(-8, -336)
-scale = Vector2(1, 1)
+[node name="Adapter2" parent="." index="15" instance=ExtResource("10_552a3")]
+position = Vector2(-458, -265.188)
 
-[node name="Adapter1" parent="." index="21" instance=ExtResource("10_552a3")]
-position = Vector2(-2805, 741)
+[node name="StaticBody2D2" parent="Adapter2" index="1" instance=ExtResource("11_u4lp1")]
+
+[node name="Adapter1" parent="." index="16" instance=ExtResource("10_552a3")]
+position = Vector2(-458, 28.8125)
 
 [node name="StaticBody2D2" parent="Adapter1" index="1" instance=ExtResource("11_u4lp1")]
 
-[node name="Juntion1" parent="." index="22" instance=ExtResource("7_rkw0a")]
-position = Vector2(-1247, -225)
+[node name="Fan" parent="." index="17" instance=ExtResource("6_5eu1w")]
+position = Vector2(678, -142)
+scale = Vector2(0.1, 0.1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="23"]
+[node name="Adapter3" parent="." index="18" instance=ExtResource("10_552a3")]
+position = Vector2(-458, 320)
+
+[node name="StaticBody2D2" parent="Adapter3" index="1" instance=ExtResource("11_u4lp1")]
+
+[node name="Juntion1" parent="." index="19" instance=ExtResource("7_rkw0a")]
+position = Vector2(94, 188)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="20"]
 visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
@@ -401,5 +321,14 @@ offset_right = 34.0
 offset_bottom = -2.0
 text = "OK"
 
-[node name="PauseMenu" parent="." index="24"]
+[node name="PauseMenu" parent="." index="21"]
 visible = false
+
+[node name="BlueLed" type="Sprite2D" parent="." index="23"]
+position = Vector2(-330, 44)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("15_chry6")
+
+[node name="PowerCon4" parent="." index="24" instance=ExtResource("16_gelve")]
+position = Vector2(366, -210)
+scale = Vector2(0.125, 0.125)
