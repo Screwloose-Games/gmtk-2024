@@ -24,6 +24,7 @@ axis_stretch_horizontal = 1
 script = ExtResource("2_2rbkp")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 unique_name_in_owner = true
@@ -41,6 +42,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Control"]
+collision_layer = 129
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Control/StaticBody2D"]
 position = Vector2(1891.75, -243.25)

@@ -1,7 +1,6 @@
 [gd_scene load_steps=36 format=4 uid="uid://dpsqsm37v5eod"]
 
 [ext_resource type="PackedScene" uid="uid://det4f2y5mr0ol" path="res://player_character/player_controller.tscn" id="1_bomc3"]
-[ext_resource type="PackedScene" uid="uid://c13t5n87qgaob" path="res://scale_checker.tscn" id="1_vhuwi"]
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="2_h1t3i"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_nevy2"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="3_p1dn1"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bp7gqhdx7oep5" path="res://computer_parts/board_doodad_2.tscn" id="11_77qx8"]
 [ext_resource type="PackedScene" uid="uid://0ekljb5kgk0g" path="res://computer_parts/fan.tscn" id="13_6fgg4"]
 [ext_resource type="PackedScene" uid="uid://csv1bv5a1bw7y" path="res://pickups/collectable_scale_device.tscn" id="14_p8hyf"]
+[ext_resource type="PackedScene" uid="uid://drl3trfhsn2r5" path="res://computer_parts/power_con_1.tscn" id="16_iurhl"]
 
 [sub_resource type="SkeletonModification2DFABRIK" id="SkeletonModification2DFABRIK_4o1h6"]
 
@@ -5644,16 +5644,15 @@ b = Vector2(267.802, -7.73651)
 
 [node name="TestPlayerController" type="Node2D"]
 
-[node name="ScaleChecker" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_vhuwi")]
-player = NodePath("../PlayerController")
-
 [node name="PlayerController" parent="." instance=ExtResource("1_bomc3")]
-position = Vector2(3107.29, -808.393)
+position = Vector2(227.951, -10.7766)
+can_grow = true
+can_shrink = true
 base_move_speed = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(3107.29, -808.393)
+position = Vector2(227.951, -10.7766)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("2_nevy2")
@@ -5664,6 +5663,7 @@ modification_stack = SubResource("SkeletonModificationStack2D_ld40q")
 [node name="StaticBody2D" parent="." instance=ExtResource("2_h1t3i")]
 position = Vector2(487, 241)
 scale = Vector2(100, 1)
+collision_layer = 129
 
 [node name="PlatformsFront" type="TileMapLayer" parent="."]
 position = Vector2(779.939, 267.882)
@@ -5672,7 +5672,7 @@ tile_map_data = PackedByteArray("AABzAAEAAQAAAAEAAABzAAIAAQAAAAIAAABzAAMAAQAAAAM
 tile_set = SubResource("TileSet_g5t1m")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(3107.29, -808.393)
+position = Vector2(227.951, -10.7766)
 script = ExtResource("5_ciprb")
 priority = 5
 follow_mode = 5
@@ -5691,6 +5691,7 @@ camera = NodePath("..")
 [node name="XLarge" type="StaticBody2D" parent="."]
 position = Vector2(-380.45, 15.9963)
 scale = Vector2(4, 4)
+collision_layer = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="XLarge"]
 shape = SubResource("RectangleShape2D_3lvlx")
@@ -5703,6 +5704,7 @@ region_rect = Rect2(0, 0, 80, 80)
 [node name="Large" type="StaticBody2D" parent="."]
 position = Vector2(-37.9582, 96.2408)
 scale = Vector2(2, 2)
+collision_layer = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Large"]
 shape = SubResource("RectangleShape2D_3lvlx")
@@ -5714,6 +5716,7 @@ region_rect = Rect2(0, 0, 80, 80)
 
 [node name="Medium" type="StaticBody2D" parent="."]
 position = Vector2(187.568, 135.973)
+collision_layer = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Medium"]
 shape = SubResource("RectangleShape2D_3lvlx")
@@ -5726,6 +5729,7 @@ region_rect = Rect2(0, 0, 80, 80)
 [node name="Small" type="StaticBody2D" parent="."]
 position = Vector2(390.888, 155.546)
 scale = Vector2(0.5, 0.5)
+collision_layer = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Small"]
 shape = SubResource("RectangleShape2D_3lvlx")
@@ -5738,6 +5742,7 @@ region_rect = Rect2(0, 0, 80, 80)
 [node name="XSmall" type="StaticBody2D" parent="."]
 position = Vector2(465.099, 165.864)
 scale = Vector2(0.25, 0.25)
+collision_layer = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="XSmall"]
 shape = SubResource("RectangleShape2D_3lvlx")
@@ -5802,6 +5807,7 @@ end_cap_mode = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Line2D"]
 position = Vector2(3997.26, -1000.98)
+collision_layer = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Line2D/StaticBody2D"]
 shape = SubResource("SegmentShape2D_bd1w5")
@@ -5821,3 +5827,6 @@ one_way_collision = true
 
 [node name="CollectableScaleDevice" parent="." instance=ExtResource("14_p8hyf")]
 position = Vector2(3046.26, -800.431)
+
+[node name="PowerCon1" parent="." instance=ExtResource("16_iurhl")]
+position = Vector2(686.692, -242.754)

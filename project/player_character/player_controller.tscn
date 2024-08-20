@@ -24,9 +24,12 @@ radius = 14.0
 height = 78.0
 
 [node name="PlayerController" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 257
+collision_layer = 65793
 script = ExtResource("1_6ovu0")
 base_move_speed = 140.0
+
+[node name="ScaleChecker" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_ut0xs")]
+player = NodePath("..")
 
 [node name="ActorCore" type="Node" parent="."]
 script = ExtResource("2_joyi1")
@@ -47,11 +50,12 @@ unique_name_in_owner = true
 z_index = 5
 scale = Vector2(-0.12, 0.12)
 
-[node name="CharacterScaler" parent="." node_paths=PackedStringArray("scale_target") instance=ExtResource("2_4yyik")]
+[node name="CharacterScaler" parent="." node_paths=PackedStringArray("scale_target", "scale_checker") instance=ExtResource("2_4yyik")]
 unique_name_in_owner = true
 z_index = 6
 scale = Vector2(1.4, 1.4)
 scale_target = NodePath("..")
+scale_checker = NodePath("../ScaleChecker")
 
 [node name="PlayerInputHandler" type="Node" parent="."]
 unique_name_in_owner = true
@@ -94,5 +98,3 @@ character_scaler = NodePath("../CharacterScaler")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectorArea"]
 position = Vector2(0, -39)
 shape = SubResource("CapsuleShape2D_x0bg4")
-
-[node name="ScaleChecker" parent="." instance=ExtResource("14_ut0xs")]

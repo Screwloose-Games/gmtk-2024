@@ -5,9 +5,12 @@ extends Node2D
 @export var scale_levels: Array[float] = [0.25, 0.5, 1.0, 2.0, 4.0]
 @export var scale_up_sound: AudioStream
 @export var scale_down_sound: AudioStream
+@export var fail_scale_up_sound: AudioStream
 @export var scale_delay: float = 0.25
 @export var can_grow: bool = false
 @export var can_shrink: bool = false
+@export var scale_checker: ScaleChecker
+
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -75,6 +78,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if is_on_cooldown:
 			return
 		if is_max_scale:
+			return
+		if scale_checker != null and !scale_checker.has_room_to_grow:
+			scale_audio_stream_player.stream = fail_scale_up_sound
+			scale_audio_stream_player.play()
+			set_cooldown()
 			return
 		scale_up()
 		set_cooldown()

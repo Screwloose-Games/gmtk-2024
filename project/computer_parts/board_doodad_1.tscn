@@ -4,6 +4,7 @@
 
 [node name="BoardDoodad1" type="StaticBody2D"]
 scale = Vector2(0.125, 0.125)
+collision_layer = 129
 
 [node name="BoardDoodad1" type="Sprite2D" parent="."]
 position = Vector2(15, -191)

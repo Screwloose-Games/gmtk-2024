@@ -1,10 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://c13t5n87qgaob"]
+[gd_scene load_steps=10 format=3 uid="uid://c13t5n87qgaob"]
 
 [ext_resource type="Script" path="res://player_character/scale_checker.gd" id="1_f2kke"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agpv1"]
 radius = 14.0
 height = 79.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agawg"]
+radius = 2.5
+height = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ku16"]
+size = Vector2(7.5, 71.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr8hu"]
+size = Vector2(7, 72)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0x18m"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="Gradient" id="Gradient_bj2wk"]
+offsets = PackedFloat32Array(0.00295858)
+colors = PackedColorArray(1, 0, 0, 0.407843)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_swp1l"]
+gradient = SubResource("Gradient_bj2wk")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_we4wh"]
+radius = 6.5
+height = 47.0
 
 [node name="ScaleChecker" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -15,3 +40,63 @@ script = ExtResource("1_f2kke")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -39)
 shape = SubResource("CapsuleShape2D_agpv1")
+debug_color = Color(0.824627, 0.0016272, 0.956763, 0.42)
+
+[node name="BottomArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 128
+
+[node name="Bottom" type="CollisionShape2D" parent="BottomArea"]
+position = Vector2(0, -1.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_agawg")
+
+[node name="RightArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 128
+
+[node name="Right" type="CollisionShape2D" parent="RightArea"]
+position = Vector2(10.5, -38.25)
+shape = SubResource("RectangleShape2D_8ku16")
+
+[node name="LeftArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 128
+
+[node name="Left" type="CollisionShape2D" parent="LeftArea"]
+position = Vector2(-10.75, -38)
+shape = SubResource("RectangleShape2D_cr8hu")
+
+[node name="TopArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 128
+
+[node name="Top" type="CollisionShape2D" parent="TopArea"]
+position = Vector2(0, -73.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0x18m")
+
+[node name="Rotator" type="Marker2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -40.5359)
+
+[node name="Marker2D" type="Marker2D" parent="Rotator"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotator"]
+position = Vector2(-0.225339, -0.24131)
+scale = Vector2(0.392818, 0.52494)
+texture = SubResource("GradientTexture2D_swp1l")
+
+[node name="PlayerOverlap" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOverlap"]
+position = Vector2(0, -40.5)
+shape = SubResource("CapsuleShape2D_we4wh")

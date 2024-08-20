@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dt4ko00s6iojh"]
+[gd_scene load_steps=19 format=3 uid="uid://dt4ko00s6iojh"]
 
 [ext_resource type="Script" path="res://player_character/character_scaler.gd" id="1_dewkq"]
 [ext_resource type="AudioStream" uid="uid://chufulsc7t4ht" path="res://audio/sfx/grow_self.wav" id="2_yypbm"]
 [ext_resource type="AudioStream" uid="uid://d4nu7qdkpq3yj" path="res://audio/sfx/shrink_self.wav" id="3_mi74i"]
+[ext_resource type="AudioStream" uid="uid://4vk81ibxt4be" path="res://audio/sfx/scale_device/Ambient_Game_Healh_Potion_Broken_Bubbler_2.wav" id="4_jedcx"]
 [ext_resource type="Shader" path="res://shaders/electrify.gdshader" id="4_qtgrw"]
 [ext_resource type="Shader" path="res://player_character/grow_shader.gdshader" id="5_uf4xx"]
 
@@ -158,10 +159,12 @@ _data = {
 script = ExtResource("1_dewkq")
 scale_up_sound = ExtResource("2_yypbm")
 scale_down_sound = ExtResource("3_mi74i")
+fail_scale_up_sound = ExtResource("4_jedcx")
 
 [node name="ScaleAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 volume_db = -6.0
+bus = &"SFX"
 
 [node name="ShrinkEffect" type="Sprite2D" parent="."]
 visible = false
