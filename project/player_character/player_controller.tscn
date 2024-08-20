@@ -26,6 +26,7 @@ height = 78.0
 [node name="PlayerController" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 65793
 script = ExtResource("1_6ovu0")
+base_push_force = 20.0
 
 [node name="ScaleChecker" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_ut0xs")]
 player = NodePath("..")
@@ -54,6 +55,7 @@ unique_name_in_owner = true
 z_index = 6
 scale = Vector2(1.4, 1.4)
 scale_target = NodePath("..")
+scale_delay = 0.5
 scale_checker = NodePath("../ScaleChecker")
 
 [node name="PlayerInputHandler" type="Node" parent="."]

@@ -47,7 +47,7 @@ path = "ui_accept"
 show_mode = 0
 force_type = 0
 
-[node name="BaseLevel" instance=ExtResource("1_yrfn4")]
+[node name="BaseLevel2" instance=ExtResource("1_yrfn4")]
 
 [node name="Parallax2D" parent="." index="0"]
 metadata/_edit_group_ = true
@@ -61,7 +61,7 @@ position = Vector2(3991.95, 2609.46)
 shape = SubResource("RectangleShape2D_5ibbs")
 metadata/_edit_lock_ = true
 
-[node name="TextureRect2" parent="Parallax2D" index="83"]
+[node name="TextureRect2" parent="Parallax2D" index="85"]
 texture = SubResource("ViewportTexture_ndvcv")
 
 [node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
@@ -78,9 +78,6 @@ rotation = -1.5708
 position = Vector2(-156, 360)
 can_grow = true
 can_shrink = true
-
-[node name="Camera2D" parent="World" index="3"]
-position = Vector2(-156, 360)
 
 [node name="PowerConAdjustable" parent="World" index="4" instance=ExtResource("5_pcbgg")]
 offset_left = -2660.0

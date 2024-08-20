@@ -6,17 +6,22 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ebv6g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq1mw"]
-size = Vector2(22, 22)
+size = Vector2(88, 90)
 
 [node name="MovableBlock" type="RigidBody2D"]
+collision_layer = 129
 physics_material_override = SubResource("PhysicsMaterial_ebv6g")
 lock_rotation = true
+linear_damp = 10.0
 script = ExtResource("1_ainhg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kq1mw")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 scale = Vector2(0.065, 0.065)
 texture = ExtResource("2_qfe8j")
 region_rect = Rect2(0, 0, 20, 20)

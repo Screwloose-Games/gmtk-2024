@@ -170,8 +170,12 @@ func _physics_process(delta: float) -> void:
 
 func handle_collisions():
 	for i in range(get_slide_collision_count()):
-			var collision = get_slide_collision(i)
-			if collision.get_collider() is RigidBody2D:
-				var rigidbody = collision.get_collider() as RigidBody2D
-				var push_direction = (rigidbody.global_position - global_position).normalized()
+		var collision = get_slide_collision(i)
+		if collision.get_collider() is RigidBody2D:
+			var rigidbody = collision.get_collider() as RigidBody2D
+			var relative_position = rigidbody.global_position - global_position
+			if abs(relative_position.x) > abs(relative_position.y):
+				var push_direction = relative_position.normalized()
+				push_direction.y = 0
+				push_direction = push_direction.normalized()
 				rigidbody.apply_central_impulse(push_direction * push_force)

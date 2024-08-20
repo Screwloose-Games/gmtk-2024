@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://v76me5cfguvd"]
+[gd_scene load_steps=24 format=3 uid="uid://v76me5cfguvd"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_n1b3e"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_6sxo6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/junction_1.tscn" id="7_qmo5a"]
 [ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_pr5mu"]
 [ext_resource type="PackedScene" uid="uid://bu2dvcy1hgm6a" path="res://levels/campaign/05.tscn" id="9_2ojri"]
+[ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="10_1pe36"]
 [ext_resource type="PackedScene" uid="uid://c3qpn1plwd43h" path="res://computer_parts/red_box.tscn" id="10_era37"]
 [ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="10_tshbu"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="11_xa523"]
@@ -21,6 +22,12 @@ size = Vector2(11668.5, 6623.6)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ndvcv"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urrah"]
+shader = ExtResource("10_1pe36")
+shader_parameter/vignette_intensity = 0.64
+shader_parameter/vignette_opacity = 0.085
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_fibm6"]
 
@@ -62,6 +69,22 @@ position = Vector2(3991.95, 2609.46)
 shape = SubResource("RectangleShape2D_5ibbs")
 metadata/_edit_lock_ = true
 
+[node name="Platform" parent="Parallax2D" index="6"]
+position = Vector2(513.084, 194.357)
+scale = Vector2(0.1, 0.1)
+
+[node name="Platform2" parent="Parallax2D" index="7"]
+position = Vector2(513.084, 229.029)
+scale = Vector2(0.1, 0.1)
+
+[node name="Platform3" parent="Parallax2D" index="8"]
+position = Vector2(1019.67, 442.513)
+scale = Vector2(0.05, 0.05)
+
+[node name="Platform4" parent="Parallax2D" index="9"]
+position = Vector2(1019.67, 459.437)
+scale = Vector2(0.05, 0.05)
+
 [node name="TextureRect2" parent="Parallax2D" index="83"]
 texture = SubResource("ViewportTexture_ndvcv")
 
@@ -79,6 +102,7 @@ rotation = -1.5708
 position = Vector2(-152, 271)
 can_grow = true
 can_shrink = true
+base_move_speed = 160.0
 
 [node name="Camera2D" parent="World" index="3"]
 position = Vector2(-152, 271)
@@ -118,6 +142,18 @@ position = Vector2(0, -19.8682)
 
 [node name="DoorSprite" parent="FinishMarker" index="1"]
 position = Vector2(0, -19.8682)
+
+[node name="ColorRect2" type="ColorRect" parent="WorldEnvironment/CanvasLayer" index="0"]
+material = SubResource("ShaderMaterial_urrah")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" parent="WorldEnvironment/CanvasLayer" index="1"]
+metadata/_edit_lock_ = true
 
 [node name="Peg" parent="." index="5" instance=ExtResource("4_r4puo")]
 position = Vector2(-3023, 306)
