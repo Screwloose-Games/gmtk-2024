@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dbdjeaaxmxpqi"]
+[gd_scene load_steps=53 format=3 uid="uid://dbdjeaaxmxpqi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_nrive"]
 [ext_resource type="Script" path="res://levels/scale_camera.gd" id="2_l1ts6"]
@@ -26,15 +26,14 @@
 [ext_resource type="Texture2D" uid="uid://cbicoxq36xmoi" path="res://sprites/common/PinkLED.png" id="15_xbv8e"]
 [ext_resource type="Texture2D" uid="uid://byoime7wk5n3y" path="res://sprites/common/BlueLED.png" id="16_2ng7p"]
 [ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="20_oe55e"]
-[ext_resource type="Texture2D" uid="uid://c488iym2k0s12" path="res://sprites/common/Gateway.png" id="25_nklc4"]
-[ext_resource type="Shader" path="res://shaders/worm_hole_warp.gdshader" id="25_pyvx1"]
 [ext_resource type="Texture2D" uid="uid://c488iym2k0s12" path="res://sprites/common/Gateway.png" id="25_p2vug"]
+[ext_resource type="Shader" path="res://shaders/worm_hole_warp.gdshader" id="25_pyvx1"]
 [ext_resource type="Texture2D" uid="uid://d4f370i1lvqse" path="res://sprites/common/Spiral.png" id="26_of67n"]
 [ext_resource type="Script" path="res://player_character/pause_menu.gd" id="26_tgcpc"]
 [ext_resource type="Shader" path="res://shaders/electrify.gdshader" id="27_f2yn7"]
 [ext_resource type="Script" path="res://player_character/restart_scene_button.gd" id="27_ivj0j"]
-[ext_resource type="Texture2D" uid="uid://b2sk60hoxmv47" path="res://shaders/room_portal_texture_gradient.tres" id="28_f55xr"]
 [ext_resource type="Script" path="res://computer_parts/fan.gd" id="27_tvgjm"]
+[ext_resource type="Texture2D" uid="uid://b2sk60hoxmv47" path="res://shaders/room_portal_texture_gradient.tres" id="28_f55xr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ck6i4"]
 shader = ExtResource("3_2hy8g")
@@ -835,6 +834,7 @@ metadata/_edit_lock_ = true
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 15
 script = ExtResource("26_tgcpc")
 
 [node name="Control" type="Control" parent="PauseMenu"]
