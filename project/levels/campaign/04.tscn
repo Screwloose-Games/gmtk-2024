@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://v76me5cfguvd"]
+[gd_scene load_steps=26 format=3 uid="uid://v76me5cfguvd"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_n1b3e"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_6sxo6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0ekljb5kgk0g" path="res://computer_parts/fan.tscn" id="6_t1e34"]
 [ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/junction_1.tscn" id="7_qmo5a"]
 [ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_pr5mu"]
+[ext_resource type="PackedScene" uid="uid://kvse8ctupe6s" path="res://computer_parts/adapter_2.tscn" id="8_s1lnd"]
 [ext_resource type="PackedScene" uid="uid://bu2dvcy1hgm6a" path="res://levels/campaign/05.tscn" id="9_2ojri"]
 [ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="10_1pe36"]
 [ext_resource type="PackedScene" uid="uid://c3qpn1plwd43h" path="res://computer_parts/red_box.tscn" id="10_era37"]
@@ -16,6 +17,7 @@
 [ext_resource type="Script" path="res://levels/panel.gd" id="12_jvcok"]
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="13_624yg"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="13_jt2pn"]
+[ext_resource type="PackedScene" uid="uid://dwn68s33x2gts" path="res://computer_parts/junction_3.tscn" id="18_q3iuq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
 size = Vector2(11668.5, 6623.6)
@@ -86,6 +88,7 @@ position = Vector2(1019.67, 459.437)
 scale = Vector2(0.05, 0.05)
 
 [node name="TextureRect2" parent="Parallax2D" index="85"]
+[node name="TextureRect2" parent="Parallax2D" index="85"]
 texture = SubResource("ViewportTexture_ndvcv")
 
 [node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
@@ -95,8 +98,8 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_sc0to")
 
 [node name="Peg4" parent="World" index="1" instance=ExtResource("4_r4puo")]
-position = Vector2(-2895, 418)
-rotation = -1.5708
+position = Vector2(566, 11)
+rotation = 1.5708
 
 [node name="PlayerController" parent="World" index="2"]
 position = Vector2(-152, 271)
@@ -108,31 +111,42 @@ base_move_speed = 160.0
 position = Vector2(-152, 271)
 
 [node name="PowerConAdjustable" parent="World" index="4" instance=ExtResource("5_mceq7")]
-offset_left = -2660.0
-offset_top = -703.0
-offset_right = 3415.0
-offset_bottom = 1364.0
+offset_left = -180.0
+offset_top = -396.0
+offset_right = 13853.0
+offset_bottom = 1671.0
 scale = Vector2(0.12, 0.12)
 
 [node name="Fan" parent="World" index="5" instance=ExtResource("6_t1e34")]
-position = Vector2(-2939, -74)
+position = Vector2(1365, -0.999999)
 scale = Vector2(0.1, 0.1)
 
 [node name="Juntion1" parent="World" index="6" instance=ExtResource("7_qmo5a")]
-position = Vector2(-3675, 193)
+position = Vector2(-257, -99)
 
-[node name="PowerConAdjustableSmall" parent="World" index="7" instance=ExtResource("8_pr5mu")]
-offset_left = -3145.0
-offset_top = -673.0
-offset_right = -237.0
-offset_bottom = 995.0
+[node name="Adapter2" parent="World" index="7" instance=ExtResource("8_s1lnd")]
+position = Vector2(-577, 150)
+scale = Vector2(0.13961, 0.13961)
+
+[node name="PowerConAdjustableSmall" parent="World" index="8" instance=ExtResource("8_pr5mu")]
+offset_left = -316.0
+offset_top = 281.0
+offset_right = 2592.0
+offset_bottom = 1949.0
+scale = Vector2(0.12, 0.12)
+
+[node name="PowerConAdjustableSmall2" parent="World" index="9" instance=ExtResource("8_pr5mu")]
+offset_left = 36.0
+offset_top = 362.0
+offset_right = 4469.0
+offset_bottom = 2030.0
 scale = Vector2(0.12, 0.12)
 
 [node name="PhantomCamera2D" parent="." index="2"]
 position = Vector2(-152, 271)
 
 [node name="FinishMarker" parent="." index="3"]
-position = Vector2(676, 320)
+position = Vector2(1035, 211)
 scale = Vector2(3.52322, 3.52322)
 next_level = ExtResource("9_2ojri")
 metadata/_edit_group_ = true
@@ -152,116 +166,59 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="Peg" parent="." index="5" instance=ExtResource("4_r4puo")]
-position = Vector2(-3023, 306)
+[node name="Peg4" parent="." index="5" instance=ExtResource("4_r4puo")]
+position = Vector2(886, 117)
 
-[node name="RedBox" parent="." index="6" instance=ExtResource("10_era37")]
+[node name="Peg5" parent="." index="6" instance=ExtResource("4_r4puo")]
+position = Vector2(931, 161)
+
+[node name="Peg6" parent="." index="7" instance=ExtResource("4_r4puo")]
+position = Vector2(931, 203)
+
+[node name="Peg" parent="." index="8" instance=ExtResource("4_r4puo")]
+position = Vector2(842, 203)
+
+[node name="Peg3" parent="." index="9" instance=ExtResource("4_r4puo")]
+position = Vector2(886, 160)
+
+[node name="Peg2" parent="." index="10" instance=ExtResource("4_r4puo")]
+position = Vector2(886, 203)
+
+[node name="RedBox" parent="." index="11" instance=ExtResource("10_era37")]
 position = Vector2(58, 338)
 scale = Vector2(0.130138, 0.130138)
 
-[node name="Platform" parent="." index="7" instance=ExtResource("10_tshbu")]
-position = Vector2(-93, 389)
-
-[node name="Platform14" parent="Platform" index="0" instance=ExtResource("10_tshbu")]
-show_behind_parent = true
-position = Vector2(0, -664)
-scale = Vector2(1, 1)
-
-[node name="Platform13" parent="Platform" index="2" instance=ExtResource("10_tshbu")]
-show_behind_parent = true
-position = Vector2(-8, -352)
-scale = Vector2(1, 1)
-
-[node name="Platform13" parent="." index="8" instance=ExtResource("10_tshbu")]
+[node name="Platform13" parent="." index="12" instance=ExtResource("10_tshbu")]
 position = Vector2(106, 160)
 
-[node name="Platform9" parent="." index="9" instance=ExtResource("10_tshbu")]
-position = Vector2(-94, -184)
-rotation = -3.14159
+[node name="Platform15" parent="." index="13" instance=ExtResource("10_tshbu")]
+position = Vector2(435, 18)
 
-[node name="Platform10" parent="." index="10" instance=ExtResource("10_tshbu")]
-position = Vector2(162, -184)
-rotation = -3.14159
+[node name="Platform16" parent="." index="14" instance=ExtResource("10_tshbu")]
+position = Vector2(1067, 27)
 
-[node name="Platform11" parent="." index="11" instance=ExtResource("10_tshbu")]
-position = Vector2(419, -184)
-rotation = -3.14159
-
-[node name="Platform12" parent="." index="12" instance=ExtResource("10_tshbu")]
-position = Vector2(676, -184)
-rotation = -3.14159
-
-[node name="Platform5" parent="." index="13" instance=ExtResource("10_tshbu")]
-position = Vector2(-215, 231)
-rotation = 1.5708
-
-[node name="Platform7" parent="." index="14" instance=ExtResource("10_tshbu")]
-position = Vector2(-215, -26)
-rotation = 1.5708
-
-[node name="Platform8" parent="." index="15" instance=ExtResource("10_tshbu")]
-position = Vector2(799, -26)
-rotation = 4.71239
+[node name="Platform14" parent="." index="15" instance=ExtResource("10_tshbu")]
+position = Vector2(2132, 345)
 
 [node name="Platform2" parent="." index="16" instance=ExtResource("10_tshbu")]
-position = Vector2(163, 389)
+position = Vector2(425, 313)
 
 [node name="Platform3" parent="." index="17" instance=ExtResource("10_tshbu")]
-position = Vector2(420, 389)
-
-[node name="Platform16" parent="Platform3" index="0" instance=ExtResource("10_tshbu")]
-show_behind_parent = true
-position = Vector2(-8, -1040)
-scale = Vector2(1, 1)
-
-[node name="Platform15" parent="Platform3" index="2" instance=ExtResource("10_tshbu")]
-show_behind_parent = true
-position = Vector2(-8, -696)
-scale = Vector2(1, 1)
-
-[node name="Platform14" parent="Platform3" index="3" instance=ExtResource("10_tshbu")]
-show_behind_parent = true
-position = Vector2(-8, -352)
-scale = Vector2(1, 1)
+position = Vector2(425, 365)
 
 [node name="Platform4" parent="." index="18" instance=ExtResource("10_tshbu")]
-position = Vector2(677, 389)
+position = Vector2(679, 349)
 
-[node name="Platform13" parent="Platform4" index="1" instance=ExtResource("10_tshbu")]
-show_behind_parent = true
-position = Vector2(0, -352)
-scale = Vector2(1, 1)
-
-[node name="Platform6" parent="." index="19" instance=ExtResource("10_tshbu")]
-position = Vector2(799, 231)
-rotation = -1.5708
-
-[node name="Adapter1" parent="." index="20" instance=ExtResource("11_xa523")]
-position = Vector2(-2805, 741)
+[node name="Adapter1" parent="." index="19" instance=ExtResource("11_xa523")]
+position = Vector2(1015, 379)
 
 [node name="StaticBody2D2" parent="Adapter1" index="1" instance=ExtResource("13_624yg")]
 
-[node name="Juntion1" parent="." index="21" instance=ExtResource("7_qmo5a")]
-position = Vector2(-1247, -225)
+[node name="Juntion1" parent="." index="20" instance=ExtResource("7_qmo5a")]
+position = Vector2(1791, -17)
+scale = Vector2(0.184892, 0.190599)
 
-[node name="Juntion2" parent="." index="22" instance=ExtResource("7_qmo5a")]
-position = Vector2(323, -109)
-scale = Vector2(0.0443578, 0.0443578)
-metadata/_edit_group_ = true
-
-[node name="Juntion3" parent="Juntion2" index="1" instance=ExtResource("7_qmo5a")]
-position = Vector2(0, 1510.44)
-scale = Vector2(1, 1)
-
-[node name="Juntion4" parent="Juntion2" index="2" instance=ExtResource("7_qmo5a")]
-position = Vector2(0, 3020.89)
-scale = Vector2(1, 1)
-
-[node name="Juntion5" parent="Juntion2" index="3" instance=ExtResource("7_qmo5a")]
-position = Vector2(0, 4553.88)
-scale = Vector2(1, 1)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="23"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="21"]
 visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
@@ -357,5 +314,13 @@ offset_right = 34.0
 offset_bottom = -2.0
 text = "OK"
 
-[node name="PauseMenu" parent="." index="24"]
+[node name="PauseMenu" parent="." index="22"]
 visible = false
+
+[node name="Junction3" parent="." index="24" instance=ExtResource("18_q3iuq")]
+position = Vector2(433, -98)
+scale = Vector2(0.125, 0.125)
+
+[node name="Junction4" parent="." index="25" instance=ExtResource("18_q3iuq")]
+position = Vector2(433, 129)
+scale = Vector2(0.125, 0.125)

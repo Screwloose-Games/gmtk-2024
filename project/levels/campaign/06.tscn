@@ -79,6 +79,9 @@ position = Vector2(-152, 271)
 can_grow = true
 can_shrink = true
 
+[node name="Camera2D" parent="World" index="3"]
+position = Vector2(-152, 271)
+
 [node name="PowerConAdjustable" parent="World" index="4" instance=ExtResource("5_hidui")]
 offset_left = -2660.0
 offset_top = -703.0
@@ -400,6 +403,3 @@ text = "OK"
 
 [node name="PauseMenu" parent="." index="24"]
 visible = false
-
-[node name="Control" parent="PauseMenu" index="0"]
-metadata/_edit_lock_ = true

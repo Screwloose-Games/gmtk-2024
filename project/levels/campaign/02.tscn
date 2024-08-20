@@ -105,14 +105,6 @@ position = Vector2(-156, 360)
 position = Vector2(672, 142)
 next_level = ExtResource("9_mldr4")
 
-[node name="ColorRect" parent="WorldEnvironment/CanvasLayer" index="0"]
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
-
-[node name="ColorRect2" parent="WorldEnvironment/CanvasLayer2" index="0"]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
 [node name="RollableCircle" parent="." index="5" instance=ExtResource("9_pbty2")]
 position = Vector2(-3276, 495)
 
@@ -232,9 +224,6 @@ offset_top = -25.0
 offset_right = 34.0
 offset_bottom = -2.0
 text = "OK"
-
-[node name="Control" parent="PauseMenu" index="0"]
-metadata/_edit_lock_ = true
 
 [node name="Adapter3" parent="." index="16" instance=ExtResource("15_ie7s4")]
 position = Vector2(1043, -22)
