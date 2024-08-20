@@ -1,14 +1,15 @@
-[gd_scene load_steps=29 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=30 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://fonts/Peaberry/PeaberryMono.ttf" id="1_i2dk5"]
 [ext_resource type="StyleBox" uid="uid://b6h4sqok6xlxy" path="res://themes/pixelart/button_normal_style.tres" id="2_40phc"]
-[ext_resource type="PackedScene" path="res://scenes/scene_transitions/circle_transition.tscn" id="3_lqaap"]
+[ext_resource type="PackedScene" uid="uid://b2jlwpok70miu" path="res://scenes/scene_transitions/circle_transition.tscn" id="3_lqaap"]
 [ext_resource type="StyleBox" uid="uid://dj0ib6qvmygdj" path="res://themes/pixelart/button_pressed_style.tres" id="3_u8ajb"]
 [ext_resource type="Texture2D" uid="uid://njsc8l802yng" path="res://sprites/ui/ui-tileset.png" id="4_05n6c"]
 [ext_resource type="Script" path="res://scripts/ui/audio_menu.gd" id="4_mjs4o"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="6_8dq4u"]
+[ext_resource type="Texture2D" uid="uid://bj60fo0a03uqg" path="res://sprites/common/FFLL_Title.png" id="6_32u2b"]
 [ext_resource type="PackedScene" uid="uid://dww1yku4bo0d4" path="res://levels/campaign/01.tscn" id="8_mp58h"]
 [ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="AudioStream" uid="uid://b2prt2348r4yu" path="res://audio/music/Felicitys_Theme_V1.mp3" id="12_ob2c6"]
@@ -193,6 +194,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.999
+offset_top = -28.0
+offset_right = 639.64
+offset_bottom = 528.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_32u2b")
+stretch_mode = 5
+
 [node name="Main Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -213,12 +225,15 @@ transition_path = ExtResource("3_lqaap")
 
 [node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
 layout_mode = 2
+theme_override_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 8
 alignment = 1
 
 [node name="title" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Felicity Flux's
 Lawless Laboratory"
@@ -260,12 +275,14 @@ sfx_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContai
 
 [node name="MarginContainer" type="MarginContainer" parent="Settings Menu"]
 layout_mode = 2
+theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu/MarginContainer"]
 layout_mode = 2
-alignment = 1
+alignment = 2
 
 [node name="Label" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Settings"
 label_settings = SubResource("LabelSettings_0qyyl")
