@@ -8,5 +8,5 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 		# Clamp the velocity
-	if linear_velocity.length() > max_velocity:
-		linear_velocity = linear_velocity.normalized() * max_velocity
+	if linear_velocity.x > max_velocity:
+		linear_velocity.x = max_velocity

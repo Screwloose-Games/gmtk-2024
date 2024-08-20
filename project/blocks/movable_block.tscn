@@ -1,16 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://w6r5vtyk4bhh"]
+[gd_scene load_steps=5 format=3 uid="uid://w6r5vtyk4bhh"]
 
 [ext_resource type="Script" path="res://blocks/movable_block.gd" id="1_ainhg"]
+[ext_resource type="Texture2D" uid="uid://c0nry5q5aa0gk" path="res://sprites/common/RedBox.png" id="2_qfe8j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ebv6g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq1mw"]
-
-[sub_resource type="Gradient" id="Gradient_jbw36"]
-colors = PackedColorArray(0.366595, 0.366595, 0.366595, 1, 0.223103, 0.223103, 0.223103, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_64clo"]
-gradient = SubResource("Gradient_jbw36")
+size = Vector2(22, 22)
 
 [node name="MovableBlock" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_ebv6g")
@@ -21,6 +17,6 @@ script = ExtResource("1_ainhg")
 shape = SubResource("RectangleShape2D_kq1mw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture1D_64clo")
-region_enabled = true
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("2_qfe8j")
 region_rect = Rect2(0, 0, 20, 20)

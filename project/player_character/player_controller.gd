@@ -21,8 +21,11 @@ var _is_coyote_time : bool = false
 @onready var jump_height = 0.9 * base_height
 @onready var jump_power = calculate_jump_velocity(character_gravity.y, jump_height)
 
-@export var base_move_speed = 100.0
-@onready var move_speed = base_move_speed
+@export var base_move_speed = 160.0
+@onready var move_speed = base_move_speed:
+	get: return (base_move_speed + _run_boost_amount) * sqrt(scale_amount)
+@export var base_max_run_speed: float = 240
+@export var time_until_max_speed: float = 2.0
 
 @onready var base_jump_velocity = -jump_power
 @onready var jump_velocity = -jump_power
@@ -36,6 +39,8 @@ signal became_airborn
 signal landed
 
 var _is_on_floor: bool = true
+var _is_moving: bool = false
+var _run_boost_amount: float = 0
 
 func _check_floor():
 	if _is_on_floor and not is_on_floor():
@@ -69,6 +74,15 @@ func start_coyote_time():
 var push_force: float:
 	get: return base_push_force * scale_amount
 
+
+func _incriment_speed(delta):
+	var max_boost = (base_max_run_speed - base_move_speed) 
+	var rate = max_boost / time_until_max_speed
+	var increaced_speed = _run_boost_amount + delta * rate
+	_run_boost_amount = min(increaced_speed, max_boost)
+	print("Run boost: ", _run_boost_amount)
+	#move_speed = min(base_max_run_speed, move_speed + _run_boost_amount)
+
 @export var scale_duration: float = 0.5
 @export var scale_amount: float = 1.0:
 	set = set_scale_amount
@@ -77,7 +91,7 @@ func set_scale_amount(val: float):
 	jump_velocity = sqrt(val) * base_jump_velocity
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector2(val, val), scale_duration)
-	move_speed = base_move_speed * sqrt(scale_amount)
+	#move_speed = base_move_speed * sqrt(scale_amount)
 	#gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * sqrt(scale_amount)
 
 func calculate_jump_velocity(gravity_strength: float, jump_height: float) -> float:
@@ -137,9 +151,15 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
+		if _is_moving:
+			pass
+			_incriment_speed(delta)
+		_is_moving = true
 		velocity.x = direction * move_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
+		_is_moving = false
+		_run_boost_amount = 0
 
 	var collision_info = move_and_slide()
 

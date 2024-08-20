@@ -107,7 +107,7 @@ scale = Vector2(0.12, 0.12)
 position = Vector2(-152, 271)
 
 [node name="FinishMarker" parent="." index="3"]
-position = Vector2(728, 360)
+position = Vector2(585, 360)
 scale = Vector2(0.940429, 0.940429)
 next_level = ExtResource("9_tnwfk")
 metadata/_edit_group_ = true
