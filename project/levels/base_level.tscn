@@ -86,12 +86,6 @@ adjustment_color_correction = SubResource("GradientTexture2D_t3p6l")
 dof_blur_far_enabled = true
 dof_blur_near_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_urrah"]
-shader = ExtResource("20_oe55e")
-shader_parameter/vignette_intensity = 0.495
-shader_parameter/vignette_opacity = 0.619
-shader_parameter/vignette_rgb = Color(0, 0, 0.294118, 1)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tcvb4"]
 shader = ExtResource("8_6spsj")
 shader_parameter/r_displacement = Vector2(5, 0)
@@ -100,6 +94,12 @@ shader_parameter/b_displacement = Vector2(-5, 0)
 shader_parameter/height = 0.6
 shader_parameter/width = 0.6
 shader_parameter/fade = 0.735
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urrah"]
+shader = ExtResource("20_oe55e")
+shader_parameter/vignette_intensity = 0.64
+shader_parameter/vignette_opacity = 0.085
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_nrive")
@@ -152,26 +152,38 @@ centered = false
 
 [node name="Platform" type="Sprite2D" parent="Parallax2D"]
 material = SubResource("ShaderMaterial_ck6i4")
-position = Vector2(513.084, 194.357)
-scale = Vector2(0.1, 0.1)
+position = Vector2(610.524, 217.258)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("5_88h2q")
 
 [node name="Platform2" type="Sprite2D" parent="Parallax2D"]
 material = SubResource("ShaderMaterial_ck6i4")
-position = Vector2(513.084, 229.029)
-scale = Vector2(0.1, 0.1)
+position = Vector2(610.524, 229.797)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("5_88h2q")
 
 [node name="Platform3" type="Sprite2D" parent="Parallax2D"]
 material = SubResource("ShaderMaterial_ck6i4")
-position = Vector2(1019.67, 442.513)
-scale = Vector2(0.05, 0.05)
+position = Vector2(1018.56, 444.742)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("5_88h2q")
 
 [node name="Platform4" type="Sprite2D" parent="Parallax2D"]
 material = SubResource("ShaderMaterial_ck6i4")
-position = Vector2(1019.67, 459.437)
-scale = Vector2(0.05, 0.05)
+position = Vector2(1018.56, 457.281)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("5_88h2q")
+
+[node name="Platform5" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(610.524, 242.205)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("5_88h2q")
+
+[node name="Platform6" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_ck6i4")
+position = Vector2(610.524, 254.744)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("5_88h2q")
 
 [node name="ScreewHead" type="Sprite2D" parent="Parallax2D"]
@@ -628,6 +640,7 @@ stretch_mode = 5
 
 [node name="PlayerController" parent="World" instance=ExtResource("3_fajfj")]
 position = Vector2(-71, -4)
+base_move_speed = 250.0
 
 [node name="Camera2D" type="Camera2D" parent="World"]
 physics_interpolation_mode = 1
@@ -690,15 +703,6 @@ camera_attributes = SubResource("CameraAttributesPractical_w8qbm")
 [node name="CanvasLayer" type="CanvasLayer" parent="WorldEnvironment"]
 layer = 10
 
-[node name="ColorRect2" type="ColorRect" parent="WorldEnvironment/CanvasLayer"]
-material = SubResource("ShaderMaterial_urrah")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
-
 [node name="ColorRect" type="ColorRect" parent="WorldEnvironment/CanvasLayer"]
 z_index = 2
 material = SubResource("ShaderMaterial_tcvb4")
@@ -707,7 +711,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="WorldEnvironment"]
+
+[node name="ColorRect2" type="ColorRect" parent="WorldEnvironment/CanvasLayer2"]
+material = SubResource("ShaderMaterial_urrah")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 script = ExtResource("26_tgcpc")
