@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dbdjeaaxmxpqi"]
+[gd_scene load_steps=51 format=3 uid="uid://dbdjeaaxmxpqi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_nrive"]
 [ext_resource type="Script" path="res://levels/scale_camera.gd" id="2_l1ts6"]
@@ -20,15 +20,18 @@
 [ext_resource type="Script" path="res://levels/finish_marker.gd" id="8_rlg55"]
 [ext_resource type="Texture2D" uid="uid://r6cgeane8yod" path="res://sprites/common/CopperNode.png" id="9_ri0hp"]
 [ext_resource type="Texture2D" uid="uid://bimamu3sym8qc" path="res://sprites/common/BoardDoodad5.png" id="10_aa2vc"]
-[ext_resource type="Texture2D" uid="uid://bdedpua4otbcq" path="res://door/door.png" id="10_bnixe"]
 [ext_resource type="Texture2D" uid="uid://dtk4nd7th8v6t" path="res://sprites/common/Fan.png" id="12_siaya"]
 [ext_resource type="PackedScene" uid="uid://b2rkmga63u8tp" path="res://computer_parts/fan_bg.tscn" id="14_rnsmn"]
 [ext_resource type="Texture2D" uid="uid://b5s5hvc7hwoeg" path="res://sprites/common/FanShell.png" id="14_va3os"]
 [ext_resource type="Texture2D" uid="uid://cbicoxq36xmoi" path="res://sprites/common/PinkLED.png" id="15_xbv8e"]
 [ext_resource type="Texture2D" uid="uid://byoime7wk5n3y" path="res://sprites/common/BlueLED.png" id="16_2ng7p"]
 [ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="20_oe55e"]
+[ext_resource type="Texture2D" uid="uid://c488iym2k0s12" path="res://sprites/common/Gateway.png" id="25_nklc4"]
+[ext_resource type="Shader" path="res://shaders/worm_hole_warp.gdshader" id="25_pyvx1"]
 [ext_resource type="Script" path="res://player_character/pause_menu.gd" id="26_tgcpc"]
+[ext_resource type="Shader" path="res://shaders/electrify.gdshader" id="27_f2yn7"]
 [ext_resource type="Script" path="res://player_character/restart_scene_button.gd" id="27_ivj0j"]
+[ext_resource type="Texture2D" uid="uid://b2sk60hoxmv47" path="res://shaders/room_portal_texture_gradient.tres" id="28_f55xr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ck6i4"]
 shader = ExtResource("3_2hy8g")
@@ -57,6 +60,27 @@ width = 5
 height = 5
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfsfc"]
+shader = ExtResource("25_pyvx1")
+shader_parameter/strength = 0.01
+shader_parameter/black_radius = 0.7
+
+[sub_resource type="Gradient" id="Gradient_bngq7"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sf1gg"]
+gradient = SubResource("Gradient_bngq7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v774d"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s0fep"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pr113"]
+shader = ExtResource("27_f2yn7")
+shader_parameter/brightness = 2.5
+shader_parameter/time_scale = 1.0
+shader_parameter/noise = SubResource("NoiseTexture2D_v774d")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_s0fep")
 
 [sub_resource type="Gradient" id="Gradient_nel8t"]
 colors = PackedColorArray(0, 0.015, 0.18, 1, 0.999592, 1, 0.900641, 1)
@@ -750,13 +774,24 @@ shape = SubResource("RectangleShape2D_03elf")
 
 [node name="DoorSprite" type="Sprite2D" parent="FinishMarker"]
 position = Vector2(0, -19)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("10_bnixe")
+scale = Vector2(0.0234375, 0.0234375)
+texture = ExtResource("25_nklc4")
 region_rect = Rect2(0, 0, 20, 100)
 
 [node name="Sprite2D" type="Sprite2D" parent="FinishMarker"]
 visible = false
 texture = SubResource("GradientTexture2D_k23km")
+
+[node name="Sprite2D2" type="Sprite2D" parent="FinishMarker"]
+visible = false
+material = SubResource("ShaderMaterial_gfsfc")
+position = Vector2(0, -19)
+texture = SubResource("GradientTexture2D_sf1gg")
+
+[node name="RoomPortal" type="Sprite2D" parent="FinishMarker"]
+material = SubResource("ShaderMaterial_pr113")
+position = Vector2(0, -19)
+texture = ExtResource("28_f55xr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3pek7")
@@ -789,6 +824,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
 script = ExtResource("26_tgcpc")
 
 [node name="Control" type="Control" parent="PauseMenu"]
