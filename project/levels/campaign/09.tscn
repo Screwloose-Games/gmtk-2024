@@ -1,0 +1,295 @@
+[gd_scene load_steps=27 format=3 uid="uid://n5lmgd8btemd"]
+
+[ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_jiiic"]
+[ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_gh7v8"]
+[ext_resource type="Texture2D" uid="uid://dfw00p3qvrjmo" path="res://levels/Level_1_Map.jpg" id="3_vj1vw"]
+[ext_resource type="PackedScene" uid="uid://35f6rd0ykthc" path="res://computer_parts/peg.tscn" id="4_gqavo"]
+[ext_resource type="PackedScene" uid="uid://dje4gtisv2bgs" path="res://computer_parts/power_con_1_stretch.tscn" id="5_omp5s"]
+[ext_resource type="PackedScene" uid="uid://0ekljb5kgk0g" path="res://computer_parts/fan.tscn" id="6_i6c0q"]
+[ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/junction_1.tscn" id="7_ffdhr"]
+[ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_j6vq3"]
+[ext_resource type="PackedScene" uid="uid://byf7bev65ggop" path="res://levels/campaign/03.tscn" id="9_ifvcd"]
+[ext_resource type="PackedScene" uid="uid://cxrnv2xox2pkl" path="res://blocks/rollable_circle.tscn" id="10_qsvme"]
+[ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="11_mg87g"]
+[ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="12_ar5hc"]
+[ext_resource type="Script" path="res://levels/panel.gd" id="13_nk8ri"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="14_g6gt2"]
+[ext_resource type="PackedScene" uid="uid://kvse8ctupe6s" path="res://computer_parts/adapter_2.tscn" id="15_hc17v"]
+[ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="16_c3dtg"]
+[ext_resource type="Shader" path="res://shaders/Cutout.gdshader" id="17_0v8f6"]
+[ext_resource type="PackedScene" uid="uid://cd4xl3usyorqw" path="res://physics_parts/movable_fan.tscn" id="18_chali"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ibbs"]
+size = Vector2(11668.5, 6623.6)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5xp3e"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Theme" id="Theme_fibm6"]
+
+[sub_resource type="Texture2D" id="Texture2D_610p8"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("14_g6gt2")
+path = "scale_player_up"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_nmp8f"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("14_g6gt2")
+path = "scale_player_down"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="Texture2D" id="Texture2D_xghex"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("14_g6gt2")
+path = "ui_accept"
+show_mode = 0
+force_type = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dfr0"]
+shader = ExtResource("16_c3dtg")
+shader_parameter/vignette_intensity = 3.25
+shader_parameter/vignette_opacity = 0.123
+shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gps5j"]
+shader = ExtResource("17_0v8f6")
+shader_parameter/fill_amount = 0.5
+shader_parameter/mask_rotation = 0.0
+shader_parameter/mask_offset = Vector2(0, 0)
+shader_parameter/mask_size = Vector2(0.825, 0.72)
+shader_parameter/mask_rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/mask_scale_pivot = Vector2(0.5, 0.5)
+shader_parameter/invert_mask = false
+shader_parameter/use_different_texture = false
+
+[node name="BaseLevel2" instance=ExtResource("1_jiiic")]
+
+[node name="Parallax2D" parent="." index="0"]
+metadata/_edit_group_ = true
+
+[node name="CameraArea2D" parent="Parallax2D" index="0" instance=ExtResource("2_gh7v8")]
+position = Vector2(-155, -237)
+scale = Vector2(0.178, 0.178)
+
+[node name="CameraLimitCollision" type="CollisionShape2D" parent="Parallax2D/CameraArea2D" index="0" groups=["CameraLimitCollision"]]
+position = Vector2(3991.95, 2609.46)
+shape = SubResource("RectangleShape2D_5ibbs")
+
+[node name="TextureRect2" parent="Parallax2D" index="85"]
+texture = SubResource("ViewportTexture_5xp3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="World" index="0"]
+visible = false
+position = Vector2(712, 203)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_vj1vw")
+
+[node name="Peg4" parent="World" index="1" instance=ExtResource("4_gqavo")]
+position = Vector2(-2895, 418)
+rotation = -1.5708
+
+[node name="PlayerController" parent="World" index="2"]
+position = Vector2(-156, 360)
+
+[node name="Camera2D" parent="World" index="3"]
+position = Vector2(-156, 360)
+
+[node name="PowerConAdjustable" parent="World" index="4" instance=ExtResource("5_omp5s")]
+offset_left = 296.0
+offset_top = 149.0
+offset_right = 6371.0
+offset_bottom = 2216.0
+scale = Vector2(0.12, 0.12)
+
+[node name="Fan" parent="World" index="5" instance=ExtResource("6_i6c0q")]
+position = Vector2(48, -411)
+scale = Vector2(0.1, 0.1)
+
+[node name="Juntion1" parent="World" index="6" instance=ExtResource("7_ffdhr")]
+position = Vector2(-305, 256)
+
+[node name="PowerConAdjustableSmall" parent="World" index="7" instance=ExtResource("8_j6vq3")]
+offset_left = 287.0
+offset_top = -349.0
+offset_right = 7795.0
+offset_bottom = 1319.0
+scale = Vector2(0.12, 0.12)
+
+[node name="PowerConAdjustableSmall2" parent="World" index="8" instance=ExtResource("8_j6vq3")]
+offset_left = -1292.0
+offset_top = 123.0
+offset_right = 6216.0
+offset_bottom = 1791.0
+scale = Vector2(0.12, 0.12)
+
+[node name="PhantomCamera2D" parent="." index="2"]
+position = Vector2(-156, 360)
+
+[node name="FinishMarker" parent="." index="3"]
+position = Vector2(672, 142)
+next_level = ExtResource("9_ifvcd")
+
+[node name="RollableCircle" parent="." index="5" instance=ExtResource("10_qsvme")]
+position = Vector2(-3276, 495)
+
+[node name="Peg" parent="." index="6" instance=ExtResource("4_gqavo")]
+position = Vector2(-3023, 306)
+
+[node name="Platform" parent="." index="7" instance=ExtResource("11_mg87g")]
+position = Vector2(-93, 389)
+
+[node name="Platform18" parent="." index="8" instance=ExtResource("11_mg87g")]
+position = Vector2(700, 4.625)
+
+[node name="Platform19" parent="." index="9" instance=ExtResource("11_mg87g")]
+position = Vector2(700, 53.625)
+
+[node name="Platform20" parent="." index="10" instance=ExtResource("11_mg87g")]
+position = Vector2(163, 303)
+
+[node name="Adapter1" parent="." index="11" instance=ExtResource("12_ar5hc")]
+position = Vector2(-340, -66)
+
+[node name="Juntion1" parent="." index="12" instance=ExtResource("7_ffdhr")]
+position = Vector2(122, 444)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="13"]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NoticeArea" type="Control" parent="CanvasLayer/Control/Control2" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = -40.0
+offset_right = 112.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/Control2/NoticeArea" index="0"]
+layout_mode = 0
+offset_left = -154.0
+offset_top = -102.0
+offset_right = 49.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/Control2/NoticeArea/PanelContainer" index="0"]
+layout_mode = 2
+theme = SubResource("Theme_fibm6")
+bbcode_enabled = true
+text = "[color=\"white\"][i][b]Unlocked CAroT2000[/b][/i]
+Grow:
+Shrink: 
+[b]Flux Responsibly[/b]
+[/color]"
+fit_content = true
+script = ExtResource("13_nk8ri")
+
+[node name="Grow" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="1"]
+layout_mode = 2
+offset_left = -86.0
+offset_top = -81.0
+offset_right = 14.0
+offset_bottom = 19.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_610p8")
+stretch_mode = 4
+
+[node name="Shrink" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="2"]
+layout_mode = 2
+offset_left = -85.0
+offset_top = -57.0
+offset_right = 15.0
+offset_bottom = 43.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_nmp8f")
+stretch_mode = 4
+
+[node name="OkButton" type="TextureRect" parent="CanvasLayer/Control/Control2/NoticeArea" index="3"]
+layout_mode = 2
+offset_left = 19.0
+offset_top = -28.0
+offset_right = 119.0
+offset_bottom = 72.0
+scale = Vector2(0.25, 0.25)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = SubResource("Texture2D_xghex")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Control2/NoticeArea" index="4"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -25.0
+offset_right = 34.0
+offset_bottom = -2.0
+text = "OK"
+
+[node name="Adapter3" parent="." index="16" instance=ExtResource("15_hc17v")]
+position = Vector2(1043, -22)
+scale = Vector2(0.125, 0.125)
+
+[node name="LevelMask" type="CanvasLayer" parent="." index="17"]
+follow_viewport_enabled = true
+
+[node name="Vignette" type="ColorRect" parent="LevelMask" index="0"]
+visible = false
+material = SubResource("ShaderMaterial_1dfr0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -582.0
+offset_top = -341.0
+offset_right = 549.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelMask" type="ColorRect" parent="LevelMask" index="1"]
+visible = false
+material = SubResource("ShaderMaterial_gps5j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1830.0
+offset_top = -892.0
+offset_right = 1794.0
+offset_bottom = 892.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="MovableFan" parent="." index="18" instance=ExtResource("18_chali")]
+position = Vector2(199, 246)

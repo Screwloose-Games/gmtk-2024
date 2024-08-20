@@ -109,9 +109,9 @@ scale = Vector2(0.12, 0.12)
 
 [node name="PowerConAdjustable2" parent="World" index="5" instance=ExtResource("5_pcbgg")]
 offset_left = 271.0
-offset_top = -43.0
+offset_top = -55.0
 offset_right = 6346.0
-offset_bottom = 2024.0
+offset_bottom = 2012.0
 scale = Vector2(0.12, 0.12)
 
 [node name="PowerConAdjustable3" parent="World" index="6" instance=ExtResource("5_pcbgg")]
@@ -157,27 +157,7 @@ scale = Vector2(0.126565, 0.132455)
 position = Vector2(908, 298.656)
 scale = Vector2(0.128538, 0.128608)
 
-[node name="Juntion6" parent="." index="10" instance=ExtResource("7_1gkk5")]
-position = Vector2(292, -174)
-scale = Vector2(0.0443578, 0.0443578)
-
-[node name="Juntion2" parent="." index="11" instance=ExtResource("7_1gkk5")]
-position = Vector2(292, -109)
-scale = Vector2(0.0443578, 0.0443578)
-
-[node name="Juntion3" parent="." index="12" instance=ExtResource("7_1gkk5")]
-position = Vector2(292, -42)
-scale = Vector2(0.0443578, 0.0443578)
-
-[node name="Juntion4" parent="." index="13" instance=ExtResource("7_1gkk5")]
-position = Vector2(292, 25)
-scale = Vector2(0.0443578, 0.0443578)
-
-[node name="Juntion5" parent="." index="14" instance=ExtResource("7_1gkk5")]
-position = Vector2(292, 92)
-scale = Vector2(0.0443578, 0.0443578)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="15"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="10"]
 visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
@@ -273,10 +253,10 @@ offset_right = 34.0
 offset_bottom = -2.0
 text = "OK"
 
-[node name="MovableBlock" parent="." index="16" instance=ExtResource("14_gw5jp")]
-position = Vector2(292, 312)
+[node name="MovableBlock" parent="." index="11" instance=ExtResource("14_gw5jp")]
+position = Vector2(247, 312)
 
-[node name="LevelMask" type="CanvasLayer" parent="." index="17"]
+[node name="LevelMask" type="CanvasLayer" parent="." index="12"]
 follow_viewport_enabled = true
 
 [node name="Vignette" type="ColorRect" parent="LevelMask" index="0"]
@@ -290,6 +270,7 @@ offset_right = 338.0
 offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="LevelMask" type="ColorRect" parent="LevelMask" index="1"]
 material = SubResource("ShaderMaterial_btpj4")
@@ -305,3 +286,4 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx02t5cxj7l1y"]
+
+[ext_resource type="PackedScene" uid="uid://w6r5vtyk4bhh" path="res://blocks/movable_block.tscn" id="1_iktve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy2wl"]
+size = Vector2(44, 45)
+
+[node name="MovableBlock" instance=ExtResource("1_iktve")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_uy2wl")
+
+[node name="Node2D" parent="." index="1"]
+scale = Vector2(2, 2)

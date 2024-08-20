@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://0jcitxecjtqa"]
+[gd_scene load_steps=31 format=3 uid="uid://0jcitxecjtqa"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_8rdd8"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_vyi5i"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://kvse8ctupe6s" path="res://computer_parts/adapter_2.tscn" id="15_dq166"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="16_xaxhs"]
 [ext_resource type="Script" path="res://levels/panel.gd" id="20_1wvj6"]
+[ext_resource type="PackedScene" uid="uid://dph830fb7f840" path="res://blocks/movable_block_xs.tscn" id="21_lobl2"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="21_wxhql"]
 [ext_resource type="Shader" path="res://shaders/post_processing/vignette_postprocess.gdshader" id="22_1py5f"]
 [ext_resource type="Shader" path="res://shaders/Cutout.gdshader" id="23_e6a3h"]
@@ -215,35 +216,43 @@ scale = Vector2(0.12, 0.12)
 position = Vector2(-425, 408)
 scale = Vector2(0.12, 0.12)
 
-[node name="Adapter3" parent="." index="8" instance=ExtResource("15_dq166")]
+[node name="Peg3" parent="." index="8" instance=ExtResource("5_fvy2r")]
+position = Vector2(1200, 531)
+scale = Vector2(0.032, 0.032)
+
+[node name="Peg2" parent="." index="9" instance=ExtResource("5_fvy2r")]
+position = Vector2(932, 531)
+scale = Vector2(0.032, 0.032)
+
+[node name="Adapter3" parent="." index="10" instance=ExtResource("15_dq166")]
 position = Vector2(1631, -299)
 scale = Vector2(0.12, 0.12)
 
-[node name="Peg" parent="." index="9" instance=ExtResource("5_fvy2r")]
+[node name="Peg" parent="." index="11" instance=ExtResource("5_fvy2r")]
 position = Vector2(1336, 262)
 
-[node name="Platform" parent="." index="10" instance=ExtResource("7_pd8qd")]
+[node name="Platform" parent="." index="12" instance=ExtResource("7_pd8qd")]
 position = Vector2(1415, 294)
 
-[node name="Platform2" parent="." index="11" instance=ExtResource("7_pd8qd")]
+[node name="Platform2" parent="." index="13" instance=ExtResource("7_pd8qd")]
 position = Vector2(1083, 409)
 
-[node name="Platform3" parent="." index="12" instance=ExtResource("7_pd8qd")]
+[node name="Platform3" parent="." index="14" instance=ExtResource("7_pd8qd")]
 position = Vector2(1401, 478)
 
-[node name="Platform4" parent="." index="13" instance=ExtResource("7_pd8qd")]
-position = Vector2(1356, 520)
+[node name="Platform4" parent="." index="15" instance=ExtResource("7_pd8qd")]
+position = Vector2(1322, 520)
 
-[node name="Platform5" parent="." index="14" instance=ExtResource("7_pd8qd")]
+[node name="Platform5" parent="." index="16" instance=ExtResource("7_pd8qd")]
 position = Vector2(-28, 357)
 
-[node name="Adapter1" parent="." index="15" instance=ExtResource("16_xaxhs")]
+[node name="Adapter1" parent="." index="17" instance=ExtResource("16_xaxhs")]
 position = Vector2(1157, 702)
 
-[node name="Juntion1" parent="." index="16" instance=ExtResource("3_4h0g5")]
+[node name="Juntion1" parent="." index="18" instance=ExtResource("3_4h0g5")]
 position = Vector2(303, 372)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="17"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="19"]
 visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer" index="0"]
@@ -339,7 +348,7 @@ offset_right = 34.0
 offset_bottom = -2.0
 text = "OK"
 
-[node name="LevelMask" type="CanvasLayer" parent="." index="20"]
+[node name="LevelMask" type="CanvasLayer" parent="." index="22"]
 follow_viewport_enabled = true
 
 [node name="Vignette" type="ColorRect" parent="LevelMask" index="0"]
@@ -353,6 +362,7 @@ offset_right = 1229.0
 offset_bottom = 460.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="LevelMask" type="ColorRect" parent="LevelMask" index="1"]
 material = SubResource("ShaderMaterial_cieuv")
@@ -369,3 +379,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0, 0, 0, 1)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MovableBlockXS" parent="." index="23" instance=ExtResource("21_lobl2")]
+position = Vector2(1105, 520)

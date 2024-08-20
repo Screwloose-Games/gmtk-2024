@@ -134,7 +134,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += character_gravity * delta
+		velocity += get_gravity() * delta
 		if velocity.y > 0 and Input.is_action_pressed("jump"):
 			velocity.y = min(max_float_fall_speed, velocity.y)
 
@@ -167,6 +167,8 @@ func _physics_process(delta: float) -> void:
 	if collision_info:
 		handle_collisions()
 		
+
+
 
 func handle_collisions():
 	for i in range(get_slide_collision_count()):

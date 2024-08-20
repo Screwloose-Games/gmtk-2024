@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cd4xl3usyorqw"]
+
+[ext_resource type="Script" path="res://test/moveable_fan.gd" id="1_xeync"]
+[ext_resource type="Script" path="res://test/air_force_area.gd" id="2_7vsnn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l8av"]
+size = Vector2(129, 38)
+
+[sub_resource type="Gradient" id="Gradient_p0cgv"]
+offsets = PackedFloat32Array(0, 0.04811, 0.982818, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.209622, 0.209622, 0.209622, 1, 0.828799, 0.828799, 0.828799, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cs4h4"]
+gradient = SubResource("Gradient_p0cgv")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="MovableFan" type="RigidBody2D"]
+position = Vector2(74, 204)
+lock_rotation = true
+angular_damp = 10.0
+script = ExtResource("1_xeync")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-55, 5)
+shape = SubResource("RectangleShape2D_5l8av")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-54, 5)
+scale = Vector2(2.01563, 0.59375)
+texture = SubResource("GradientTexture2D_cs4h4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -101.0
+offset_top = 30.0
+offset_right = -12.0
+offset_bottom = 53.0
+text = "Physics Fan"
+
+[node name="AirForceArea" type="Area2D" parent="."]
+position = Vector2(0, -10)
+gravity_point = true
+gravity_point_unit_distance = 20.0
+gravity = -980.0
+script = ExtResource("2_7vsnn")
+upward_force = 1200.0
+
+[node name="ForceCenter" type="Marker2D" parent="AirForceArea"]
+position = Vector2(-54, -12)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AirForceArea"]
+position = Vector2(0, 5)
+polygon = PackedVector2Array(-107, -10, -182, -410, 81, -408, 0, -10)

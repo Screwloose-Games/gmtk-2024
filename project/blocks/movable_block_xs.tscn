@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dph830fb7f840"]
+
+[ext_resource type="PackedScene" uid="uid://w6r5vtyk4bhh" path="res://blocks/movable_block.tscn" id="1_pv4gh"]
+
+[node name="MovableBlockXS" instance=ExtResource("1_pv4gh")]
+mass = 0.25
+linear_damp = 20.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Node2D" parent="." index="1"]
+scale = Vector2(1, 1)
