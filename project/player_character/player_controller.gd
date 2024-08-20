@@ -108,6 +108,8 @@ func _can_jump():
 
 func _ready():
 	character_scaler.scaled.connect(_on_character_scaled)
+	can_grow = PlayerState.can_grow
+	can_shrink = PlayerState.can_shrink
 	character_scaler.can_grow = can_grow
 	character_scaler.can_shrink = can_shrink
 

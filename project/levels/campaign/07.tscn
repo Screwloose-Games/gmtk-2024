@@ -50,7 +50,6 @@ force_type = 0
 [node name="BaseLevel" instance=ExtResource("1_3enji")]
 
 [node name="Parallax2D" parent="." index="0"]
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CameraArea2D" parent="Parallax2D" index="0" instance=ExtResource("2_cajdl")]

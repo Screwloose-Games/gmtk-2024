@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://byf7bev65ggop"]
+[gd_scene load_steps=21 format=3 uid="uid://byf7bev65ggop"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_yrfn4"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_f83nd"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/junction_1.tscn" id="7_1gkk5"]
 [ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_gwh05"]
 [ext_resource type="PackedScene" uid="uid://cxrnv2xox2pkl" path="res://blocks/rollable_circle.tscn" id="9_4qqeb"]
+[ext_resource type="PackedScene" uid="uid://v76me5cfguvd" path="res://levels/campaign/04.tscn" id="9_yeeqy"]
 [ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="10_76ucr"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="11_fytlc"]
 [ext_resource type="Script" path="res://levels/panel.gd" id="12_kg5qw"]
@@ -49,7 +50,6 @@ force_type = 0
 [node name="BaseLevel" instance=ExtResource("1_yrfn4")]
 
 [node name="Parallax2D" parent="." index="0"]
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CameraArea2D" parent="Parallax2D" index="0" instance=ExtResource("2_f83nd")]
@@ -109,6 +109,7 @@ position = Vector2(-156, 360)
 [node name="FinishMarker" parent="." index="3"]
 position = Vector2(582, 360)
 scale = Vector2(3.52322, 3.52322)
+next_level = ExtResource("9_yeeqy")
 
 [node name="RollableCircle" parent="." index="5" instance=ExtResource("9_4qqeb")]
 position = Vector2(292, 295)

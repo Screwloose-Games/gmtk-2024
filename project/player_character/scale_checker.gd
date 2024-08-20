@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
 		#var collisions = move_and_collide(Vector2(0,0), true, 0.08, true)
-		print(global_position)
+
 		var collisions = move_and_collide(Vector2(0,0))
 		var more_collisions = move_and_collide(Vector2(0,0))
 		if more_collisions:
@@ -62,11 +62,7 @@ func _physics_process(delta: float) -> void:
 			can_avoid_collision = false
 		else:
 			can_avoid_collision = true
-		print(global_position)
-		
-		print(collisions)
-		if collisions:
-			handle_collisions()
+
 		#move_and_slide()
 
 func is_colliding_on_left_and_right():

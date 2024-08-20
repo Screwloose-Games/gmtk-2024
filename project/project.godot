@@ -31,6 +31,7 @@ CameraShakeManager="*res://scenes/preloads/camera_shake_manager.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
 MusicPlayer="*res://scenes/preloads/music_player.tscn"
+PlayerState="*res://scenes/preloads/player_state.gd"
 
 [display]
 
@@ -152,6 +153,8 @@ common/max_fps=0
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 environment/volumetric_fog/use_filter=0
 environment/defaults/default_clear_color=Color(0.0980392, 0.172549, 0.392157, 1)
 viewport/transparent_background=true
