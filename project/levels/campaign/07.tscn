@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cd2vlsbylqxu2"]
+[gd_scene load_steps=22 format=3 uid="uid://cd2vlsbylqxu2"]
 
 [ext_resource type="PackedScene" uid="uid://dbdjeaaxmxpqi" path="res://levels/base_level.tscn" id="1_3enji"]
 [ext_resource type="PackedScene" uid="uid://c1vs7ygeu5r6o" path="res://camera/camera_area_2d.tscn" id="2_cajdl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjodcirvll5u2" path="res://computer_parts/junction_1.tscn" id="7_4a38a"]
 [ext_resource type="PackedScene" uid="uid://dqp5ttlspj0vl" path="res://computer_parts/power_con_1_stretch_small.tscn" id="8_07rgu"]
 [ext_resource type="PackedScene" uid="uid://drhjlih2eeqq0" path="res://computer_parts/platform.tscn" id="9_elg48"]
+[ext_resource type="PackedScene" uid="uid://0jcitxecjtqa" path="res://levels/level_08_large.tscn" id="9_yupik"]
 [ext_resource type="PackedScene" uid="uid://cb40cwinbruaw" path="res://computer_parts/adapter_1.tscn" id="10_3lhkh"]
 [ext_resource type="PackedScene" uid="uid://t6at3r63wiu" path="res://blocks/static_block.tscn" id="11_ju8sn"]
 [ext_resource type="Script" path="res://levels/panel.gd" id="12_c6wk8"]
@@ -79,6 +80,9 @@ position = Vector2(-158, 354)
 can_grow = true
 can_shrink = true
 
+[node name="Camera2D" parent="World" index="3"]
+position = Vector2(-158, 354)
+
 [node name="PowerConAdjustable" parent="World" index="4" instance=ExtResource("5_d6dro")]
 offset_left = -2660.0
 offset_top = -703.0
@@ -106,6 +110,7 @@ position = Vector2(-158, 354)
 [node name="FinishMarker" parent="." index="3"]
 position = Vector2(-132, 175)
 scale = Vector2(5.21364, 5.21364)
+next_level = ExtResource("9_yupik")
 metadata/_edit_group_ = true
 
 [node name="FinishAreaCollision" parent="FinishMarker/FinishArea2D" index="0"]
@@ -359,9 +364,6 @@ text = "OK"
 
 [node name="PauseMenu" parent="." index="25"]
 visible = false
-
-[node name="Control" parent="PauseMenu" index="0"]
-metadata/_edit_lock_ = true
 
 [node name="MovableBlock" parent="." index="27" instance=ExtResource("14_dclsb")]
 position = Vector2(337, 313)
