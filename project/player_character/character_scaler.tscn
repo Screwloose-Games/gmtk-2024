@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dt4ko00s6iojh"]
+[gd_scene load_steps=18 format=3 uid="uid://dt4ko00s6iojh"]
 
 [ext_resource type="Script" path="res://player_character/character_scaler.gd" id="1_dewkq"]
 [ext_resource type="AudioStream" uid="uid://chufulsc7t4ht" path="res://audio/sfx/grow_self.wav" id="2_yypbm"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://4vk81ibxt4be" path="res://audio/sfx/scale_device/Ambient_Game_Healh_Potion_Broken_Bubbler_2.wav" id="4_jedcx"]
 [ext_resource type="Shader" path="res://shaders/electrify.gdshader" id="4_qtgrw"]
 [ext_resource type="Shader" path="res://player_character/grow_shader.gdshader" id="5_uf4xx"]
+[ext_resource type="Texture2D" uid="uid://b2sk60hoxmv47" path="res://shaders/room_portal_texture_gradient.tres" id="6_66qq1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7fh3f"]
 
@@ -24,15 +25,6 @@ shader_parameter/brightness = 2.5
 shader_parameter/time_scale = 1.0
 shader_parameter/noise = SubResource("NoiseTexture2D_ih7k0")
 shader_parameter/noise2 = SubResource("NoiseTexture2D_ss402")
-
-[sub_resource type="Gradient" id="Gradient_vfsvt"]
-offsets = PackedFloat32Array(0, 0.276882, 0.545699, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.0537634, 0.0537634, 0.0537634, 0.946237, 0.974025, 0.974025, 0.974025, 0.0259751, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m314b"]
-gradient = SubResource("Gradient_vfsvt")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s82er"]
 shader = ExtResource("5_uf4xx")
@@ -171,7 +163,7 @@ visible = false
 material = SubResource("ShaderMaterial_x6ix8")
 position = Vector2(1, -28)
 scale = Vector2(1, 2)
-texture = SubResource("GradientTexture2D_m314b")
+texture = ExtResource("6_66qq1")
 
 [node name="GrowEffect" type="Sprite2D" parent="."]
 visible = false
@@ -179,7 +171,7 @@ z_index = 1
 material = SubResource("ShaderMaterial_s82er")
 position = Vector2(1, -28)
 scale = Vector2(1, 2)
-texture = SubResource("GradientTexture2D_m314b")
+texture = ExtResource("6_66qq1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
